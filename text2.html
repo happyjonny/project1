@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+
+    <style>
+      .top{
+        width: 90px;
+        height: 30px;
+        background-color: #ccc;
+        position: relative;
+      }
+/* topbar-list = .top dl */
+      .top dl dt{
+        display: inline-block;
+        background-color: yellow;
+        vertical-align: top;
+        margin:0;
+        padding: 0;
+        width: 90px;
+        height: 30px;
+        text-align: left;
+        line-height: 20px;
+        border: 1px solid red;
+        position: absolute;
+        
+      }
+
+      .top dl dd{
+        border: 1px solid blue;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        display: none;
+        width: 100%;
+        margin: 0;
+      }
+      .top dl dd li{
+        list-style: none;
+      }
+
+      .top dl:hover dt{
+        background-color: pink;
+        border-bottom: none;
+      }
+      .top dl:hover dd{
+        display: block;
+        border-top:none;
+        
+      }
+      .top dl dd li{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <dl>
+        <dt>
+          menu
+        </dt>
+    
+        <dd>
+          <li>11</li>
+          <li>22</li>
+          <li>33</li>
+        </dd>
+      </dl>
+    </div>
+  </body>
+</html>

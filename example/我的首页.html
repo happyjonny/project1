@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<!-- saved from url=(0097)http://z.taoyuxin.com/app/index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=pc.member.cart&mid=2188 -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>积分商城</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <style type="text/css">
+        body {
+            _behavior: url('../addons/ewei_shopv2/plugin/pc/template/mobile/default/static/css/csshover.htc');
+        }
+    </style>
+    <link href="./我的首页_files/base.css" rel="stylesheet" type="text/css">
+    <link href="./我的首页_files/foxui.css" rel="stylesheet" type="text/css">
+    <link href="./我的首页_files/style.css" rel="stylesheet" type="text/css">
+    <link href="./我的首页_files/home_header.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./我的首页_files/iconfont.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../addons/ewei_shopv2/plugin/pc/template/mobile/default/static/js/html5shiv.js"></script>
+    <script src="../addons/ewei_shopv2/plugin/pc/template/mobile/default/static/js/respond.min.js"></script>
+    <![endif]-->
+    <!--[if IE 6]>
+    <script src="../addons/ewei_shopv2/plugin/pc/template/mobile/default/static/js/IE6_PNG.js"></script>
+    <script>
+        DD_belatedPNG.fix('.pngFix');
+    </script>
+    <script>
+        // <![CDATA[
+        if((window.navigator.appName.toUpperCase().indexOf("MICROSOFT")>=0)&&(document.execCommand))
+        try{
+        document.execCommand("BackgroundImageCache", false, true);
+           }
+        catch(e){}
+        // ]]>
+        </script>
+    <![endif]-->
+    <script>
+        var COOKIE_PRE = 'COOKIE_PRE';
+        var _CHARSET = 'utf-8';
+        var SITEURL = '/app/index.php?i=1&c=entry&m=ewei_shopv2&do=mobile&r=pc';
+        var SHOP_SITE_URL = '/app/index.php?i=1&c=entry&m=ewei_shopv2&do=mobile&r=pc';
+        var SHOP_TEMPLATES_URL = '../addons/ewei_shopv2/plugin/pc/template/mobile/default/static';
+    </script>
+    <script src="./我的首页_files/jquery.js"></script>
+    <script src="./我的首页_files/common.js" charset="utf-8"></script>
+    <script src="./我的首页_files/jquery.ui.js"></script>
+    <script src="./我的首页_files/jquery.validation.min.js"></script>
+    <script src="./我的首页_files/jquery.masonry.js"></script>
+    <script src="./我的首页_files/dialog.js" id="dialog_js" charset="utf-8"></script><link href="./我的首页_files/dialog.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        var PRICE_FORMAT = '&yen;%s';
+        $(function () {
+            //首页左侧分类菜单
+            $(".category ul.menu").find("li").each(
+                    function () {
+                        $(this).hover(
+                                function () {
+                                    var cat_id = $(this).attr("cat_id");
+                                    var menu = $(this).find("div[cat_menu_id='" + cat_id + "']");
+                                    menu.show();
+                                    $(this).addClass("hover");
+                                    var menu_height = menu.height();
+                                    if (menu_height < 60) menu.height(80);
+                                    menu_height = menu.height();
+                                    var li_top = $(this).position().top;
+                                    $(menu).css("top", -li_top + 38);
+                                },
+                                function () {
+                                    $(this).removeClass("hover");
+                                    var cat_id = $(this).attr("cat_id");
+                                    $(this).find("div[cat_menu_id='" + cat_id + "']").hide();
+                                }
+                        );
+                    }
+            );
+            $(".head-user-menu dl").hover(function () {
+                        $(this).addClass("hover");
+                    },
+                    function () {
+                        $(this).removeClass("hover");
+                    });
+            $('#button').click(function () {
+                if ($('#keyword').val() == '') {
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script src="./我的首页_files/require.js"></script>
+    <script src="./我的首页_files/myconfig-app.js"></script>
+    <script language="javascript">require(['core'], function (modal){modal.init({siteUrl: "http://z.taoyuxin.com/",baseUrl: "./index.php?i=2&c=entry&m=ewei_shopv2&do=mobile&r=ROUTES&mid=2188"})});</script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core" src="./我的首页_files/core.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/plugin/pc/biz/member/cart.js" src="./我的首页_files/cart.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./我的首页_files/jquery-1.11.1.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tpl" src="./我的首页_files/tmodjs.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/plugin/pc/biz/goods/picker.js" src="./我的首页_files/picker.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="biz/member/cart" src="./我的首页_files/cart(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="foxui" src="./我的首页_files/foxui.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="biz/goods/picker" src="./我的首页_files/picker(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="biz/plugin/diyform" src="./我的首页_files/diyform.js"></script></head>
+<body>
+<!-- PublicTopLayout Begin -->
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="vToolbar" class="nc-appbar">
+  <div class="nc-appbar-tabs" id="appBarTabs">
+    <div class="user TA_delay" nctype="a-barUserInfo">
+      <div class="avatar"><img src="./我的首页_files/default_user_portrait.gif">
+      </div>
+      <p>我</p>
+    </div>
+    <div class="user-info" nctype="barUserInfo" style="display:none;"><i class="arrow"></i>
+      <div class="avatar"><img src="./我的首页_files/default_user_portrait.gif">
+        <div class="frame"></div>
+      </div>
+      <dl>
+                <dt>Hi, Jonny</dt>
+        <dd>真实姓名：<strong nctype="barMemberGrade">袁玮</strong>
+        </dd>
+        <dd>手机号码：<strong nctype="barMemberExp">13818101665</strong>
+        </dd>
+              </dl>
+    </div>
+    <ul class="tools">
+      <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188" id="rtoolbar_cart" class="cart TA_delay">
+          <div class="tools_img TA"></div>
+          <span class="TA">购物车</span><i id="rtoobar_cart_count" class="new_msg" style="display:none;"></i></a></li>
+      <li><a href="javascript:void(0);" id="gotop" class="gotop TA_delay">
+          <div class="tools_img TA"></div>
+          <span class="TA">顶部</span></a></li>
+    </ul>
+    <div class="content-box" id="content-compare">
+      <div class="top">
+        <h3>商品对比</h3>
+        <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
+      <div id="comparelist"></div>
+    </div>
+    <div class="content-box" id="content-cart">
+      <div class="top">
+        <h3>我的购物车</h3>
+        <a href="javascript:void(0);" class="close" title="隐藏"></a></div>
+      <div id="rtoolbar_cartlist"></div>
+    </div>
+    <a id="activator" href="javascript:void(0);" class="nc-appbar-hide TA"></a></div>
+  <div class="nc-hidebar" id="ncHideBar">
+    <div class="nc-hidebar-bg">
+      <div class="user-avatar"><img src="./我的首页_files/default_user_portrait.gif"></div>
+      <div class="frame"></div>
+      <div class="show"></div>
+    </div>
+  </div>
+</div>
+<div class="public-top-layout w">
+  <div class="topbar wrapper">
+    <div class="user-entry">
+              您好
+        <span><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member&amp;mid=2188">Jonny</a></span>
+        欢迎回来，
+        <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188" title="首页" alt="首页">
+          <span></span>
+        </a>
+        <span>[<a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.account.logout&amp;mid=2188">退出</a>]</span>
+          </div>
+
+    <div class="quick-menu">
+
+      <dl>
+        <dt><em class="ico_order"></em><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;mid=2188">我的订单</a><i></i>
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;status=-2&amp;mid=2188">待付款订单</a>
+            </li>
+            <li>
+              <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;status=2&amp;mid=2188">待确认收货</a>
+            </li>
+            <li>
+              <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;status=3&amp;mid=2188">已完成交易</a>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+      <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.favorite&amp;mid=2188" style="color:#777">
+      <dl>
+        <dt><em class="ico_store"></em>我的收藏<i></i>
+        </dt>
+      </dl>
+      </a>
+      <dl>
+        <dt><em class="ico_service"></em>客户服务<i></i></dt>
+        <dd>
+          <ul>
+            
+          </ul>
+        </dd>
+      </dl>
+
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  //返回顶部
+  backTop = function (btnId) {
+    var btn = document.getElementById(btnId);
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    window.onscroll = set;
+    btn.onclick = function () {
+      //btn.style.opacity="0.5";
+      window.onscroll = null;
+      this.timer = setInterval(function () {
+        scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        scrollTop -= Math.ceil(scrollTop * 0.1);
+        if (scrollTop == 0) clearInterval(btn.timer, window.onscroll = set);
+        if (document.documentElement.scrollTop > 0) document.documentElement.scrollTop = scrollTop;
+        if (document.body.scrollTop > 0) document.body.scrollTop = scrollTop;
+      }, 10);
+    };
+    function set() {
+      scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      //btn.style.opacity=scrollTop?'1':"0.5";
+    }
+  };
+  backTop('gotop');
+  //动画显示边条内容区域
+  $(function () {
+    $(function () {
+      $('#activator').click(function () {
+        $('#content-cart').animate({'right': '-250px'});
+        $('#content-compare').animate({'right': '-250px'});
+        $('#vToolbar').animate({'right': '-60px'}, 300,
+                function () {
+                  $('#ncHideBar').animate({'right': '59px'}, 300);
+                });
+        $('div[nctype^="bar"]').hide();
+      });
+      $('#ncHideBar').click(function () {
+        $('#ncHideBar').animate({
+                  'right': '-86px'
+                },
+                300,
+                function () {
+                  $('#content-cart').animate({'right': '-250px'});
+                  $('#content-compare').animate({'right': '-250px'});
+                  $('#vToolbar').animate({'right': '6px'}, 300);
+                });
+      });
+    });
+    $("#compare").click(function () {
+      if ($("#content-compare").css('right') == '-250px') {
+        loadCompare(false);
+        $('#content-cart').animate({'right': '-250px'});
+        $("#content-compare").animate({right: '0px'});
+      } else {
+        $(".close").click();
+        $(".chat-list").css("display", 'none');
+      }
+    });
+    $(".close").click(function () {
+      $(".content-box").animate({right: '-250px'});
+    });
+
+    $(".quick-menu dl").hover(function () {
+              $(this).addClass("hover");
+            },
+            function () {
+              $(this).removeClass("hover");
+            });
+
+    // 右侧bar用户信息
+    $('div[nctype="a-barUserInfo"]').click(function () {
+      $('div[nctype="barUserInfo"]').toggle();
+    });
+
+  });
+</script>
+<!-- PublicHeadLayout Begin --><!-- PublicHeadLayout Begin -->
+<!-- 顶部广告展开效果-->
+<div class="wrapper" id="top-banner">
+    <a href="javascript:void(0);" title="关闭"></a>
+    </div>
+<!-- 顶部广告展开效果-->
+<div class="header-wrap">
+    <header class="public-head-layout wrapper">
+        <h1 class="site-logo">
+            <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188">
+                <img src="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188" class="pngFix">
+            </a>
+        </h1>
+        <div class="site-ad">
+                    </div>
+        <div class="head-search-bar">
+            <div id="search">
+                <ul class="tab">
+                    <li act="search" class="current"><span>商品</span><i class="arrow"></i></li>
+                </ul>
+            </div>
+            <form class="search-form" method="get" action="http://z.taoyuxin.com/app/index.php">
+                <input type="hidden" name="i" value="2">
+                <input type="hidden" name="c" value="entry">
+                <input type="hidden" name="m" value="ewei_shopv2">
+                <input type="hidden" name="do" value="mobile">
+                <input type="hidden" name="r" value="pc.goods">
+                <input type="hidden" value="store_list" id="search_act" name="act">
+                <input placeholder="请输入您要搜索的店铺关键字" name="keywords" id="keyword" type="text" class="input-text" value="" maxlength="60" x-webkit-speech="" lang="zh-CN" onwebkitspeechchange="foo()" x-webkit-grammar="builtin:search">
+                <input type="submit" id="button" value="搜索" class="input-submit">
+            </form>
+            <!--搜索关键字-->
+                                    <div class="keyword">热门搜索：
+                <ul>
+                                        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;keywords=&amp;mid=2188"></a></li>
+                                    </ul>
+            </div>
+
+        </div>
+
+        <div class="head-user-menu">
+            <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;mid=2188">
+            <dl class="my-mall">
+                <dt><span class="ico"></span>我的商城<i class="arrow"></i></dt>
+            </dl>
+            </a>
+            <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188">
+            <dl class="my-cart">
+                <dt><span class="ico"></span>购物车结算<i class="arrow"></i></dt>
+            </dl>
+            </a>
+        </div>
+    </header>
+</div>
+<!-- PublicHeadLayout End -->
+<!-- publicNavLayout Begin -->
+<nav class="public-nav-layout">
+    <div class="wrapper">
+        <div class="all-category">
+            <div class="title"><i></i>
+                <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;mid=2188">所有分类</a></h3>
+            </div>
+                                    <div class="category">
+                <ul class="menu">
+                                        <li cat_id="1180" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1180&amp;mid=2188">食品生鲜</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1180" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                                                                                                                                                                        </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1181&amp;mid=2188">进口食品</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1183&amp;mid=2188">进口饮料</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1182&amp;mid=2188">进口零食</a>
+                                                                            </dd>
+                                </dl>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1204&amp;mid=2188">粮油调味</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1207&amp;mid=2188">调味品</a>
+                                                                            </dd>
+                                </dl>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1213&amp;mid=2188">禽肉蛋品</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1214&amp;mid=2188">蛋类</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1184" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1184&amp;mid=2188">酒水饮料</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1184" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                                                                                            </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1185&amp;mid=2188">中外名酒</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1186&amp;mid=2188">白酒</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1187&amp;mid=2188">葡萄酒</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1188&amp;mid=2188">啤酒</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1189&amp;mid=2188">黄酒</a>
+                                                                            </dd>
+                                </dl>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1190&amp;mid=2188">饮料</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1191&amp;mid=2188">矿泉水</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1192&amp;mid=2188">饮料</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1193&amp;mid=2188">咖啡奶茶</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                                                                                                                            </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1194" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1194&amp;mid=2188">美妆个护</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1194" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1195&amp;mid=2188">美妆个护</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1196&amp;mid=2188">洗发护发</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1197&amp;mid=2188">身体护理</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1199&amp;mid=2188">口腔护理</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1200&amp;mid=2188">面部护理</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1203&amp;mid=2188">精品套装</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                                        <a target="_blank" href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=article&amp;aid=15"><img src="./我的首页_files/ddd8a5a9dd80ed1944bcd66a56edcbd4.jpg" data-url="http://ow3pcvdcj.bkt.clouddn.com/ddd8a5a9dd80ed1944bcd66a56edcbd4.jpg" style="display: inline; width: 246px; height: 123px;"></a>
+                                                                                                </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1208" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1208&amp;mid=2188">生活日化</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1208" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1209&amp;mid=2188">生活日用</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1210&amp;mid=2188">净化除味</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1211&amp;mid=2188">衣物清洁</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1226&amp;mid=2188">生活用品</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1222" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1222&amp;mid=2188">服装箱包</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1222" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                    <span><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1223&amp;mid=2188" title="服装箱包">服装箱包</a></span>
+                                                                                                            </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1223&amp;mid=2188">服装箱包</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1224&amp;mid=2188">女装</a>
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1225&amp;mid=2188">男装</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1228" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1228&amp;mid=2188">医药保健</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1228" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1230&amp;mid=2188">医药保健</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1253&amp;mid=2188">医药保健</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1231" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1231&amp;mid=2188">地方特产</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1231" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1233&amp;mid=2188">地方特产</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1259&amp;mid=2188">地方特产</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1234" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1234&amp;mid=2188">居家用品</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1234" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1236&amp;mid=2188">居家用品</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1258&amp;mid=2188">居家用品</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1238" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1238&amp;mid=2188">母婴用品</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1238" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1240&amp;mid=2188">母婴用品</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1257&amp;mid=2188">母婴用品</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1241" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1241&amp;mid=2188">个护化妆</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1241" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1243&amp;mid=2188">个护化妆</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1256&amp;mid=2188">个护化妆</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1247" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1247&amp;mid=2188">滋补保健</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1247" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1249&amp;mid=2188">滋补保健</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1255&amp;mid=2188">滋补保健</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                                        <li cat_id="1250" class="odd">
+                        <div class="class">
+                            <span class="arrow"></span>
+                            <h4><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1250&amp;mid=2188">计生情趣</a></h4>
+                        </div>
+                                                <div class="sub-class" cat_menu_id="1250" style="display: none; top: 0px;">
+                            <div class="sub-class-content">
+                                <div class="recommend-class">
+                                                                                                                                                </div>
+                                                                <dl>
+                                    <dt>
+                                    <h3><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1252&amp;mid=2188">计生情趣</a></h3>
+                                    </dt>
+                                    <dd class="goods-class">
+                                                                                    <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.goods&amp;cate=1254&amp;mid=2188">计生情趣</a>
+                                                                            </dd>
+                                </dl>
+                                                            </div>
+                            <div class="sub-class-right">
+                                                                                                                                                                                                    </div>
+                        </div>
+                                            </li>
+                    
+                </ul>
+            </div>
+                    </div>
+        <ul class="site-menu">
+            <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188">商城首页</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="nch-breadcrumb-layout">
+        <div class="nch-breadcrumb wrapper"><i class="icon-home"></i>
+                                    <span><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188">首页</a></span><span class="arrow">&gt;</span>
+                                                <span><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member&amp;mid=2188">我的商城</a></span><span class="arrow">&gt;</span>
+                                                <span><a href="javascript:void(0)">我的购物车</a></span>
+                        </div>
+    </div>
+<link href="./我的首页_files/member.css" rel="stylesheet" type="text/css">
+<div class="ncm-container">
+    <div class="left-layout">
+
+  <div class="ncm-l-top">
+
+    <h2><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188" title="我的商城">我的商城</a></h2>
+
+    <div class="set-container-arrow"></div>
+
+  </div>
+
+  <div class="ncm-user-info">
+
+    <div class="avatar">
+            <img src="./我的首页_files/0">
+
+      <div class="frame"></div>
+
+    </div>
+
+    <div class="handle">
+      <br>
+      <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.info&amp;mid=2188" title="修改资料">
+        <i class="icon-pencil"></i>修改资料</a>
+      <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.account.logout&amp;mid=2188" title="安全退出">
+        <i class="icon-off"></i>安全退出</a></div>
+    <div class="name">&nbsp;
+
+    </div>
+
+  </div>
+
+  <ul class="ncm-sidebar ncm-quick-menu">
+
+    <li class="side-menu-quick" nctype="commonOperations" style="display: none;"><a href="javascript:void(0)">
+
+        <h3>常用操作</h3>
+
+      </a>
+
+      <ul>
+
+      </ul>
+
+    </li>
+
+  </ul>
+
+  <ul id="sidebarMenu" class="ncm-sidebar">
+
+    <li class="side-menu"><a href="javascript:void(0)" key="trade">
+
+        <h3>交易管理</h3>
+
+      </a>
+
+      <ul>
+        <li class="selected"><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188">购物车</a></li>
+
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.order&amp;mid=2188">交易订单</a></li>
+
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.favorite&amp;mid=2188">我的收藏</a></li>
+
+        <!--<li><a href="/web/web.php?i=1&act=predeposit&op=pd_log_list">账户余额</a></li>-->
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.info&amp;mid=2188">账户信息</a></li>
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.log&amp;mid=2188">充值记录</a></li>
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.address&amp;mid=2188">收货地址</a></li>
+
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.history&amp;mid=2188">我的足迹</a></li>
+
+      </ul>
+
+    </li>
+
+    <li class="side-menu"><a href="javascript:void(0)" key="serv">
+
+      <h3>客户信息</h3>
+
+    </a>
+
+      <ul>
+
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.shop.notice&amp;mid=2188">公告列表</a></li>
+        <li><a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.qa.qa&amp;mid=2188">帮助中心</a></li>
+
+        <!--<li><a href="/web/web.php?i=1&act=member_complain&op=index">交易投诉</a></li>
+
+        <li><a href="/web/web.php?i=1&act=member_consult&op=my_consult">商品咨询</a></li>
+
+        <li><a href="/web/web.php?i=1&act=member_inform&op=index">违规举报</a></li>
+
+        <li><a href="/web/web.php?i=1&act=member_mallconsult&op=index">平台客服</a></li>-->
+
+      </ul>
+
+    </li>
+
+  </ul>
+
+</div>    <div class="right-layout">
+        <div class="wrap">
+            <div class="tabmenu">
+  <ul class="tab pngFix">
+                  <li class="active">
+        <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188">我的购物车</a>
+        </li>
+      
+      </ul>
+</div>            <div class="member-cart-page fui-page fui-page-current" id="fui-page-1514161730128">
+                <div class="fui-content navbar cart-list" style="bottom: 4.8rem">
+                    <div class="content-empty">
+                        <i class="icon icon-cart"></i><br>购物车空空如也~<br>
+                        <a href="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc&amp;mid=2188" class="btn btn-default-o external">主人快去给我找点东西吧</a>
+                    </div>
+
+                                </div>
+                    </div>
+    </div>
+</div>
+
+<div id="faq">
+    <div class="wrapper">
+        <ul>
+                                    <span style="float: right;">
+                        <li class="kefu-con">
+                <dl>
+                    <dt>联系我们</dt>
+                    <dd>
+                        <i class="icon-tel"></i>
+                        <div><strong></strong>
+                            <p>08:00-22:30(周一至周日)</p>
+                        </div>
+                    </dd>
+                    <dd>
+                        <i class="icon-chat"></i>
+                        <div>
+                            <strong>在线客服</strong>
+                            <p></p>
+                        </div>
+                    </dd>
+                    <dl>
+                    </dl></dl></li>
+            <li class="box-qr">
+                <dl>
+                    <dt>关注我们<a title="" class="weixin">
+                            <span class="weixin-qr"></span>
+                        </a>
+                    </dt>
+                    <dd>
+                        <p><img src="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=pc.member.cart&amp;mid=2188"></p>
+                        <p>关注微信公众号</p>
+                    </dd>
+                </dl>
+            </li>
+            </span>
+        </ul>
+    </div>
+</div>
+<div id="footer" class="wrapper">
+    <p></p>
+    <br>
+    </div>
+<script type="text/javascript" src="./我的首页_files/jquery.cookie.js"></script>
+
+<!-- 对比 -->
+<script type="text/javascript">
+    $(function () {
+        // Membership card
+        $('[nctype="mcard"]').membershipCard({type:'shop'});
+    });
+    function fade() {
+        $("img[rel='lazy']").each(function () {
+            var $scroTop = $(this).offset();
+            if ($scroTop.top <= $(window).scrollTop() + $(window).height()) {
+                $(this).hide();
+                $(this).attr("src", $(this).attr("data-url"));
+                $(this).removeAttr("rel");
+                $(this).removeAttr("name");
+                $(this).fadeIn(500);
+            }
+        });
+    }
+    if ($("img[rel='lazy']").length > 0) {
+        $(window).scroll(function () {
+            fade();
+        });
+    }
+    ;
+    fade();
+</script>
+
+
+
+<script language="javascript">require(['../addons/ewei_shopv2/plugin/pc/biz/member/cart.js'], function (modal) {
+        modal.init();
+    });</script>
+</div>
+</body></html>

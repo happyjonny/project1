@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=goods.category -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="http://z.taoyuxin.com/attachment/images/global/wechat.jpg">
+    <link href="./后台添加分类_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./后台添加分类_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./后台添加分类_files/animate.css" rel="stylesheet">
+    <link href="./后台添加分类_files/v2.css" rel="stylesheet">
+    <link href="./后台添加分类_files/common.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./后台添加分类_files/iconfont.css">
+    <script src="./后台添加分类_files/jquery-1.11.1.min.js"></script>
+    <script src="./后台添加分类_files/jquery.gcjs.js"></script>
+    <script src="./后台添加分类_files/util.js"></script>
+
+
+    <script type="text/javascript">
+        window.sysinfo = {
+        'uniacid': '2',        'acid': '2',                'uid': '1',        'isfounder': 1,
+        'siteroot': 'http://z.taoyuxin.com/',
+                'siteurl': 'http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=goods.category',
+                'attachurl': 'http://z.taoyuxin.com/attachment/',
+                'attachurl_local': 'http://z.taoyuxin.com/attachment/',
+                'attachurl_remote': '',
+                'module' : {'url' : 'http://z.taoyuxin.com/addons/ewei_shopv2/', 'name' : 'ewei_shopv2'},
+        'cookie' : {'pre': '62c0_'},
+        'account' : {"acid":"2","uniacid":"2","token":"aFtQFMEX02jRIof7omFz77f27mtQF2zm","access_token":"","encodingaeskey":"2JXzK0VLsDd01lzgmQErNA0npdWJ0T7Z5mWegOcR2p4","level":"4","name":"\u5fae\u70b9\u5c0f\u533a\u5916\u5356","account":"taoyuxin","original":"gh_999a1f6ecea9","signature":"","country":"","province":"","city":"","username":"admin","password":"8c559bd1a5c7decbfaebf77594527433","lastupdate":"0","key":"wxd1dc4bd18d97e992","secret":"dccb2be0724e1e42a22082e11db8f9b4","styleid":"0","subscribeurl":"","auth_refresh_token":"","default_acid":"2","type":"1","uid":null,"starttime":null,"endtime":null,"groups":{"2":{"groupid":"2","uniacid":"2","title":"\u9ed8\u8ba4\u4f1a\u5458\u7ec4","credit":"0","orderlist":"0","isdefault":"1"}},"grouplevel":"0"},
+        };
+    </script>
+
+
+    <!-- 兼容微擎1.5.3 -->
+    
+    <script src="./后台添加分类_files/require.js"></script>
+
+    <!-- 兼容微擎1.0 -->
+        <script src="./后台添加分类_files/config.js"></script>
+        <script>
+        require.config({
+            waitSeconds: 0
+        });
+    </script>
+    <script src="./后台添加分类_files/myconfig.js"></script>
+    <script type="text/javascript">
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            if (navigator.userAgent.indexOf("MSIE 5.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0) {
+                alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+            }
+        }
+        myrequire.path = "http://z.taoyuxin.com/addons/ewei_shopv2/static/js/";
+        myrequire.systemVersion = '0.8';
+        function preview_html(txt)
+        {
+            var win = window.open("", "win", "width=300,height=600"); // a window object
+            win.document.open("text/html", "replace");
+            win.document.write($(txt).val());
+            win.document.close();
+        }
+    </script>
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="css" src="./后台添加分类_files/css.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/jquery/nestable/jquery.nestable.js?v=1514162319955" src="./后台添加分类_files/jquery.nestable.js"></script><link type="text/css" rel="stylesheet" href="./后台添加分类_files/nestable.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./后台添加分类_files/jquery-1.11.1.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/init.js?v=1514162319955" src="./后台添加分类_files/init.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./后台添加分类_files/bootstrap.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/table.js?v=1514162319955" src="./后台添加分类_files/table.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/jquery/jquery.gcjs.js?v=1514162319955" src="./后台添加分类_files/jquery.gcjs(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/tip.js?v=1514162319955" src="./后台添加分类_files/tip.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/tooltipbox.js?v=1514162319955" src="./后台添加分类_files/tooltipbox.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/form.js?v=1514162319955" src="./后台添加分类_files/form.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/biz.js?v=1514162319955" src="./后台添加分类_files/biz.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/jquery/jquery.form.js?v=1514162319955" src="./后台添加分类_files/jquery.form.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/jquery/jquery.validate.min.js?v=1514162319955" src="./后台添加分类_files/jquery.validate.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="util" src="./后台添加分类_files/util.js"></script></head>
+
+
+<body class="white-bg ">
+<div id="topbar" class="top-navigation   gray-bg ">
+    <nav class="navbar   gray-bg " role="navigation" style="width:1038px;margin:auto;">
+        <div class="navbar-header" style="width:200px;">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+                        <a style="padding:0;overflow:hidden;"><img src="./后台添加分类_files/NEHxo89QO9696oPZlb585MK16e19zK.png" style="width:150px;height:50px;"></a>
+                    </div>
+<style>
+    .deg180{
+        transform:rotate(180deg);
+        -ms-transform:rotate(180deg); 	/* IE 9 */
+        -moz-transform:rotate(180deg); 	/* Firefox */
+        -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+        -o-transform:rotate(180deg); 	/* Opera */
+    }
+
+    .nav.navbar-right {
+        width:90px !important;
+    }
+
+</style>
+<div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav gray-bg">
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web">首页</a></li>
+        <li class="active"><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods"> 商品</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=member"> 会员</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=order"> 订单</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=store"> 门店</a></li>                        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sale">营销</a></li>                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=finance"> 财务</a></li>
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=statistics">数据</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=plugins">应用</a></li>
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=diypage"> 页面</a></li>
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset"> 设置</a></li>
+    </ul>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a aria-expanded="false" role="button" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category#" class="dropdown-toggle" data-toggle="dropdown" style="position:relative;" onclick="$(this).find(&#39;span&#39;).toggleClass(&#39;deg180&#39;)">
+                <name style="width: 80px;white-space:nowrap;overflow:hidden;text-overflow: ellipsis;display: block;text-align: center">微点小区外卖</name>
+                <span class="caret" style="position: absolute;top: 22px;right: 12px;"></span></a>
+            <ul role="menu" class="dropdown-menu">
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset.account"><i class="icon icon-similar"></i>  切换公众号</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=account&amp;a=post&amp;uniacid=2&amp;acid=2" target="_blank"><i class="icon icon-wechat"></i>  编辑公众号</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset.payset"><i class="icon icon-pay"></i>  支付方式</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=utility&amp;a=emulator&amp;" target="_blank"><i class="icon icon-machinery"></i>  模拟测试</a></li>
+                
+                                <li class="divider"></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=perm"><i class="icon icon-person2"></i> 权限管理</a></li>
+                                                <li class="divider"></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system.plugin.plugingrant"><i class="icon icon-assessedbadge"></i> 应用授权</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system"><i class="icon icon-settings"></i> 系统管理</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system.auth"><i class="icon icon-down"></i> 系统更新</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=user&amp;a=profile&amp;" target="_blank"><i class="icon icon-lock"></i>  修改密码</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=account&amp;a=display&amp;" target="_blank"><i class="icon icon-back"></i>  返回系统</a></li>
+            </ul>
+        </li>
+    </ul>
+            <a class="switch-version" title="体验新版" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=switchversion&amp;route=goods.category">体验新版</a>
+</div>
+</nav>
+</div>
+<div class="wrapper main-wrapper wrapper-content ">
+            <div class="page-menubar">
+            <style type="text/css">
+	.goods-list a {
+		position: relative; 
+	}
+	.goods-list span  {
+	float:right;margin-right:20px;
+	 
+	}
+</style>
+
+<div class="menu-header">商品管理</div>
+<ul class="goods-list">
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale">出售中<span>153</span></a></li>
+     <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=out">已售罄<span class="text-danger">1</span></a></li>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=stock">仓库中<span>140</span></a></li>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=cycle">回收站<span class="text-default">58</span></a></li>
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=verify">待审核<span class="text-default">18</span></a></li>
+         <li class="active"><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category">商品分类</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.group">商品组</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.label">标签管理</a></li>
+</ul>
+
+
+<div class="menu-header">虚拟卡密</div>
+<ul>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.virtual.temp">虚拟卡密</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.virtual.category">卡密分类</a></li>	</ul>
+
+  
+        </div>
+        <div class="page-content" style="display: block;">
+                    
+<!--OTEzNzAyMDIzNTAzMjQyOTE0-->
+<style type="text/css" xmlns="http://www.w3.org/1999/html">
+    .dd-handle { height: 40px; line-height: 30px}
+    .dd-list { width:860px;}
+</style>
+
+
+<div class="page-heading"> 
+    <span class="pull-right">
+                <a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset.category" class="btn btn-warning"> 设置分类层级</a>
+                <button type="button" id="btnExpand" class="btn btn-default" data-action="expand"><i class="fa fa-angle-up"></i> 折叠所有</button>  
+                <a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add" class="btn btn-primary"><i class="fa fa-plus"></i> 添加新分类</a>
+        
+    </span>
+    <h2>商品分类</h2>
+</div>
+<form action="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category" method="post" class="form-validate" novalidate="novalidate">
+
+    <div class="dd" id="div_nestable">
+        <ol class="dd-list">
+
+                                    <li class="dd-item full" data-id="1180"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1180] 食品生鲜                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1180" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1180">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1180" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1180" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1180" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1181"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1181] 进口食品                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1181" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1181">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1181" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1181" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1181" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1183">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/1eebc6b455ef9e6da0cadb019bfe8966.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1183] 进口饮料                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1183" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1183">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1183" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1183" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1182">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/3786f7f9559b3455392833ab49d791fe.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1182] 进口零食                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1182" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1182">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1182" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1182" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    <li class="dd-item full" data-id="1204"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1204] 粮油调味                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1204" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1204">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1204" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1204" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1204" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1205">
+                                        <div class="dd-handle">
+                                             &nbsp;
+                                            [ID: 1205] 米面特产                                            <span class="pull-right">
+						 <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1205" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1205">
+											隐藏</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1205" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1205" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1206">
+                                        <div class="dd-handle">
+                                             &nbsp;
+                                            [ID: 1206] 食用油                                            <span class="pull-right">
+						 <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1206" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1206">
+											隐藏</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1206" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1206" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1207">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/523ddde4be0c45e4e03c30d0083959ee.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1207] 调味品                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1207" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1207">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1207" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1207" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    <li class="dd-item full" data-id="1213"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1213] 禽肉蛋品                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1213" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1213">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1213" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1213" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1213" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1214">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/c7de6a7d22265f1b59b30ad52d4029fb.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1214] 蛋类                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1214" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1214">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1214" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1214" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1184"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1184] 酒水饮料                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1184" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1184">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1184" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1184" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1184" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1185"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1185] 中外名酒                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1185" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1185">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1185" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1185" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1185" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1186">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/e31545871451e6fd3ceb76f0dc5f6603.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1186] 白酒                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1186" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1186">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1186" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1186" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1187">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/e3341fbe792b57887ab514a1e9de1eba.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1187] 葡萄酒                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1187" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1187">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1187" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1187" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1188">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/690c131369767e7428e6b46224583e12.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1188] 啤酒                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1188" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1188">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1188" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1188" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1189">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/de51c5b3a16a2b1cc0b7f0dd11caf287.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1189] 黄酒                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1189" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1189">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1189" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1189" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    <li class="dd-item full" data-id="1190"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1190] 饮料                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1190" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1190">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1190" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1190" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1190" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1191">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/6195a2d0ce480d3b369da788573cb56f.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1191] 矿泉水                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1191" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1191">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1191" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1191" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1192">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/da866008e6586e5779b83e37f3b3caec.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1192] 饮料                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1192" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1192">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1192" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1192" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1193">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/691b5ec5e7df483897eb764fc59be9bc.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1193] 咖啡奶茶                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1193" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1193">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1193" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1193" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1194"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1194] 美妆个护                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1194" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1194">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1194" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1194" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1194" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1195"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1195] 美妆个护                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1195" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1195">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1195" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1195" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1195" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1196">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/0b19020d20b123894e07fcd94e63ba34.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1196] 洗发护发                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1196" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1196">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1196" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1196" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1197">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/17e5d5bbe80bc3b51d6c8ad241a14f56.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1197] 身体护理                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1197" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1197">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1197" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1197" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1199">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/3f6aeb0fc045d380d30eec93c2d375b5.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1199] 口腔护理                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1199" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1199">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1199" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1199" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1200">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/7c16e926f7e31e7f7bb0ae56be352b18.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1200] 面部护理                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1200" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1200">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1200" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1200" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1201">
+                                        <div class="dd-handle">
+                                             &nbsp;
+                                            [ID: 1201] 女性护理                                            <span class="pull-right">
+						 <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1201" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1201">
+											隐藏</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1201" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1201" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1202">
+                                        <div class="dd-handle">
+                                             &nbsp;
+                                            [ID: 1202] 清洁用品                                            <span class="pull-right">
+						 <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1202" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1202">
+											隐藏</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1202" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1202" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1203">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/02e94dfa2a1eeeb9ad8067aa9f2699d8.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1203] 精品套装                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1203" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1203">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1203" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1203" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1208"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1208] 生活日化                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1208" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1208">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1208" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1208" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1208" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1209"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1209] 生活日用                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1209" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1209">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1209" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1209" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1209" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1210">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/0b9960ff584b7bf56b91940de111e431.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1210] 净化除味                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1210" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1210">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1210" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1210" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1211">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/9dd9c279c98e4640c4e153bd82bc5cf4.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1211] 衣物清洁                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1211" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1211">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1211" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1211" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1226">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/9bc159da22bd19c19b693ae96914abac.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1226] 生活用品                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1226" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1226">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1226" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1226" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1212">
+
+                <div class="dd-handle">
+                    [ID: 1212] 微点加盟                    <span class="pull-right">
+
+                        <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1212" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1212">
+                             隐藏</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1212" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1212" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1212" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    </li>
+                                                                <li class="dd-item full" data-id="1215">
+
+                <div class="dd-handle">
+                    [ID: 1215] 仝家天然土蜂蜜                    <span class="pull-right">
+
+                        <div class="label label-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1215" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1215">
+                             隐藏</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1215" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1215" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1215" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    </li>
+                                                                <li class="dd-item full" data-id="1222"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1222] 服装箱包                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1222" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1222">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1222" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1222" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1222" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1223"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                <img src="./后台添加分类_files/67aafd7555ef80a17603d949aa861017.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                [ID: 1223] 服装箱包                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1223" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1223">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1223" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1223" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1223" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1224">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/1f350d843c5f119ef548a3c176aa088b.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1224] 女装                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1224" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1224">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1224" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1224" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                        <li class="dd-item full" data-id="1225">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/0b1d45347296c84b956d348db46b4f4a.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1225] 男装                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1225" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1225">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1225" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1225" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1228"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1228] 医药保健                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1228" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1228">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1228" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1228" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1228" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1230"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1230] 医药保健                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1230" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1230">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1230" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1230" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1230" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1253">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/a246a8410071937657f93892e2f9b9b4.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1253] 医药保健                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1253" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1253">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1253" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1253" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1231"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1231] 地方特产                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1231" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1231">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1231" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1231" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1231" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1233"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1233] 地方特产                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1233" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1233">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1233" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1233" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1233" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1259">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/57beb4b2a10852b9904a8751f5015290.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1259] 地方特产                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1259" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1259">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1259" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1259" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1234"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1234] 居家用品                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1234" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1234">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1234" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1234" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1234" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1236"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1236] 居家用品                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1236" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1236">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1236" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1236" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1236" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1258">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/7a1dc0a2ed066c7d2e0ecdbf909830ae.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1258] 居家用品                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1258" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1258">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1258" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1258" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1238"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1238] 母婴用品                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1238" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1238">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1238" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1238" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1238" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1240"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1240] 母婴用品                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1240" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1240">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1240" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1240" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1240" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1257">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/678dd08d7385164f540781e9fac5538a.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1257] 母婴用品                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1257" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1257">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1257" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1257" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1241"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1241] 个护化妆                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1241" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1241">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1241" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1241" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1241" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1243"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1243] 个护化妆                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1243" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1243">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1243" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1243" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1243" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1256">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/3d9787afed231fe1893323d9c26bceeb.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1256] 个护化妆                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1256" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1256">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1256" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1256" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1247"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1247] 滋补保健                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1247" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1247">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1247" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1247" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1247" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1249"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1249] 滋补保健                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1249" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1249">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1249" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1249" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1249" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1255">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/ccc86bd713dc46767d4f3a358abcad85.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1255] 滋补保健                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1255" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1255">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1255" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1255" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                                                <li class="dd-item full" data-id="1250"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+
+                <div class="dd-handle">
+                    [ID: 1250] 计生情趣                    <span class="pull-right">
+
+                        <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1250" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1250">
+                             显示</div>
+
+                               <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1250" title="添加子分类"><i class="fa fa-plus"></i></a>                                                              <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1250" title="修改"><i class="fa fa-edit"></i></a>
+                                                              <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1250" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                        </span>
+                    </div>
+                    
+                    <ol class="dd-list">
+                                                <li class="dd-item full" data-id="1252"><button data-action="collapse" type="button">Collapse</button><button data-action="expand" type="button" style="display: none;">Expand</button>
+                            <div class="dd-handle" style="width:100%;">
+                                 &nbsp;
+                                [ID: 1252] 计生情趣                                <span class="pull-right">
+                                    <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1252" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1252">
+                                         显示</div>
+
+                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.add&amp;parentid=1252" title="添加子分类"><i class="fa fa-plus"></i></a>                                                                                      <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1252" title="修改"><i class="fa fa-edit"></i></a>                                            <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1252" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                    </span>
+                                </div>
+                                
+                                <ol class="dd-list" style="width:100%;">
+                                                                        <li class="dd-item full" data-id="1254">
+                                        <div class="dd-handle">
+                                            <img src="./后台添加分类_files/7058a22d98adc4a070aa66a50bf9a704.jpg" width="30" height="30" onerror="$(this).remove()" style="padding:1px;border: 1px solid #ccc;float:left;"> &nbsp;
+                                            [ID: 1254] 计生情趣                                            <span class="pull-right">
+						 <div class="label label-success" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0|隐藏|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=1&amp;id=1254" data-switch-value1="1|显示|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.enabled&amp;enabled=0&amp;id=1254">
+											显示</div>
+												
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.edit&amp;id=1254" title="修改"><i class="fa fa-edit"></i></a>                                                <a class="btn btn-default btn-sm" data-toggle="ajaxPost" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category.delete&amp;id=1254" data-confirm="确认删除此分类吗？"><i class="fa fa-remove"></i></a>                                            </span>
+                                        </div>
+                                    </li>
+                                                                    </ol>
+                                                            </li>
+                                                    </ol>
+                        
+                    </li>
+                                        
+        </ol>
+        <table class="table">
+            <tbody><tr>
+                <td>
+
+                                        <input id="save_category" type="submit" class="btn btn-primary" value="保存">
+                                        <input type="hidden" name="token" value="060e8623">
+                    <input type="hidden" name="datas" value="">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</form>
+
+        <script language="javascript">
+            myrequire(['jquery.nestable'], function () {
+
+                $('#btnExpand').click(function () {
+                    var action = $(this).data('action');
+                    if (action === 'expand') {
+                        $('#div_nestable').nestable('collapseAll');
+                        $(this).data('action', 'collapse').html('<i class="fa fa-angle-up"></i> 展开所有');
+
+                    } else {
+                        $('#div_nestable').nestable('expandAll');
+                        $(this).data('action', 'expand').html('<i class="fa fa-angle-down"></i> 折叠所有');
+                    }
+                })
+                var depth = 3;
+                if (depth <= 0) {
+                    depth = 2;
+                }
+                $('#div_nestable').nestable({maxDepth: depth});
+
+                $('.dd-item').addClass('full');
+
+                $(".dd-handle a,.dd-handle div").mousedown(function (e) {
+
+                    e.stopPropagation();
+                });
+                var $expand = false;
+                $('#nestableMenu').on('click', function (e)
+                {
+                    if ($expand) {
+                        $expand = false;
+                        $('.dd').nestable('expandAll');
+                    } else {
+                        $expand = true;
+                        $('.dd').nestable('collapseAll');
+                    }
+                });
+
+                $('form').submit(function(){
+                    var json = window.JSON.stringify($('#div_nestable').nestable("serialize"));
+                    $(':input[name=datas]').val(json);
+                });
+
+            })
+        </script>
+
+        </div>
+
+<script language="javascript">
+    require(['jquery','bootstrap'], function ($,bs) {
+        $('[data-toggle="tooltip"]').tooltip("destroy").tooltip({
+            container: $(document.body)
+        });
+        $('[data-toggle="popover"]').popover("destroy").popover({
+            container: $(document.body)
+        });
+    });
+
+
+     function check_ewei_shopv2_upgrade() {
+  
+        require(['util'], function (util) {  
+            if (util.cookie.get('checkeweishopv2upgrade_sys')) {
+                return;
+            }
+            $.post('http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade.check', function (ret) {
+                if (ret && ret.status == '1') { 
+		  
+	var result = ret.result;	    
+                    if(result.filecount>0 || result.database || result.upgrades){
+	 	 
+                        var html = '<div id="ewei-shopv2-upgrade-tips" class="tips-upgrade">';
+	   html+='<span class="tclose" onclick="check_ewei_shopv2_upgrade_hide();"><i class="fa fa-times-circle fa-2x"></i></span>';
+                         html+= '<div class="title">检测到更新</div>';
+                        html+='<div class="text"> 新版本 ' + result.version + " RELEASE " + result.release;
+                        html+=',请尽快更新! </div>';
+			html+='<div class="buttons"><a href="http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade" class="btn btn-warning btn-sm">立即去更新</a></div></div>';
+                        $('body').prepend(html);
+                   }
+                }
+            },'json');
+        });
+    }
+      function check_ewei_shopv2_upgrade_hide() {
+        require(['util'], function (util) {
+            util.cookie.set('checkeweishopv2upgrade_sys', 1, 3600);
+            $('#ewei-shopv2-upgrade-tips').fadeOut(150);
+        });
+    }
+    $(function () {
+        setTimeout( function() {
+            check_ewei_shopv2_upgrade();
+        },4000);
+    });
+
+    $(function () {
+        $('.page-content').show();
+        $('.img-thumbnail').each(function () {
+            if ($(this).attr('src').indexOf('nopic.jpg') != -1) {
+                $(this).attr('src', "../addons/ewei_shopv2/static/images/nopic.jpg");
+            }
+        })
+
+        
+                    $.getJSON("http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=util.task");
+        
+
+
+        // GoTop
+        $(window).bind('scroll resize', function () {
+            var scrolltop = $(window).scrollTop();
+            if (scrolltop > 300) {
+                $(".page-gotop").fadeIn(300)
+            } else {
+                $(".page-gotop").fadeOut(300)
+            }
+            $(".page-gotop").unbind('click').click(function () {
+                $('body').animate({scrollTop: "0px"}, 1000)
+            })
+        });
+
+    });
+</script>
+
+<script language="javascript">
+    myrequire(['web/init']);
+    if( $('form.form-validate').length<=0){
+        window.formInited = true;
+    }
+    window.formInitTimer = setInterval(function () {
+         if (typeof(window.formInited ) !== 'undefined') {
+             $('#page-loading').remove();
+              clearInterval(window.formInitTimer);
+          }
+    }, 1);
+</script>
+
+
+    <div class="page-gotop" title="返回顶部">
+        <p><i class="fa fa-angle-up"></i></p>
+        <p>返回</p>
+        <p>顶部</p>
+    </div>
+
+
+
+
+
+
+</div><div id="tip-msgbox" class="msgbox"></div></body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+
+    <style>
+
+      li{
+        list-style: none;
+      }
+      .top dl{
+
+        text-align: left;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    position: relative;
+    z-index: 999;
+    background-color: yellow;
+    margin: 0;
+      }
+
+      .top dl dt{
+        font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 12px;
+      }      
+
+      .top dl dd{
+        background-color: #FFF;
+    display: block;
+    width: 88px;
+    border: solid 1px #F0F0F0;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+      }
+
+      .top dl dd li {
+          font-size: 12px;
+    line-height: 24px;
+    display: block;
+    clear: both;
+    padding: 2px 0 2px 11px;
+      }
+      .top dl dd li:hover {
+        text-decoration: none;
+    background-color: #F7F7F7;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="top">
+    <dl>
+      <dt>
+          menu
+      </dt>
+
+      <dd>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+      </dd>
+    </dl>
+  </div>
+  </body>
+</html>

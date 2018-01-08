@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=goods&goodsfrom=sale -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="http://z.taoyuxin.com/attachment/images/global/wechat.jpg">
+    <link href="./后台商品页_files/bootstrap.min.css" rel="stylesheet">
+    <link href="./后台商品页_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./后台商品页_files/animate.css" rel="stylesheet">
+    <link href="./后台商品页_files/v2.css" rel="stylesheet">
+    <link href="./后台商品页_files/common.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./后台商品页_files/iconfont.css">
+    <script src="./后台商品页_files/jquery-1.11.1.min.js"></script>
+    <script src="./后台商品页_files/jquery.gcjs.js"></script>
+    <script src="./后台商品页_files/util.js"></script>
+
+
+    <script type="text/javascript">
+        window.sysinfo = {
+        'uniacid': '2',        'acid': '2',                'uid': '1',        'isfounder': 1,
+        'siteroot': 'http://z.taoyuxin.com/',
+                'siteurl': 'http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=goods&goodsfrom=sale',
+                'attachurl': 'http://z.taoyuxin.com/attachment/',
+                'attachurl_local': 'http://z.taoyuxin.com/attachment/',
+                'attachurl_remote': '',
+                'module' : {'url' : 'http://z.taoyuxin.com/addons/ewei_shopv2/', 'name' : 'ewei_shopv2'},
+        'cookie' : {'pre': '62c0_'},
+        'account' : {"acid":"2","uniacid":"2","token":"aFtQFMEX02jRIof7omFz77f27mtQF2zm","access_token":"","encodingaeskey":"2JXzK0VLsDd01lzgmQErNA0npdWJ0T7Z5mWegOcR2p4","level":"4","name":"\u5fae\u70b9\u5c0f\u533a\u5916\u5356","account":"taoyuxin","original":"gh_999a1f6ecea9","signature":"","country":"","province":"","city":"","username":"admin","password":"8c559bd1a5c7decbfaebf77594527433","lastupdate":"0","key":"wxd1dc4bd18d97e992","secret":"dccb2be0724e1e42a22082e11db8f9b4","styleid":"0","subscribeurl":"","auth_refresh_token":"","default_acid":"2","type":"1","uid":null,"starttime":null,"endtime":null,"groups":{"2":{"groupid":"2","uniacid":"2","title":"\u9ed8\u8ba4\u4f1a\u5458\u7ec4","credit":"0","orderlist":"0","isdefault":"1"}},"grouplevel":"0"},
+        };
+    </script>
+
+
+    <!-- 兼容微擎1.5.3 -->
+    
+    <script src="./后台商品页_files/require.js"></script>
+
+    <!-- 兼容微擎1.0 -->
+        <script src="./后台商品页_files/config.js"></script>
+        <script>
+        require.config({
+            waitSeconds: 0
+        });
+    </script>
+    <script src="./后台商品页_files/myconfig.js"></script>
+    <script type="text/javascript">
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            if (navigator.userAgent.indexOf("MSIE 5.0") > 0 || navigator.userAgent.indexOf("MSIE 6.0") > 0 || navigator.userAgent.indexOf("MSIE 7.0") > 0) {
+                alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+            }
+        }
+        myrequire.path = "http://z.taoyuxin.com/addons/ewei_shopv2/static/js/";
+        myrequire.systemVersion = '0.8';
+        function preview_html(txt)
+        {
+            var win = window.open("", "win", "width=300,height=600"); // a window object
+            win.document.open("text/html", "replace");
+            win.document.write($(txt).val());
+            win.document.close();
+        }
+    </script>
+
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./后台商品页_files/jquery-1.11.1.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="./后台商品页_files/bootstrap.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/init.js?v=1514162289222" src="./后台商品页_files/init.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/table.js?v=1514162289222" src="./后台商品页_files/table.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/jquery/jquery.gcjs.js?v=1514162289222" src="./后台商品页_files/jquery.gcjs(1).js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/tip.js?v=1514162289222" src="./后台商品页_files/tip.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/tooltipbox.js?v=1514162289222" src="./后台商品页_files/tooltipbox.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/web/biz.js?v=1514162289222" src="./后台商品页_files/biz.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="css" src="./后台商品页_files/css.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/select2/select2.min.js?v=1514162289222" src="./后台商品页_files/select2.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="../addons/ewei_shopv2/static/js/dist/clipboard.min.js?v=1514162289222" src="./后台商品页_files/clipboard.min.js"></script><link type="text/css" rel="stylesheet" href="./后台商品页_files/select2.css"><link type="text/css" rel="stylesheet" href="./后台商品页_files/select2-bootstrap.css"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="util" src="./后台商品页_files/util.js"></script></head>
+
+
+<body class="white-bg ">
+<div id="topbar" class="top-navigation   gray-bg ">
+    <nav class="navbar   gray-bg " role="navigation" style="width:1038px;margin:auto;">
+        <div class="navbar-header" style="width:200px;">
+            <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                <i class="fa fa-reorder"></i>
+            </button>
+                        <a style="padding:0;overflow:hidden;"><img src="./后台商品页_files/NEHxo89QO9696oPZlb585MK16e19zK.png" style="width:150px;height:50px;"></a>
+                    </div>
+<style>
+    .deg180{
+        transform:rotate(180deg);
+        -ms-transform:rotate(180deg); 	/* IE 9 */
+        -moz-transform:rotate(180deg); 	/* Firefox */
+        -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+        -o-transform:rotate(180deg); 	/* Opera */
+    }
+
+    .nav.navbar-right {
+        width:90px !important;
+    }
+
+</style>
+<div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav gray-bg">
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web">首页</a></li>
+        <li class="active"><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods"> 商品</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=member"> 会员</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=order"> 订单</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=store"> 门店</a></li>                        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sale">营销</a></li>                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=finance"> 财务</a></li>
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=statistics">数据</a></li>        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=plugins">应用</a></li>
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=diypage"> 页面</a></li>
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset"> 设置</a></li>
+    </ul>
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a aria-expanded="false" role="button" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale#" class="dropdown-toggle" data-toggle="dropdown" style="position:relative;" onclick="$(this).find(&#39;span&#39;).toggleClass(&#39;deg180&#39;)">
+                <name style="width: 80px;white-space:nowrap;overflow:hidden;text-overflow: ellipsis;display: block;text-align: center">微点小区外卖</name>
+                <span class="caret" style="position: absolute;top: 22px;right: 12px;"></span></a>
+            <ul role="menu" class="dropdown-menu">
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset.account"><i class="icon icon-similar"></i>  切换公众号</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=account&amp;a=post&amp;uniacid=2&amp;acid=2" target="_blank"><i class="icon icon-wechat"></i>  编辑公众号</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=sysset.payset"><i class="icon icon-pay"></i>  支付方式</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=utility&amp;a=emulator&amp;" target="_blank"><i class="icon icon-machinery"></i>  模拟测试</a></li>
+                
+                                <li class="divider"></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=perm"><i class="icon icon-person2"></i> 权限管理</a></li>
+                                                <li class="divider"></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system.plugin.plugingrant"><i class="icon icon-assessedbadge"></i> 应用授权</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system"><i class="icon icon-settings"></i> 系统管理</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=system.auth"><i class="icon icon-down"></i> 系统更新</a></li>
+                                <li><a href="http://z.taoyuxin.com/web/index.php?c=user&amp;a=profile&amp;" target="_blank"><i class="icon icon-lock"></i>  修改密码</a></li>
+                <li><a href="http://z.taoyuxin.com/web/index.php?c=account&amp;a=display&amp;" target="_blank"><i class="icon icon-back"></i>  返回系统</a></li>
+            </ul>
+        </li>
+    </ul>
+            <a class="switch-version" title="体验新版" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=switchversion&amp;route=goods">体验新版</a>
+</div>
+</nav>
+</div>
+<div class="wrapper main-wrapper wrapper-content ">
+            <div class="page-menubar">
+            <style type="text/css">
+	.goods-list a {
+		position: relative; 
+	}
+	.goods-list span  {
+	float:right;margin-right:20px;
+	 
+	}
+</style>
+
+<div class="menu-header">商品管理</div>
+<ul class="goods-list">
+    <li class="active"><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale">出售中<span>153</span></a></li>
+     <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=out">已售罄<span class="text-danger">1</span></a></li>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=stock">仓库中<span>140</span></a></li>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=cycle">回收站<span class="text-default">58</span></a></li>
+
+        <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=verify">待审核<span class="text-default">18</span></a></li>
+         <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.category">商品分类</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.group">商品组</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.label">标签管理</a></li>
+</ul>
+
+
+<div class="menu-header">虚拟卡密</div>
+<ul>
+    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.virtual.temp">虚拟卡密</a></li>    <li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.virtual.category">卡密分类</a></li>	</ul>
+
+  
+        </div>
+        <div class="page-content" style="display: block;">
+                    
+<!--OTEzNzAyMDIzNTAzMjQyOTE0--><style>
+    .newgoodsflag{
+        width: 18px;height: 16px;
+        background-color: #ff0000;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        bottom: 40px;
+        left: 22px;
+        z-index:99;
+        font-size: 12px;
+    }
+</style>
+<div class="page-heading"> 
+    <span class="pull-right">
+                <a class="btn btn-primary btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.add"><i class="fa fa-plus"></i> 添加商品</a>
+            </span>
+    <h2>商品管理</h2> </div>
+
+<form action="http://z.taoyuxin.com/web/index.php" method="get" class="form-horizontal form-search" role="form">
+    <input type="hidden" name="c" value="site">
+    <input type="hidden" name="a" value="entry">
+    <input type="hidden" name="m" value="ewei_shopv2">
+    <input type="hidden" name="do" value="web">
+    <input type="hidden" name="r" value="goods">
+    <input type="hidden" name="goodsfrom" value="sale">
+    <div class="page-toolbar row m-b-sm m-t-sm">
+        <div class="col-sm-4">
+            <div class="input-group-btn">
+                <button class="btn btn-default btn-sm" type="button" data-toggle="refresh"><i class="fa fa-refresh"></i></button>
+                                                <button class="btn btn-default btn-sm" type="button" data-toggle="batch" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0" disabled="disabled"><i class="fa fa-circle-o"></i> 下架</button>
+                                                                                                <button class="btn btn-default btn-sm" type="button" data-toggle="batch-remove" data-confirm="确认要删除吗?" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete" disabled="disabled"><i class="fa fa-trash"></i> 删除</button>
+                                
+
+
+            </div> 
+        </div>	
+
+
+        <div class="col-sm-8 pull-right">
+
+            <div class="select2-container form-control input-sm select-sm select2" id="s2id_autogen1" style="width:200px;"><a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2">商品分类</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"><div class="select2-drop select2-display-none select2-with-searchbox">   <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>   <ul class="select2-results" role="listbox" id="select2-results-2">   </ul></div></div><select name="cate" class="form-control input-sm select-sm select2" style="width: 200px; display: none;" data-placeholder="商品分类" tabindex="-1" title="">
+                <option value="" selected="">商品分类</option>
+                                <option value="1180">食品生鲜</option>
+                                <option value="1181">食品生鲜-进口食品</option>
+                                <option value="1183">食品生鲜-进口食品-进口饮料</option>
+                                <option value="1182">食品生鲜-进口食品-进口零食</option>
+                                <option value="1204">食品生鲜-粮油调味</option>
+                                <option value="1205">食品生鲜-粮油调味-米面特产</option>
+                                <option value="1206">食品生鲜-粮油调味-食用油</option>
+                                <option value="1207">食品生鲜-粮油调味-调味品</option>
+                                <option value="1213">食品生鲜-禽肉蛋品</option>
+                                <option value="1214">食品生鲜-禽肉蛋品-蛋类</option>
+                                <option value="1184">酒水饮料</option>
+                                <option value="1185">酒水饮料-中外名酒</option>
+                                <option value="1186">酒水饮料-中外名酒-白酒</option>
+                                <option value="1187">酒水饮料-中外名酒-葡萄酒</option>
+                                <option value="1188">酒水饮料-中外名酒-啤酒</option>
+                                <option value="1189">酒水饮料-中外名酒-黄酒</option>
+                                <option value="1190">酒水饮料-饮料</option>
+                                <option value="1191">酒水饮料-饮料-矿泉水</option>
+                                <option value="1192">酒水饮料-饮料-饮料</option>
+                                <option value="1193">酒水饮料-饮料-咖啡奶茶</option>
+                                <option value="1194">美妆个护</option>
+                                <option value="1195">美妆个护-美妆个护</option>
+                                <option value="1196">美妆个护-美妆个护-洗发护发</option>
+                                <option value="1197">美妆个护-美妆个护-身体护理</option>
+                                <option value="1199">美妆个护-美妆个护-口腔护理</option>
+                                <option value="1200">美妆个护-美妆个护-面部护理</option>
+                                <option value="1201">美妆个护-美妆个护-女性护理</option>
+                                <option value="1202">美妆个护-美妆个护-清洁用品</option>
+                                <option value="1203">美妆个护-美妆个护-精品套装</option>
+                                <option value="1208">生活日化</option>
+                                <option value="1209">生活日化-生活日用</option>
+                                <option value="1210">生活日化-生活日用-净化除味</option>
+                                <option value="1211">生活日化-生活日用-衣物清洁</option>
+                                <option value="1226">生活日化-生活日用-生活用品</option>
+                                <option value="1212">微点加盟</option>
+                                <option value="1215">仝家天然土蜂蜜</option>
+                                <option value="1222">服装箱包</option>
+                                <option value="1223">服装箱包-服装箱包</option>
+                                <option value="1224">服装箱包-服装箱包-女装</option>
+                                <option value="1225">服装箱包-服装箱包-男装</option>
+                                <option value="1228">医药保健</option>
+                                <option value="1230">医药保健-医药保健</option>
+                                <option value="1253">医药保健-医药保健-医药保健</option>
+                                <option value="1231">地方特产</option>
+                                <option value="1233">地方特产-地方特产</option>
+                                <option value="1259">地方特产-地方特产-地方特产</option>
+                                <option value="1234">居家用品</option>
+                                <option value="1236">居家用品-居家用品</option>
+                                <option value="1258">居家用品-居家用品-居家用品</option>
+                                <option value="1238">母婴用品</option>
+                                <option value="1240">母婴用品-母婴用品</option>
+                                <option value="1257">母婴用品-母婴用品-母婴用品</option>
+                                <option value="1241">个护化妆</option>
+                                <option value="1243">个护化妆-个护化妆</option>
+                                <option value="1256">个护化妆-个护化妆-个护化妆</option>
+                                <option value="1247">滋补保健</option>
+                                <option value="1249">滋补保健-滋补保健</option>
+                                <option value="1255">滋补保健-滋补保健-滋补保健</option>
+                                <option value="1250">计生情趣</option>
+                                <option value="1252">计生情趣-计生情趣</option>
+                                <option value="1254">计生情趣-计生情趣-计生情趣</option>
+                            </select>
+
+            <div class="input-group">				 
+                <input type="text" class="input-sm form-control" name="keyword" value="" placeholder="ID/名称/编号/条码/商户名称"> <span class="input-group-btn">
+                    		
+                    <button class="btn btn-sm btn-primary" type="submit"> 搜索</button> </span>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+<table class="table table-hover table-responsive"> 
+    <thead class="navbar-inner">
+        <tr>
+            <th style="width:25px;"><input type="checkbox"></th>
+            <th style="width:60px;text-align:center;">排序</th>
+            <th style="width:60px;">商品</th>
+            <th style="width:200px;">&nbsp;</th>
+
+            <th style="width:90px;">价格</th>
+            <th style="width:70px;">库存</th>
+            <th style="width:80px;">销量</th>
+                        <th style="width:60px;">状态</th>
+                        <th style="">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+            <td>
+                <input type="checkbox" value="583">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=583">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/acb49a98719f5269d934f46815a42e11.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[地方特产]</span>
+                                                	<span class="text-info">[地方特产-地方特产]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=583">四川特产麻辣/五香牛肉干80g休闲食品 卤味肉类熟食休闲零食批发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">12.80</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">5956</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=583" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=583">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=583&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=583" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=583">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/ee7f8b667d2b364a2b7ca39cd42b8c4c.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=583">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=583">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=583">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=583">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=583">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=583">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=583" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=583">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="582">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=582">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/3690964f48ec87bad200449511977436.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[计生情趣]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=582">噜噜女用高潮液激情人体润滑快感增强性用品成人情趣用品一件代发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">66.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">3930</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=582" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=582">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=582&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=582" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=582">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/b1c067fd2e32509656e4b36a4ae2288a.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=582">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=582">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=582">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=582">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=582">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=582">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=582" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=582">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="581">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=581">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/d5c4942f399a26c51d44beef0e652843.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[计生情趣]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=581">遥控单跳蛋女性自慰器性爱玩具振动按摩器成人情趣性用品一件代发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2.20</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">100471603</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=581" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=581">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=581&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=581" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=581">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/46bb17c2db75b38c6a5a7b5441a10d5a.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=581">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=581">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=581">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=581">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=581">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=581">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=581" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=581">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="580">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=580">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/12054637571625e7e669e0fc1d9acec8.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[计生情趣]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=580">水晶电子蝴蝶震动环男用阴茎环延时锁精环成人情趣性用品一件代发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2.18</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">730935</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=580" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=580">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=580&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=580" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=580">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/bfbb01d28596a0100049e49b10b9e1cc.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=580">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=580">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=580">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=580">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=580">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=580">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=580" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=580">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="579">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=579">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/6d4c7faa51d517266a69807000f94644.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[滋补保健]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=579">天然云南辣木叶精片辣木片 印度 辣木籽产地 oem代工贴牌厂家批发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">0.18</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">80000</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=579" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=579">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=579&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=579" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=579">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/1f41ac784b281ec1984726467772dbde.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=579">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=579">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=579">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=579">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=579">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=579">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=579" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=579">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="578">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=578">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/9fc736df7326981e0930c499111f3690.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[滋补保健]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=578">康笑莱B族维生素片60片 成人vb复合维生素B族膳食维生素厂家批发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">29.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">99771</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=578" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=578">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=578&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=578" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=578">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/0637787779ca587db6ae6d6bd6d5fb8c.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=578">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=578">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=578">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=578">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=578">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=578">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=578" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=578">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="577">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=577">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/c07200737c48c0a7fa8998babc08200e.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[滋补保健]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=577">阜源罗布麻蜂胶软胶囊贴牌 保健品oem代加工定制委托加工生产会销</a>
+                            </td>
+
+            <td>
+                                
+                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=marketprice&amp;id=577">198.00</a>
+                
+            </td>
+
+            <td>
+                                                            <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=total&amp;id=577">9999025</a>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=577" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=577">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=577&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=577" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=577">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/cd2dd006884c280f15867e989ffaea98.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=577">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=577">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=577">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=577">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=577">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=577">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=577" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=577">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="576">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=576">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/b0b644d4031cd93d96ec8e33cb599a8f.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[滋补保健]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=576">原厂金奥力牌葡萄籽维E软胶囊 原花青素 OPC 提取物 抗氧化保健品</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">49.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1358</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=576" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=576">
+                      上架</span>
+                                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=576&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=576" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=576">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/0898d21c38701498c8c52b63b7a69689.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=576">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=576">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=576">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=576">促销</a>
+                           <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=576">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=576">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=576" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=576">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="575">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=575">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/921df85f78b07f0315a3395cba981276.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[医药保健]</span>
+                                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=575">正品山东东阿礼盒阿胶糕固元膏块驴皮铁盒阿胶片即食500g克批发</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">69.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">60111</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=575" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=575">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=575" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=575">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=575&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=575" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=575">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/59cbd2ab78b28dbb5ef59f414994ebcb.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=575">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=575">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=575">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=575">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=575">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=575">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=575" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=575">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="574">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=574">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/2dec7bf49de193b7c978230f8767c192.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=574">Trozk/特洛克柠檬插座U站插排寝室插线板USB充电智能插座创意插座</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">99.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2839</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=574" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=574">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=574" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=574">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=574&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=574" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=574">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/7143d1a473a4273f4fa21a223fcbaa34.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=574">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=574">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=574">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=574">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=574">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=574">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=574" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=574">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="573">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=573">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/5af9bbd2d7e233d9bee5648b04b8a924.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=573">LITTLE DESIGN | 随和 便携随身茶盒 迷你随身旅行便携式茶叶盒罐</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">158.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1765</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=573" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=573">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=573" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=573">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=573&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=573" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=573">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/077c9ae881f9063f1e30d3382e12c76e.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=573">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=573">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=573">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=573">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=573">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=573">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=573" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=573">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="572">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=572">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/eb88b98354d97b33939dbcf8e342c22b.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=572">生日礼物创意盆栽笔草叶笔中性笔环保硅胶高端商务定制办公签字笔</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">145.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1995</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=572" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=572">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=572" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=572">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=572&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=572" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=572">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/040afe5d126cd11e5166e64d87e61b01.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=572">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=572">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=572">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=572">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=572">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=572">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=572" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=572">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="571">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=571">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/25d6ef211b4022e45968cb052877d1b4.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=571">商务创意新款苹果安卓一头两用数据线手机钥匙扣金属数据充电线</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">38.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">4569</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=571" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=571">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=571" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=571">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=571&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=571" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=571">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/a2491f5672fdca6e4985c3d03418ea4c.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=571">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=571">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=571">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=571">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=571">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=571">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=571" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=571">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="570">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=570">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/72750fe1c30ffe63a0fc26ef6e7635ca.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=570">简约台灯卧室充电led护眼灯儿童学生学习护目台灯折叠式工作阅读</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">78.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1103</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=570" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=570">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=570" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=570">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=570&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=570" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=570">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/a51dcd5e3914bb8eeefcfcc4695c8e46.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=570">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=570">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=570">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=570">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=570">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=570">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=570" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=570">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="569">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=569">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/d82d930ce037e7897aa00296c2bcea6a.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=569">简约led台灯创意触摸台灯调光充电感应灯书桌护眼台灯床头小夜灯</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">78.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">3340</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=569" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=569">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=569" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=569">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=569&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=569" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=569">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/5d3a1227a84bff52809195c45fd9721d.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=569">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=569">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=569">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=569">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=569">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=569">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=569" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=569">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="568">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=568">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/83f262646698d4ba5af0fe667cd3fa8a.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=568">sty!epie风格派动物派对暖手宝萌宠迷你可爱暖宝宝移动电源充电宝</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">158.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1936</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=568" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=568">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=568" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=568">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=568&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=568" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=568">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/ce77cf0ae7d50ad332cecf390af491b2.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=568">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=568">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=568">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=568">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=568">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=568">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=568" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=568">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="567">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=567">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/5663e557f9b1373151812d55d831a78d.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=567">LYL太阳能车载空气净化器汽车氧吧负离子香薰除异味甲醛烟味过滤</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">288.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">1877</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=567" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=567">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=567" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=567">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=567&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=567" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=567">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/dba3320009c7d18ec16e77e9f41a75f0.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=567">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=567">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=567">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=567">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=567">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=567">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=567" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=567">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="566">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=566">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/2dec7bf49de193b7c978230f8767c192.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=566">Trozk/特洛克柠檬插座U站插排寝室插线板USB充电智能插座创意插座</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">99.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2839</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=566" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=566">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=566" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=566">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=566&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=566" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=566">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/8595c206b2701a4ebc6babd29d5387bf.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=566">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=566">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=566">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=566">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=566">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=566">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=566" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=566">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="559">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=559">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/b0746d651044fed4d4aa5eed792903cd.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=559">CaseStudi 折叠式无线蓝牙轻薄便携键盘 ios/Android手机平板通用</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">228.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2464</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=559" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=559">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=559" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=559">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=559&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=559" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=559">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/1e78eebb58e5bd95186ea441a28ef1cd.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=559">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=559">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=559">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=559">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=559">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=559">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=559" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=559">不参与折扣</a>
+                             </td>
+                            </tr>
+                                    <tr>
+            <td>
+                <input type="checkbox" value="558">
+            </td>
+            <td style="text-align:center;">
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=displayorder&amp;id=558">0</a>
+                            </td>
+            <td>
+                <img src="./后台商品页_files/8891763670f49afbb38b63075683d635.jpg" class="imgg" style="width:40px;height:40px;padding:1px;border:1px solid #ccc;">
+                                <!--新-->
+                <div class="newgoodsflag">新</div>
+                            </td>
+            <td class="full" style="overflow-x: hidden">
+                                	<span class="text-danger">[生活日化]</span>
+                                                	<span class="text-info">[生活日化-生活日用]</span>
+                                                <br>
+                                <a href="javascript:;" data-toggle="ajaxEdit" data-edit="textarea" data-href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.change&amp;type=title&amp;id=558">开了空军二号2号汽车空调出风口香水夹车用香水风口香薰除异味车</a>
+                            </td>
+
+            <td>
+                                                <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">85.00</span>
+                                
+            </td>
+
+            <td>
+                                                            <span data-toggle="tooltip" title="" data-original-title="多规格不支持快速修改">2108</span>
+                                                </td>
+            <td>0</td>
+
+                        <td style="overflow:visible;">
+                                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是下架？" data-switch-refresh="true" data-switch-value="1" data-switch-value0="0|下架|label label-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=1&amp;id=558" data-switch-value1="1|上架|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.status&amp;status=0&amp;id=558">
+                      上架</span>
+                                                <br>
+                <span class="label label-success" data-toggle="ajaxSwitch" data-confirm="确认是审核中？" data-switch-refresh="true" data-switch-value="0" data-switch-value1="1|审核中|label label-warning|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=0&amp;id=558" data-switch-value0="0|通过|label label-success|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.checked&amp;checked=1&amp;id=558">
+                通过</span>
+                                </td>
+                                <td style="overflow:visible;position:relative">
+                                                <a class="btn btn-default btn-sm" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.edit&amp;id=558&amp;goodsfrom=sale" title="编辑"><i class="fa fa-edit"></i> </a>
+                        
+                                                                        <a class="btn btn-default btn-sm" data-toggle="ajaxRemove" href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.delete&amp;id=558" data-confirm="确认删除此商品？"><i class="fa fa-trash"></i> </a>
+                                                
+
+                                                <a href="javascript:;" class="btn btn-default btn-sm js-clip" data-url="http://z.taoyuxin.com/app/index.php?i=2&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=goods.detail&amp;id=558">
+                            <i class="fa fa-link"></i> 复制链接
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-default btn-sm" data-toggle="popover" data-trigger="hover" data-html="true" data-content="&lt;img src=&#39;http://z.taoyuxin.com/addons/ewei_shopv2/data/qrcode/2/8f767ded3fe9f34919d14faad14a1087.jpg&#39; width=&#39;130&#39; alt=&#39;链接二维码&#39;&gt;" data-placement="auto right" data-original-title="" title="">
+                            <i class="glyphicon glyphicon-qrcode"></i>
+                        </a>
+                        
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;border-top:none;padding:5px 0;" class="aops">
+                                        <span class="text-default" style="margin-left: 95px;">商户名称:</span><span class="text-info">微点上海江桥事业部</span>
+                                        </td>
+
+                    <td colspan="5" style="text-align: right;border-top:none;padding:5px 0;" class="aops">
+
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=new&amp;data=0&amp;id=558">新品</a>
+                        <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=hot&amp;data=0&amp;id=558">热卖</a>
+                         <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=recommand&amp;data=0&amp;id=558">推荐</a>
+                          <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=discount&amp;data=0&amp;id=558">促销</a>
+                           <a class="text-danger" data-toggle="ajaxSwitch" data-switch-value="1" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=sendfree&amp;data=0&amp;id=558">包邮</a>
+                            <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=time&amp;data=0&amp;id=558">限时卖</a>
+                             <a class="text-default" data-toggle="ajaxSwitch" data-switch-value="0" data-switch-value0="0||text-default|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=1&amp;id=558" data-switch-value1="1||text-danger|http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods.property&amp;type=nodiscount&amp;data=0&amp;id=558">不参与折扣</a>
+                             </td>
+                            </tr>
+                                                       </tbody>
+                          </table>
+                          <div><ul class="pagination pagination-centered"><li class="active"><a href="javascript:;">1</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=2">2</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=3">3</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=4">4</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=5">5</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=6">6</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=2" class="pager-nav">下一页»</a></li><li><a href="http://z.taoyuxin.com/web/index.php?c=site&amp;a=entry&amp;m=ewei_shopv2&amp;do=web&amp;r=goods&amp;goodsfrom=sale&amp;page=8" class="pager-nav">尾页</a></li></ul></div>                                                    </div>
+
+<script language="javascript">
+    require(['jquery','bootstrap'], function ($,bs) {
+        $('[data-toggle="tooltip"]').tooltip("destroy").tooltip({
+            container: $(document.body)
+        });
+        $('[data-toggle="popover"]').popover("destroy").popover({
+            container: $(document.body)
+        });
+    });
+
+
+     function check_ewei_shopv2_upgrade() {
+  
+        require(['util'], function (util) {  
+            if (util.cookie.get('checkeweishopv2upgrade_sys')) {
+                return;
+            }
+            $.post('http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade.check', function (ret) {
+                if (ret && ret.status == '1') { 
+		  
+	var result = ret.result;	    
+                    if(result.filecount>0 || result.database || result.upgrades){
+	 	 
+                        var html = '<div id="ewei-shopv2-upgrade-tips" class="tips-upgrade">';
+	   html+='<span class="tclose" onclick="check_ewei_shopv2_upgrade_hide();"><i class="fa fa-times-circle fa-2x"></i></span>';
+                         html+= '<div class="title">检测到更新</div>';
+                        html+='<div class="text"> 新版本 ' + result.version + " RELEASE " + result.release;
+                        html+=',请尽快更新! </div>';
+			html+='<div class="buttons"><a href="http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=system.auth.upgrade" class="btn btn-warning btn-sm">立即去更新</a></div></div>';
+                        $('body').prepend(html);
+                   }
+                }
+            },'json');
+        });
+    }
+      function check_ewei_shopv2_upgrade_hide() {
+        require(['util'], function (util) {
+            util.cookie.set('checkeweishopv2upgrade_sys', 1, 3600);
+            $('#ewei-shopv2-upgrade-tips').fadeOut(150);
+        });
+    }
+    $(function () {
+        setTimeout( function() {
+            check_ewei_shopv2_upgrade();
+        },4000);
+    });
+
+    $(function () {
+        $('.page-content').show();
+        $('.img-thumbnail').each(function () {
+            if ($(this).attr('src').indexOf('nopic.jpg') != -1) {
+                $(this).attr('src', "../addons/ewei_shopv2/static/images/nopic.jpg");
+            }
+        })
+
+        
+                    $.getJSON("http://z.taoyuxin.com/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web&r=util.task");
+        
+
+
+        // GoTop
+        $(window).bind('scroll resize', function () {
+            var scrolltop = $(window).scrollTop();
+            if (scrolltop > 300) {
+                $(".page-gotop").fadeIn(300)
+            } else {
+                $(".page-gotop").fadeOut(300)
+            }
+            $(".page-gotop").unbind('click').click(function () {
+                $('body').animate({scrollTop: "0px"}, 1000)
+            })
+        });
+
+    });
+</script>
+
+<script language="javascript">
+    myrequire(['web/init']);
+    if( $('form.form-validate').length<=0){
+        window.formInited = true;
+    }
+    window.formInitTimer = setInterval(function () {
+         if (typeof(window.formInited ) !== 'undefined') {
+             $('#page-loading').remove();
+              clearInterval(window.formInitTimer);
+          }
+    }, 1);
+</script>
+
+
+    <div class="page-gotop" title="返回顶部">
+        <p><i class="fa fa-angle-up"></i></p>
+        <p>返回</p>
+        <p>顶部</p>
+    </div>
+
+
+
+
+
+</div><div id="tip-msgbox" class="msgbox"></div><span role="status" aria-live="polite" class="select2-hidden-accessible"></span></body></html>

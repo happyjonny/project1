@@ -1,0 +1,500 @@
+.nav-layout{
+  width: 100%;
+  height: 36px;
+  border-bottom: solid 2px #F87622;
+  margin: 0 auto;
+  position: relative;
+  zoom: 1;
+  display: block;
+}
+
+.nav-layout .wrapper{
+  width: 1200px;
+  margin: auto;
+  padding:0;
+  display: block;
+}
+
+/* all-category*/
+
+.nav-layout .wrapper .all-category{
+  background-color: #f87622;
+  display: block;
+  width: 212px;
+  height: 36px;
+  float: left;
+}
+
+.nav-layout .wrapper .all-category .title{
+  line-height: 20px;
+  height: 20px;
+  padding: 8px 10px 10px 10px;
+  margin: 0;
+  display: block;
+}
+.nav-layout .wrapper .all-category .title h3{
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  display: block;
+  line-height: 20px;
+}
+
+.nav-layout .wrapper .all-category .title h3 a {
+  font-size: 14px;
+  font-weight: normal;
+  color: #FFF;
+  float: left;
+  margin-left: 4px;
+  text-decoration: none;
+  outline: 0 none;
+
+}
+
+.nav-layout .wrapper .all-category .title i{
+  font-size: 0px;
+  line-height: 0;
+  /*TODO*/
+  /*background: url(../images/top_bg.png) no-repeat -182px -186px;*/
+  width: 18px;
+  height: 14px;
+  float: left;
+  margin: 4px 4px 0 0;
+  font-style: normal;
+}
+
+
+
+#head-class{
+  position: absolute;
+  /*margin: 0;*/
+}
+#head-class .class-content{
+  margin: 0;
+}
+#head-class .class-content .category .menu .item .sub-category{
+  top: 0;
+}
+
+#head-class {
+  display: none;
+
+}
+
+
+
+
+/*hover 效果*/
+.all-category:hover #head-class{
+  display: block;
+  z-index: 99;
+
+}
+
+/* ul  site-menu*/
+
+
+/*product_details*/
+.product-container{
+  overflow: hidden;
+  width: 1200px;
+  margin: auto;
+  position: relative;
+  background: #fafafa;
+}
+
+/*图片部分*/
+.product-container .product-detail{
+  min-height: 460px;
+  margin-bottom: 20px;
+  border: solid 1px #EEE;
+  position: relative;
+  z-index: 2;
+}
+
+.product-detail .product-detail-pic{
+  background-color: #FFF;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+}
+
+.pic-container{
+  height: 360px;
+  width: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pic-container .pics{
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+  height: 360px;
+  width: 360px;
+  left: 20px;
+  top: 20px;
+}
+
+.pic-container .pics img{
+  width: 320px;
+  height: 320px;
+  display: block;
+  border: medium none;
+  vertical-align: middle;
+}
+
+.product-detail-pic .controller-container{
+  background: rgba(255,255,255,0.7);
+  padding: 0;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: -42px;
+}
+
+.product-detail-pic .controller-container .controller{
+  width: 320px;
+  height: 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-detail-pic .controller-container .controller ul {
+  font-size: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-detail-pic .controller-container .controller ul li {
+  vertical-align: middle;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+  width: 58px;
+}
+.product-detail-pic .controller-container .controller ul li img{
+  max-width: 48px;
+  max-height: 48px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  padding: 1px;
+  border: 1px solid #EEE;
+  overflow: hidden;
+}
+
+/* 基本信息*/
+.product-detail-summary{
+  background-color: #FFF;
+  float: right;
+  width: 622px;
+  min-height: 460px;
+  margin-right: 208px;
+  border-right: solid 1px #EEE;
+  border-left: solid 1px #EEE;
+}
+
+/*name*/
+.product-detail-summary .name{
+  padding: 15px 20px;
+}
+
+.product-detail-summary .name h1{
+  font: 700 16px/21px "Microsoft Yahei";
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  overflow: hidden;
+}
+
+/*meta*/
+.product-detail-summary .meta{
+  color: #666;
+  /*TODO*/
+  background: #DADADA url(../images/shop/goods_meta_bg.png) no-repeat 0 50%;
+  background-size: cover;
+  padding: 15px 0;
+  position: relative;
+  z-index: 3;
+  box-shadow: inset 4px 0 1px rgba(153,153,153,0.15);
+}
+
+.product-detail-summary .meta dl dt,.product-detail-summary .meta dl dd
+{
+  line-height: 30px;
+  height: 30px;
+  font-size: 12px;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+  min-height: 24px;
+  padding: 6px 0 0;
+  text-align: right;
+  width: 96px;
+  margin-right: 6px;
+}
+
+.product-detail-summary .meta dl .cost-price {
+  text-align: left;
+  width: 510px;
+}
+
+.product-detail-summary .meta dl .cost-price strong{
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-style: normal;
+}
+
+/*price*/
+.product-detail-summary .meta dl .price {
+  line-height: 30px;
+  height: 30px;
+  font-size: 12px;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+  min-height: 24px;
+  padding: 6px 0 0;
+  color: #F60;
+  font-weight: 600;
+  text-align: left;
+  width: 510px;
+}
+
+.product-detail-summary .meta dl .price strong {
+  color: #c00;
+  font: 700 30px/25px Tahoma;
+  vertical-align: middle;
+  text-shadow: 0 1px 0 #6C0900;
+  text-align: left;
+}
+
+.product-detail-summary .key{
+  padding: 10px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-detail-summary .logistics{
+  position: relative;
+  z-index: 2;
+}
+
+.product-detail-summary .logistics .freight{
+  padding: 6px 0;
+  display: block;
+}
+
+.logistics .freight .freight-box{
+  font-size: 12px;
+  line-height: 24px;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+  min-height: 24px;
+  padding: 6px 0 0;
+  text-align: left;
+  width: 510px;
+  position: relative;
+  z-index: 3;
+}
+
+.freight .freight-box .freight-select{
+  height: 28px;
+  float: left;
+  margin-right: 6px;
+  position: relative;
+  z-index: 3;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.freight .freight-box .freight-select .content{
+  padding-left: 120px;
+  line-height: 28px;
+  float: left;
+}
+
+.freight .freight-box .freight-select .content strong{
+  font-size: 16px;
+  color: #333;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+/*buy*/
+
+.product-detail-summary .buy{
+  display: block;
+  clear: both;
+  padding: 20px 0 20px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.product-detail-summary .buy form .quantity{
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 41px;
+  text-align: center;
+  height: 41px;
+  width: 41px;
+  padding: 0;
+  border: solid 1px #E6E6E6;
+
+}
+.product-detail-summary .buy form .add-to-cart{
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  height: 42px;
+  position: relative;
+  z-index: 70;
+  zoom: 1;
+  background-color: #f40;
+  font: bold 16px/32px "Microsoft Yahei";
+  color: #FFF;
+  text-align: center;
+  padding: 5px 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.product-detail-summary .buy form div{
+  display: inline-block;
+}
+
+.product-detail-summary .buy form div a{
+  font: bold 16px/32px "Microsoft Yahei";
+  color: #FFF;
+  text-align: center;
+  display: inline-block;
+  height: 32px;
+  padding: 5px 12px;
+  margin-right: 5px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  background-color: #BA7538;
+}
+
+/* product-content*/
+/* 商品详情内容*/
+.product-content{
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: block;
+}
+
+.product-content .main-content{
+  float: right;
+  width: 980px;
+}
+
+.product-content .main-content .product-nav{
+  width: 980px;
+
+}
+.product-content .main-content .product-nav .product-nav-title{
+  margin-top: 0;
+}
+
+.product-nav-title .categorymenu{
+  font-size: 0;
+  background-color: #FFF;
+  border: solid #E6E6E6 1px;
+  display: block;
+}
+
+.product-nav-title .categorymenu li{
+  margin: -1px 0 -1px -1px;
+  vertical-align: top;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+}
+
+.product-nav-title .categorymenu li a{
+  color: #333;
+  background-color: #FFF;
+  padding: 8px 35px 6px 35px;
+  border-style: solid;
+  border-color: #F87622 #DDD transparent #DDD;
+  border-width: 3px 1px 0 1px;
+  display: block;
+  font: normal 14px/20px "Microsoft Yahei";
+}
+
+.product-content .main-content .product-info{
+
+}
+
+.product-content .main-content .product-info .product-info-content{
+  height: auto;
+}
+
+.product-info-content .product-attr{
+  font-size: 0;
+  background-color: #FFF;
+  border: solid #DDD;
+  border-width: 0 1px 1px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.product-info-content .product-attr li{
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 23%;
+  padding: 0 0 0 2%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.product-info-content .product-info-details{
+  padding-bottom: 23px;
+  display: block;
+}
+
+.product-info-content .product-info-details div{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+
+
+
+
+
