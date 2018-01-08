@@ -56,18 +56,18 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
         </td>
       </tr>
 
+
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">分类 :</td>
         <td align="left" valign="middle" class="borderright borderbottom main-for">
-        <!--<input type="text" name="cid" value="2" class="text-word">-->
           <select name="cid" id="level">
-          <?php foreach($data as $k => $v): ?>
-            <option value="<?= $data[$k]['id'] ?>" > <?= $data[$k]['name'] ?> </option>
-          <?php endforeach ?>
+            <?php foreach ($data as $k => $v): ?>
+            <option value="<?= $v['id']?>"> <?= $v['nbsp'].$v['name']?> </option>
+            <?php endforeach ?>
           </select>
         </td>
       </tr>
-      
+
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">商品名 :</td>
         <td align="left" valign="middle" class="borderright borderbottom main-for">

@@ -48,6 +48,20 @@
 			return $res;
 		}
 
+    public function orderCate()
+    {
+      // select name
+      // from category
+      // order by concat(path, id , ',')
+
+      $res = $this->pdo
+        ->field('name, id, concat(path, id , ",") as px')
+        ->table('category')
+        ->order('px')
+        ->select();
+      return $res;
+    }
+
 		// 查询单个分类
 		public function showOne()
 		{

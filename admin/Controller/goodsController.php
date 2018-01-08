@@ -41,11 +41,17 @@
 		public function add()
 		{
 
-		  //获取商品分类信息
-		  $data = new categoryModel();
-		  $data = $data->showAll(1);
-//		  var_dump($data);
-//		  die;
+      // 根据id 查询商品
+      $cate = new CategoryController;
+      $data = $cate->orderCate();
+      foreach ($data as $k => $v) {
+        // 1. 统计逗号的个数 $num
+        $num = substr_count($v['px'], ',');
+        // 2. 将空格 重复$num次
+        $nbsp = str_repeat('-', ($num - 2) * 8);
+        // 3. 将空格 塞到$data
+        $data[$k]['nbsp'] = $nbsp;
+      }
 			include 'View/goods/add.html';
 		}
 
@@ -62,14 +68,23 @@
 		// 加载 编辑商品界面
 		public function edit()
 		{
-		  $data2 = new categoryModel();
+//		  $data2 = new categoryModel();
 			// 根据id 查询商品
 			$data = $this->goods->showOne();
 			//获取商品分类信息
-      $data2 = $data2->showAll(1);
+      // 根据id 查询商品
+      $cate = new CategoryController;
+      $data2 = $cate->orderCate();
+      foreach ($data2 as $k => $v) {
+        // 1. 统计逗号的个数 $num
+        $num = substr_count($v['px'], ',');
+        // 2. 将空格 重复$num次
+        $nbsp = str_repeat('-', ($num - 2) * 8);
+        // 3. 将空格 塞到$data
+        $data2[$k]['nbsp'] = $nbsp;
+      }
 
-
-//			 var_dump($data , $data2);die;
+//        var_dump($data);die;
 
 			include 'View/goods/edit.html';
 		}

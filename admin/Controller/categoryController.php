@@ -18,6 +18,13 @@
 			include 'View/category/index.html';
 		}
 
+    // 查询并排序
+    public function orderCate()
+    {
+      $data = $this->category->orderCate();
+      return $data;
+    }
+
 		public function count($where = '')
 		{
 			$data = $this->category->doCount($where);

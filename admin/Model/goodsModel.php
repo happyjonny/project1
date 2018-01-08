@@ -50,33 +50,46 @@
 		public function showOne()
 		{
 			// 接收 商品id
-				$id = $_GET['id'];
-
-			// 准备sql
-			// select * from goods where id = xxx
-				$res = $this->pdo
-							->field('*')
-							->table('goods')
-							->where(' id = '.$id)
-							->find();
-				$tmp =  $this->pdo
-          ->field('icon')
-          ->table('goodsimg')
-          ->where('face = 2 and gid = '.$res['id'])
-          ->find();
-				$res['icon'] = $tmp['icon'];
-				unset($tmp);
+//				$id = $_GET['id'];
+//
+//			// 准备sql
+//			// select * from goods where id = xxx
+//				$res = $this->pdo
+//							->field('*')
+//							->table('goods')
+//							->where(' id = '.$id)
+//							->find();
+//				$tmp =  $this->pdo
+//          ->field('icon')
+//          ->table('goodsimg')
+//          ->where('face = 2 and gid = '.$res['id'])
+//          ->find();
+//				$res['icon'] = $tmp['icon'];
+//				unset($tmp);
+////      unset($tmp);
+//      $tmp = $this->pdo
+//        ->field('name')
+//        ->table('category')
+//        ->where(' id = '.$res['cid'])
+//        ->find();
+//      // cname 分类名
+//      $res['cname'] = $tmp['name'];
 //      unset($tmp);
-      $tmp = $this->pdo
-        ->field('name')
-        ->table('category')
-        ->where(' id = '.$res['cid'])
+////				var_dump($res);die;
+//			return $res;
+
+      // 接收 商品id
+      $id = $_GET['id'];
+
+      // 准备sql
+      // select * from goods where id = xxx
+      $res = $this->pdo
+        ->field('*')
+        ->table('goods')
+        ->where(' id = ' . $id)
         ->find();
-      // cname 分类名
-      $res['cname'] = $tmp['name'];
-      unset($tmp);
-//				var_dump($res);die;
-			return $res;
+      return $res;
+
 		}
 
 		// 统计总个数
