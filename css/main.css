@@ -295,12 +295,12 @@ body {
   width: 73%;
   /*margin-left:50px;*/
   outline: none;
-  left: 47px;
+  left: 0px;
   /*margin-right: 0;*/
   /*float: left;*/
   display: inline-block;
   padding-left: 12px;
-  padding-right: 2px;
+  padding-right: 50px;
   position: absolute;
   border-left: 1px solid #ddd;
 
