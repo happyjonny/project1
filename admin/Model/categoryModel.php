@@ -55,7 +55,7 @@
       // order by concat(path, id , ',')
 
       $res = $this->pdo
-        ->field('name, id, concat(path, id , ",") as px')
+        ->field('path, name, id, concat(path, id , ",") as px')
         ->table('category')
         ->order('px')
         ->select();
@@ -112,7 +112,7 @@
 				$data = $this->pdo
 							 ->table('category')
 							 ->insert($_POST);
-
+//        var_dump($this->pdo->sql);die;
 				return $data;
 		}
 
@@ -120,13 +120,29 @@
 		{
 			// 数据验证
 //      var_dump($_POST);die;
+      $id = $_POST['id'];
+      unset($_POST['id']);
+      //查看分类下面有子分类的个数
+      $tmp = $this->pdo
+        ->field('count(id)')
+        ->table('category')
+        ->where('pid = ' . $id)
+        ->select();
+
 
 			// 数据验证完成了,  调用DB, 更新数据
+      //如果分类下面有子分类,则不给修改
+      if ($tmp[0]['count(id)'] != 0) {
+        return false;
+      }
 					$data = $this->pdo
 								 ->table('category')
-								 ->where('id = '.$_POST['id'])
+            ->where(' id = ' . $id)
 								 ->update($_POST);
-					return $data;
+//              var_dump($this->pdo->sql);
+//              die;
+
+      return $data;
 		}
 
 		public function doDel()

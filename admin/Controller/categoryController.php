@@ -48,7 +48,7 @@
 		public function doAdd()
 		{
 			$data = $this->category->doAdd();
-
+//      var_dump($data);die;
 			if($data){
 				myNotice('新增成功', 'index.php?c=category');
 			}
@@ -60,6 +60,19 @@
 		{
 			// 根据id 查询分类
 			$data = $this->category->showOne();
+
+      $cate = new CategoryController;
+      $data2 = $cate->orderCate();
+      foreach ($data2 as $k => $v) {
+        // 1. 统计逗号的个数 $num
+        $num = substr_count($v['px'], ',');
+        // 2. 将空格 重复$num次
+        $nbsp = str_repeat('-', ($num - 2) * 8);
+        // 3. 将空格 塞到$data
+        $data2[$k]['nbsp'] = $nbsp;
+      }
+
+//      var_dump($data,$data2);die;
 
 			include 'View/category/edit.html';
 		}
