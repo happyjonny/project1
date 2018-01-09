@@ -25,6 +25,7 @@
 
   $m = empty($_GET['m']) ? 'index' : $_GET['m'];
 
+//  var_dump($c,$m);
 
   // 4. 实例化 c
   $control = new $c;
