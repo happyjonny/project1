@@ -156,7 +156,7 @@ $.fn.ajaxSubmit = function(options) {
 	var mp = 'multipart/form-data';
 	var multipart = ($form.attr('enctype') == mp || $form.attr('encoding') == mp);
 
-	// options.iframe allows user to force iframe mode
+	// options.iframe allows userController to force iframe mode
 	// 06-NOV-09: now defaulting to iframe mode if file input is detected
    if (options.iframe !== false && (fileInputs || options.iframe || multipart)) {
 	   // hack to fix Safari hang (thanks to Tim Molendijk for this)
@@ -389,7 +389,7 @@ $.fn.ajaxSubmit = function(options) {
 				var dt = s.dataType || '';
 				var scr = /(json|script|text)/.test(dt.toLowerCase());
 				if (scr || s.textarea) {
-					// see if user embedded response in textarea
+					// see if userController embedded response in textarea
 					var ta = doc.getElementsByTagName('textarea')[0];
 					if (ta) {
 						xhr.responseText = ta.value;

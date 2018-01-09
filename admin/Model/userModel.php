@@ -12,10 +12,10 @@
     // 查询所有的用户数据
     public function showAll($where, $limit)
     {
-      // select * from user
+      // select * from userController
       $res = $this->pdo
         ->field('*')
-        ->table('user')
+        ->table('userController')
         ->where($where)
         ->order('id desc')
         ->limit($limit)
@@ -32,10 +32,10 @@
       $id = $_GET['id'];
 
       // 准备sql
-      // select * from user where id = xxx
+      // select * from userController where id = xxx
       $res = $this->pdo
         ->field('*')
-        ->table('user')
+        ->table('userController')
         ->where(' id = ' . $id)
         ->find();
       return $res;
@@ -46,7 +46,7 @@
     {
       $res = $this->pdo
         ->field(' count(id) as count')
-        ->table('user')
+        ->table('userController')
         ->where($where)
         ->select();
       return $res[0]['count'];
@@ -86,9 +86,9 @@
       $_POST['icon'] = $icon[0];
 
       // 数据验证完成了,  调用DB, 插入数据
-      // insert into user() values();
+      // insert into userController() values();
       $data = $this->pdo
-        ->table('user')
+        ->table('userController')
         ->insert($_POST);
 //      var_dump($this->pdo->sql, $data);
 //      die;
@@ -128,7 +128,7 @@
 
       // 数据验证完成了,  调用DB, 更新数据
       $data = $this->pdo
-        ->table('user')
+        ->table('userController')
         ->where('id = ' . $_POST['id'])
         ->update($_POST);
       return $data;
@@ -141,7 +141,7 @@
 
       // 2. 调用DB类
       $res = $this->pdo
-        ->table('user')
+        ->table('userController')
         ->where('id = ' . $id)
         ->delete();
       return $res;
@@ -151,17 +151,17 @@
     {
       // 查询该用户的状态
       $id = $_GET['id'];
-      // select status from user where id = xx
+      // select status from userController where id = xx
       $res = $this->pdo
         ->field('status')
-        ->table('user')
+        ->table('userController')
         ->where('id = ' . $id)
         ->find();
 
       $res['status'] = ($res['status'] == 1 ? 2 : 1);
 
       $res = $this->pdo
-        ->table('user')
+        ->table('userController')
         ->where('id = ' . $id)
         ->update($res);
     }

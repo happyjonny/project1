@@ -305,7 +305,7 @@ function collect_goods(fav_id,jstype,jsobj){
 //加载购物车信息
 function load_cart_information(){
 	$.getJSON(SITEURL+'&act=cart&op=ajax_load&callback=?', function(result){
-	    var obj = $('.head-user-menu .my-cart');
+	    var obj = $('.head-userController-menu .my-cart');
 	    if(result){
 	       	var html = '';
 	       	if(result.cart_goods_num >0){
@@ -344,7 +344,7 @@ function load_cart_information(){
 function drop_topcart_item(cart_id,goods_id){
     $.getJSON(SITEURL+'&act=cart&op=del&cart_id='+cart_id+'&goods_id='+goods_id+'&callback=?', function(result){
         if(result.state){
-            var obj = $('.head-user-menu .my-cart');
+            var obj = $('.head-userController-menu .my-cart');
             //删除成功
             if(result.quantity == 0){
     	      	html="<div class='no-order'><span>您的购物车中暂无商品，赶快选择心爱的商品吧！</span></div>";
@@ -377,7 +377,7 @@ function drop_topcart_item(cart_id,goods_id){
 //加载最近浏览的商品
 function load_history_information(){
     $.getJSON(SITEURL+'&act=index&op=viewed_info', function(result){
-        var obj = $('.head-user-menu .my-mall');
+        var obj = $('.head-userController-menu .my-mall');
         if(result['m_id'] >0){
             if (typeof result['consult'] !== 'undefined') obj.find('#member_consult').html(result['consult']);
             if (typeof result['consult'] !== 'undefined') obj.find('#member_voucher').html(result['voucher']);

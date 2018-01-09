@@ -56,7 +56,7 @@
 					'.$this->order.' 
 					'.$this->limit;
 			$this->sql = $sql;
-//    var_dump($this->sql);die;
+//    var_dump($this->sql);
 			$res = $this->db->query($sql);
 			$data = $res->fetch(PDO::FETCH_ASSOC);
 			return $data;

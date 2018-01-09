@@ -9,6 +9,28 @@
       $this->pdo = new DB;
     }
 
+    //得到一个分类ID, 返回该分类下所有子分类包括自己的分类ID
+    public function  showCate($where = ''){
+
+        // 1. 查询该分类的所有后辈id
+        // select id
+        // from category
+        // where path like "%,1,%"
+        $id = $_GET['id'];
+        $cateId = $this->pdo
+          ->field('id')
+          ->table('category')
+          ->where(' path like "%,' . $id . ',%" ')
+          ->select();
+      $cid = '';
+      foreach ($cateId as $k => $v) {
+        $cid .= $v['id'] . ',';
+      }
+      $cid .= $id;
+      return $cid;
+    }
+
+
     // 查询所有的商品数据
     public function showAll($where = '', $limit = '', $order = '')
     {
@@ -35,13 +57,29 @@
       // select name, `desc`, price, sold, g.id, icon
       // from goods g, goodsimg i
       // where cid in (1,3,4,8,9,10,11,12) and g.id=i.gid and face = 1
-      $res = $this->pdo
-        ->field('name, `desc`, price, sold, g.id, icon')
-        ->table('goods g, goodsimg i')
-        ->where('cid in (' . $cid . ') and g.id=i.gid and face = 2' . $where)
-        ->limit($limit)
-        ->order($order)
-        ->select();
+
+      if(!empty($where)){
+        $where .= ' and ';
+      }
+
+
+      if(!empty($cid)) {
+        $res = $this->pdo
+          ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
+          ->table('goods g, goodsimg i')
+          ->where($where . 'cid in (' . $cid . ') and g.id=i.gid and face = 2')
+          ->limit($limit)
+          ->order($order)
+          ->select();
+      }else{
+        $res = $this->pdo
+          ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
+          ->table('goods g, goodsimg i')
+          ->where($where .' g.id=i.gid and face = 2')
+          ->limit($limit)
+          ->order($order)
+          ->select();
+      }
 
 //      echo $this->pdo->sql;die;
       return $res;
@@ -56,9 +94,10 @@
       // 准备sql
       // select * from goods where id = xxx
       $res = $this->pdo
-        ->field('*')
-        ->table('goods')
-        ->where(' id = ' . $id)
+        ->field(' g.id, cid, name, price, stock, sold , hot, sale, `desc`, recommend, icon, face, rate')
+        ->table('goods g, goodsimg i')
+        ->where('g.id = i.gid and g.id = ' . $id)
+        ->order(' face desc')
         ->find();
       return $res;
     }
@@ -66,13 +105,39 @@
     // 统计总个数
     public function doCount($where = '')
     {
-      $res = $this->pdo
-        ->field(' count(id) as count')
-        ->table('goods')
-        ->where($where)
-        ->select();
+      if(!empty($_GET['id'])) {
+        $id = $_GET['id'];
+        $cateId = $this->pdo
+          ->field('id')
+          ->table('category')
+          ->where(' path like "%,' . $id . ',%" ')
+          ->select();
+        $cid = '';
+        foreach ($cateId as $k => $v) {
+          $cid .= $v['id'] . ',';
+        }
+        $cid .= $id;
 
-      return $res[0]['count'];
+        if (!empty($where)) {
+          $where .= ' and ';
+        }
+        $res = $this->pdo
+          ->field(' count(id) as count')
+          ->table('goods')
+          ->where($where . 'cid in (' . $cid . ')')
+          ->select();
+      }else{
+        // 如果搜索所有商品
+        $res = $this->pdo
+          ->field(' count(id) as count')
+          ->table('goods')
+          ->where($where)
+          ->select();
+      }
+
+//      var_dump($res);die;
+        return $res[0]['count'];
+
     }
 
     public function doAdd()
