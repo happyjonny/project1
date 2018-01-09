@@ -42,5 +42,10 @@
 
     }
 
+    public function userIndex()
+    {
+      include_once 'View/user/_index.html';
+    }
+
 
   }

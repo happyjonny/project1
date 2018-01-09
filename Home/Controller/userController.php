@@ -21,7 +21,7 @@
     {
 
 
-      include_once 'View/user/index.html';
+      include_once 'View/user/cart.html';
 
     }
 
@@ -34,6 +34,34 @@
     public function login()
     {
       include_once 'View/user/login.html';
+    }
+
+    public function doLogin()
+    {
+      $_POST['pwd'] = md5($_POST['pwd']);
+
+      $data = $this->user->doLogin();
+
+      if (!empty($data)) {
+        if ($_POST['rememberme']) {
+          //如果选择请记住我,则记录用户信息
+          setcookie('mobile', $_POST['mobile'], time() + 3600 * 24 * 7);
+          setcookie('pwd', $_POST['pwd'], time() + 3600 * 24 * 7);
+        }
+        setcookie('uid', $data['id'], time() + 3600 * 24 * 7);
+        setcookie('name', $data['name'], time() + 3600 * 24 * 7);
+        $_SESSION['uid'] = $data['id'];
+        $_SESSION['mobile'] = $_POST['mobile'];
+        $_SESSION['status'] = $data['status'];
+        $_SESSION['icon'] = $data['icon'];
+        $_SESSION['name'] = $data['name'];
+      } else {
+        myNotice('请检查用户名密码');
+      }
+
+      header('location: ./index.php');
+      die;
+
     }
 
     public function register()
@@ -68,10 +96,16 @@
       $uid = $this->user->doRegister();
 
       if ($uid) {
-        setcookie('id', $uid, time() + 3600 * 2);
-        setcookie('mobile', $_POST['mobile'], time() + 3600 * 2);
+//        setcookie('uid', $uid, time() + 3600 * 2);
+//        setcookie('mobile', $_POST['mobile'], time() + 3600 * 2);
 
+        $_SESSION['uid'] = $uid;
+        $_SESSION['mobile'] = $_POST['mobile'];
 
+        $userInfo = $this->user->getUserInfo();
+        $_SESSION['status'] = $userInfo['status'];
+        $_SESSION['icon'] = $userInfo['icon'];
+        $_SESSION['name'] = $userInfo['name'];
         header('location: ./index.php');
         die;
       }

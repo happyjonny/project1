@@ -21,12 +21,13 @@
 
           <div class="tabs-container" style="height: 387px;">
             <div class="tabs-content" style="position: absolute; top: 0;">
-              <form action="" method="post" name="register" id="register_form" class="nc-login-form">
+              <form action="./index.php?c=user&m=doLogin" method="post" name="register" id="register_form"
+                    class="nc-login-form">
 
                 <dl>
                   <dt>手机号:</dt>
                   <dd>
-                    <input type="text" class="text" name="username" placeholder="您的账号">
+                    <input type="text" class="text" name="mobile" placeholder="您的账号">
                   </dd>
                 </dl>
 
@@ -35,9 +36,16 @@
                 <!--<div class="tiptext"></div>-->
 
                 <dl>
-                  <dt>设置密码:</dt>
+                  <dt>密码:</dt>
                   <dd>
                     <input type="password" class="text" name="pwd" placeholder="6-20个大小写字母/符号或数字">
+                  </dd>
+                </dl>
+
+                <dl>
+                  <dt>7天免登陆:</dt>
+                  <dd>
+                    <input type="checkbox" class="text" name="rememberme">
                   </dd>
                 </dl>
 

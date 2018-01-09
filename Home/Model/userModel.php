@@ -15,6 +15,25 @@
       $this->pdo = new DB;
     }
 
+    public function getUserInfo()
+    {
+      $res = $this->pdo
+        ->field('*')
+        ->table('user')
+        ->where(' id = ' . $_SESSION['uid'])
+        ->find();
+      return $res;
+    }
+
+    public function doLogin()
+    {
+      $res = $this->pdo
+        ->field('id', 'status', 'icon', 'name')
+        ->table('user')
+        ->where(' mobile = \'' . $_POST['mobile'] . '\' and pwd = \'' . ($_POST['pwd'] . '\''))
+        ->find();
+      return $res;
+    }
 //      注册新用户
 //      返回用户id
     public function doRegister()
@@ -24,4 +43,6 @@
         ->insert($_POST);
       return $uid;
     }
+
+
   }
