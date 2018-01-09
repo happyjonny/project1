@@ -12,10 +12,10 @@
     // 查询所有的用户数据
     public function showAll($where, $limit)
     {
-      // select * from userController
+      // select * from user
       $res = $this->pdo
         ->field('*')
-        ->table('userController')
+        ->table('user')
         ->where($where)
         ->order('id desc')
         ->limit($limit)
@@ -35,7 +35,7 @@
       // select * from userController where id = xxx
       $res = $this->pdo
         ->field('*')
-        ->table('userController')
+        ->table('user')
         ->where(' id = ' . $id)
         ->find();
       return $res;
@@ -46,7 +46,7 @@
     {
       $res = $this->pdo
         ->field(' count(id) as count')
-        ->table('userController')
+        ->table('user')
         ->where($where)
         ->select();
       return $res[0]['count'];
@@ -86,9 +86,9 @@
       $_POST['icon'] = $icon[0];
 
       // 数据验证完成了,  调用DB, 插入数据
-      // insert into userController() values();
+      // insert into user() values();
       $data = $this->pdo
-        ->table('userController')
+        ->table('user')
         ->insert($_POST);
 //      var_dump($this->pdo->sql, $data);
 //      die;
@@ -128,7 +128,7 @@
 
       // 数据验证完成了,  调用DB, 更新数据
       $data = $this->pdo
-        ->table('userController')
+        ->table('user')
         ->where('id = ' . $_POST['id'])
         ->update($_POST);
       return $data;
@@ -141,7 +141,7 @@
 
       // 2. 调用DB类
       $res = $this->pdo
-        ->table('userController')
+        ->table('user')
         ->where('id = ' . $id)
         ->delete();
       return $res;
@@ -151,17 +151,17 @@
     {
       // 查询该用户的状态
       $id = $_GET['id'];
-      // select status from userController where id = xx
+      // select status from user where id = xx
       $res = $this->pdo
         ->field('status')
-        ->table('userController')
+        ->table('user')
         ->where('id = ' . $id)
         ->find();
 
       $res['status'] = ($res['status'] == 1 ? 2 : 1);
 
       $res = $this->pdo
-        ->table('userController')
+        ->table('user')
         ->where('id = ' . $id)
         ->update($res);
     }

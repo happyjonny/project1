@@ -28,7 +28,7 @@
 
 			$data = $this->user->showAll($where, $limit);
 //			echo $this->userController->pdo->sql;die;
-			include 'View/userController/index.html';
+      include 'View/user/index.html';
 		}
 
 		public function count()
@@ -40,7 +40,7 @@
 		// 加载 新增用户界面 
 		public function add()
 		{
-			include 'View/userController/add.html';
+      include 'View/user/add.html';
 		}
 
 		public function doAdd()
@@ -48,7 +48,7 @@
 			$data = $this->user->doAdd();
 
 			if($data){
-				myNotice('新增成功', 'index.php?c=userController');
+        myNotice('新增成功', 'index.php?c=user');
 			}
 //			var_dump($data);die;
 			myNotice('新增失败');
@@ -60,7 +60,7 @@
 			// 根据id 查询用户
 			$data = $this->user->showOne();
 
-			include 'View/userController/edit.html';
+      include 'View/user/edit.html';
 		}
 
 		public function doEdit()
@@ -68,7 +68,7 @@
 			$data = $this->user->doEdit();
 
 			if($data){
-				myNotice('编辑成功', 'index.php?c=userController');
+        myNotice('编辑成功', 'index.php?c=user');
 			}
 			myNotice('编辑失败');
 		}
@@ -77,14 +77,16 @@
 		public function doDel()
 		{
 			$this->user->doDel();
-			header('location: index.php?c=userController'); die;
+      header('location: index.php?c=user');
+      die;
 		}
 
 		// 修改 状态
 		public function doStatus()
 		{
 			$this->user->doStatus();
-			header('location: index.php?c=userController'); die;
+      header('location: index.php?c=user');
+      die;
 		}
 
 	}

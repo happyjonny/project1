@@ -71,7 +71,9 @@
       </div>
 
       <div class="buy">
-        <form action="" class="" method="post" name="buy_item" >
+        <form action="./index.php" class="" method="post" name="buy_item">
+          <input type="hidden" name="c" value="user">
+          <input type="hidden" name="m" value="cart">
           数量: <input type="text" name="quantity" class="quantity">
           <input type="submit" value="添加购物车" class="add-to-cart">
           <div>

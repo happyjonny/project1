@@ -1,3 +1,6 @@
+<?php $this->header() ?>
+<?php $this->nav() ?>
+<link rel="stylesheet" href="../css/main2.css">
 <div class="member-right-container" xmlns="http://www.w3.org/1999/html">
   <div class="member-right-content">
     <div class="tabmenu">
@@ -16,57 +19,57 @@
             <!--<a href="">-->
             <form action="" method="post" name="cart_buy">
 
-            <!--商品信息 根据购物车商品数量遍历-->
-            <div class="item-infos">
-              <div class="item-infos-img">
-                <img src="" alt="">
-              </div>
-              <div class="item-infos-inner">
-                <div class="item-title">
-                  <!--商品链接-->
-                  <a href="">青苹果</a>
+              <!--商品信息 根据购物车商品数量遍历-->
+              <div class="item-infos">
+                <div class="item-infos-img">
+                  <img src="" alt="">
                 </div>
-                <div class="item-subtitle">
-                  300克
+                <div class="item-infos-inner">
+                  <div class="item-title">
+                    <!--商品链接-->
+                    <a href="">青苹果</a>
+                  </div>
+                  <div class="item-subtitle">
+                    300克
+                  </div>
                 </div>
-              </div>
-              <div class="item-infos-price">
-                <!--TODO 商品价格-->
-                <span class="marketprice " id="marketprice">
+                <div class="item-infos-price">
+                  <!--TODO 商品价格-->
+                  <span class="marketprice " id="marketprice">
                       &yen;13.8
                   </span>
-                <p>数量:</p>
-                <!--TODO name=商品id value=数量-->
-                <input type="text" name="quantity" value="">
-                <!--TODO 删除该购物车该商品id-->
-                <a href="">
-                  <div class="doDel">
-                    删除
-                  </div>
-                </a>
+                  <p>数量:</p>
+                  <!--TODO name=商品id value=数量-->
+                  <input type="text" name="quantity" value="">
+                  <!--TODO 删除该购物车该商品id-->
+                  <a href="">
+                    <div class="doDel">
+                      删除
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <!--订单统计-->
-            <div class="item-infos-total">
+              <!--订单统计-->
+              <div class="item-infos-total">
                 <span class="status">
                   共: 多少商品 实付:
                   <span>&yen;300</span>
 
                 </span>
-            </div>
+              </div>
 
-            <!--下订单-->
-            <div class="delete-order">
+              <!--下订单-->
+              <div class="delete-order">
 
-              <!--<div class="doDel">-->
-              <span>
+                <!--<div class="doDel">-->
+                <span>
                    <input type="submit" value="提交订单" class="order-submit">
 
-                <!--</div>-->
+                  <!--</div>-->
                 </span>
 
-            </div>
+              </div>
 
             </form>
             <!--</a>-->
@@ -79,13 +82,17 @@
 
     <!--订单页数-->
     <!--<div class="page-num-container">-->
-      <!--<ul>-->
-        <!--<li><a href="">1</a></li>-->
-        <!--<li><a href="">2</a></li>-->
-      <!--</ul>-->
+    <!--<ul>-->
+    <!--<li><a href="">1</a></li>-->
+    <!--<li><a href="">2</a></li>-->
+    <!--</ul>-->
     <!--</div>-->
 
   </div>
 </div>
 </div>
 </div>
+
+
+<?php $this->footer() ?>
+<?php $this->contact() ?>

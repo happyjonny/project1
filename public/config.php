@@ -14,7 +14,7 @@
 
 	// 数据库配置
 	define('DSN', 'mysql:dbname=s73;host=localhost;charset=utf8');
-	define('userController', 'jonny');
+  define('USER', 'jonny');
 	define('PWD', '');
 
 	// Admin 下的css/js/images
