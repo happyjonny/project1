@@ -6,6 +6,7 @@
 		private $page;
 		private $count;
 		private $total;
+    public $param;
 
 
 		public function showPage()
@@ -42,6 +43,42 @@
 
 			return $html;
 		}
+
+    public function ushowPage()
+    {
+      // 获取当前文件地址 (网址)
+//      echo '111';die;
+      $src = $_SERVER['SCRIPT_NAME'];
+//      var_dump($src);die;
+
+      // 拼接原有的网址参数
+      $param = '';
+      foreach ($_GET as $k => $v) {
+        if ($k == 'page') {
+          continue;
+        }
+        $param .= "{$k}={$v}&";
+      }
+
+//      echo $this->param = $param;die;
+
+      $src .= '?' . $param;
+//      echo $src;die;
+      $numList = '';
+//      $html = '<li><a href="'.$src.'page=1>" <span> 1 </span></a> </li>';
+//      $html .= '<li><a href="'.$src.'page='.($this->page -1).'><span> 1 </span> </a></li>';
+
+      for ($i = 1; $i <= $this->total; $i++) {
+//        if($i>10 && $i!=$this->total){
+//          continue;
+//        }
+        $numList .= '<li><a href="' . $src . 'page=' . $i . '"><span> ' . $i . '</span> </a></li>';
+      }
+
+
+      return $numList;
+
+    }
 
 		public function cNum($count)
 		{

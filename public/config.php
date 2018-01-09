@@ -23,4 +23,4 @@
 	define('AI', '/Admin/Resource/images/');
 
 	// 每页显示的条数
-	define('ROWS', 10);
+  define('ROWS', 12);

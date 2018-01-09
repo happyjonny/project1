@@ -1,0 +1,163 @@
+<?php $this->header() ?>
+<?php $this->nav() ?>
+
+<link rel="stylesheet" href="../../../css/i.css">
+<!--商品分类页-->
+<!-- 分类页面-->
+<div class="category-page-container">
+  <!--左侧-->
+  <div class="left">
+    <div class="left-container">
+      <div class="title">
+        <h3>最近浏览</h3>
+      </div>
+      <div class="category-last-content-container">
+        <div class="last-content">
+          <ul>
+            <li>
+              <div class="goodspic">
+                <a href="">
+                  <img src="/attachment/lt-ico.png" id="pics">
+                </a>
+              </div>
+              <dl>
+                <dt>
+                  <a href="">顶级定制</a>
+                </dt>
+                <dd>998元</dd>
+              </dl>
+            </li>
+            <li>
+              <div class="goodspic">
+                <a href="">
+                  <img src="/attachment/lt-ico.png" id="pics">
+                </a>
+              </div>
+              <dl>
+                <dt>
+                  <a href="">顶级定制</a>
+                </dt>
+                <dd>998元</dd>
+              </dl>
+            </li>
+            <li>
+              <div class="goodspic">
+                <a href="">
+                  <img src="/attachment/lt-ico.png" id="pics">
+                </a>
+              </div>
+              <dl>
+                <dt>
+                  <a href="">顶级定制</a>
+                </dt>
+                <dd>998元</dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+        <a href="">全部浏览记录</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!--右侧-->
+  <div class="right">
+    <div class="right-container">
+      <div class="sort-bar">
+        <div class="sort-array">
+          排序方式:
+          <ul>
+            <!--TODO 根据选择 class 变为selected或者空-->
+            <li class="selected"><a href="">默认</a></li>
+            <li class=""><a href="./index.php?c=goods&order=sold&id=<?= $cid ?>">销量 <i></i></a></li>
+            <li class=""><a href="./index.php?c=goods&order=price&id=<?= $cid ?>">价格 <i></i></a></li>
+          </ul>
+        </div>
+        <div id="isnew_box" class="sort-box">
+          <span>
+            <a href="">
+              <i></i>
+              新品上市
+            </a>
+          </span>
+        </div>
+        <div id="ishot_box" class="sort-box">
+          <span>
+            <a href="">
+              <i></i>
+              热卖商品
+            </a>
+          </span>
+        </div>
+        <div id="isrecommand_box" class="sort-box">
+          <span>
+            <a href="">
+              <i></i>
+              推荐商品
+            </a>
+          </span>
+        </div>
+        <div id="isdiscount_box" class="sort-box">
+          <span>
+            <a href="">
+              <i></i>
+              促销商品
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="products-content">
+      <ul class="products-list">
+        <!-- 商品信息 -->
+
+        <?php foreach($data as $k => $v ): ?>
+        <li class="item">
+          <div class="item-content">
+            <div class="item-pic">
+              <a href="">
+                <img src="<?= imgUrl($v['icon']) ?>" alt="">
+              </a>
+            </div>
+            <div class="item-info">
+              <div class="good-name">
+                <a href=""><?= $v['name'] ?></a>
+              </div>
+              <div class="good-price">
+                <em class="sale-price"><?= $v['price'] ?></em>
+                <em class="market-price"><?= $v['price'] ?></em>
+              </div>
+              <div class="sell-stat">
+                <ul>
+                  <li>
+                    <!--TODO -->
+                    <a href=""><?= $v['sold'] ?></a>
+                    <p>商品销量</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <?php endforeach ?>
+
+
+      </ul>
+      <div class="show-pages-container">
+        <div class="show-pages-content">
+          <ul>
+            <?php echo $page->ushowPage() ?>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<?php $this->footer() ?>
+<?php $this->contact() ?>

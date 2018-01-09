@@ -6,12 +6,6 @@
     <div class="search-tool">
 
       <form action="../goods/category.html" method="get">
-        <!--<caption></caption>-->
-        <!--<select name="search_type" class="search_type">-->
-        <!--<option value="商城">商城</option>-->
-        <!--<option value="店铺">店铺</option>-->
-        <!--</select>-->
-        <!--<input type="button" value="搜索" class="search-submit">-->
         <input class="search" type="text" value="" name="search_txt" placeholder="搜一下">
         <div class="search-submit-div">
           <input type="button" value="搜索" class="search-submit">
@@ -33,43 +27,43 @@
         <div class="class-content">
           <div class="category">
             <ul class="menu">
-              <?php foreach($data as $k => $v ): ?>
-              <li class="item">
-                <div class="category-item">
-                  <h4><a href=""><?= $v['name'] ?></a></h4>
-                </div>
-                <div class="sub-category">
-                  <div class="sub-category-item">
-                    <dl>
-                      <dt>
-                        <a href="">二级分类1</a>
-                      </dt>
-                      <dd>
-                        <a href="">三级分类11</a>
-                        <a href="">三级分类21</a>
-                        <a href="">三级分类11</a>
-                        <a href="">三级分类21</a>
-                        <a href="">三级分类11</a>
-                        <a href="">三级分类21</a>
-                        <a href="">三级分类11</a>
-                        <a href="">三级分类21</a>
-                        <a href="">三级分类11</a>
-                        <a href="">三级分类21</a>
-                      </dd>
-                    </dl>
-                    <dl>
-                      <dt>
-                        <a href="">二级分类2</a>
-                      </dt>
-                      <dd>
-                        <a href="">三级分类21</a>
-                        <a href="">三级分类22</a>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-              </li>
-              <?php endforeach ?>
+
+              <?php echo $this->base->nav() ?>
+
+              <!--<li class="item">-->
+
+              <!--<div class="category-item">-->
+
+              <!--<h4><a href=""> </a></h4>-->
+
+              <!--</div>-->
+
+              <!--<div class="sub-category">-->
+              <!--<div class="sub-category-item">-->
+
+              <!--<dl>-->
+              <!--<dt>-->
+              <!--<a href="">二级</a>-->
+              <!--</dt>-->
+              <!--<dd>-->
+              <!--<a href="">三级分类11</a>-->
+              <!--</dd>-->
+              <!--</dl>-->
+
+
+              <!--<dl>-->
+              <!--<dt>-->
+              <!--<a href="">二级分类2</a>-->
+              <!--</dt>-->
+              <!--<dd>-->
+              <!--<a href="">三级分类21</a>-->
+
+              <!--</dd>-->
+              <!--</dl>-->
+              <!--</div>-->
+              <!--</div>-->
+              <!--</li>-->
+
 
             </ul>
           </div>

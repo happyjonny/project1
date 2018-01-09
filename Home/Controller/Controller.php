@@ -36,9 +36,11 @@
 
       //加载商品分类
 
-      $data = $this->base->showAll();
+//      $data = $this->base->showAll();
 
       include_once 'View/index/_nav.html';
 
     }
+
+
   }

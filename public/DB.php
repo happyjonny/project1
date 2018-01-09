@@ -40,7 +40,7 @@
 			$this->sql = $sql;
 
 			$res = $this->db->query($sql);
-//			var_dump($sql);die;
+//			var_dump($sql);
 			$data = $res->fetchALL(PDO::FETCH_ASSOC);
 //			var_dump($data);die;
 			return $data;
