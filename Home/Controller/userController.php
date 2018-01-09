@@ -17,17 +17,17 @@
       $this->user = new userModel();
     }
 
+
     public function index()
     {
-
-
+      self::isLogin();
       include_once 'View/user/cart.html';
 
     }
 
     public function cart()
     {
-
+      self::isLogin();
       include_once 'View/user/cart.html';
     }
 
@@ -38,6 +38,8 @@
 
     public function doLogin()
     {
+      //如果有cookie
+
       $_POST['pwd'] = md5($_POST['pwd']);
 
       $data = $this->user->doLogin();
@@ -62,6 +64,21 @@
       header('location: ./index.php');
       die;
 
+    }
+
+    public function doLogout()
+    {
+      setcookie('mobile', '', time() - 1);
+      setcookie('pwd', '', time() - 1);
+      setcookie('uid', '', time() - 1);
+      setcookie('name', '', time() - 1);
+      unset($_SESSION['uid']);
+      unset($_SESSION['mobile']);
+      unset($_SESSION['status']);
+      unset($_SESSION['icon']);
+      unset($_SESSION['name']);
+      header('location: ./index.php');
+      die;
     }
 
     public function register()
@@ -110,6 +127,13 @@
         die;
       }
 
+    }
+
+    static public function isLogin()
+    {
+      if (empty($_SESSION)) {
+        myNotice('请先登录', './index.php?c=user&m=login');
+      }
     }
 
   }
