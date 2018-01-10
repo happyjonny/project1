@@ -28,6 +28,8 @@
     public function cart()
     {
       self::isLogin();
+      $data = $this->user->getCartItemInfoAll();
+      var_dump($data);
       include_once 'View/user/cart.html';
     }
 
@@ -134,15 +136,29 @@
     public function addCart()
     {
       self::isLogin();
+      //保证 uid为session的uid
+      // 即时用户篡改input标签 也可以正常使用
       $_POST['uid'] = $_SESSION['uid'];
-
       //添加至购物车表
       //先查询原来购物车是否存在该物品
       $res = $this->user->getCart();
-
+      if (!empty($res)) {
+        //有该物品
+        //先把数量增加 再更新
+        $_POST['quantity'] += $res['quantity'];
+        $data = $this->user->updateCart($_POST);
+      } else {
+        // 购物车没有该商品  直接新增
+        $data = $this->user->addCart($_POST);
+      }
+      if (!empty($data)) {
+        // 添加成功,跳转至购物车页面
+        $this->cart();
+      } else {
+        myNotice('添加购物车失败');
+      }
 
     }
-
 
 
     static public function isLogin()

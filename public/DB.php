@@ -2,6 +2,12 @@
 	
 	class DB
 	{
+
+    /*
+     * 错误代码:
+     * 10001: select语句错误
+     * 10002: find语句错误
+     */
 		public $field = '*';
 		public $table = '';
 		public $where = '';
@@ -38,9 +44,15 @@
 					'.$this->order.' 
 					'.$this->limit;
 			$this->sql = $sql;
+      $this->initialization();
 
 			$res = $this->db->query($sql);
-//			var_dump($sql);
+//			var_dump($sql);die;
+
+      if (!$res) {
+        throw new Exception('数据库查询语句出错', 10001);
+      }
+
 			$data = $res->fetchALL(PDO::FETCH_ASSOC);
 //			var_dump($data);die;
 			return $data;
@@ -56,8 +68,14 @@
 					'.$this->order.' 
 					'.$this->limit;
 			$this->sql = $sql;
-//    var_dump($this->sql);
+      $this->initialization();
+
+//    var_dump($this->sql);die;
 			$res = $this->db->query($sql);
+      if (!$res) {
+        throw new Exception('数据库查询语句出错', 10002);
+
+      }
 			$data = $res->fetch(PDO::FETCH_ASSOC);
 			return $data;
 		}
@@ -83,6 +101,7 @@
 			// 3. 准备sql
 				$sql = 'insert into '.$this->table.'('.$field.') values('.$value.')';
 				$this->sql = $sql;
+      $this->initialization();
 
 			// 4. 执行sql 
 				$res = $this->db->exec($sql);
@@ -117,9 +136,11 @@
 			// 3. SQL
 				$sql = 'update '.$this->table.' set '.$field.$this->where;
 				$this->sql = $sql;
+      $this->initialization();
 
 			// 4. 执行sql 
 				$res = $this->db->exec($sql);
+
 				return $res;
 		}
 
@@ -128,7 +149,10 @@
 		{
 			// delete from xxx where xxx 
 			$sql = 'delete from '.$this->table.$this->where;
-			$res = $this->db->exec($sql);
+      $this->initialization();
+      $res = $this->db->exec($sql);
+
+
 			return $res;
 		}
 
@@ -203,6 +227,16 @@
 			return $this;
 		}
 
+    public function initialization()
+    {
+      $this->field = '*';
+      $this->table = '';
+      $this->where = '';
+      $this->order = '';
+      $this->group = '';
+      $this->having = '';
+      $this->limit = '';
+    }
 
 	}
 
