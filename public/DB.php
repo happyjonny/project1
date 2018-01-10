@@ -50,7 +50,7 @@
 //			var_dump($sql);die;
 
       if (!$res) {
-        throw new Exception('数据库查询语句出错', 10001);
+        throw new Exception('数据库查询语句出错:' . $this->sql, 10001);
       }
 
 			$data = $res->fetchALL(PDO::FETCH_ASSOC);

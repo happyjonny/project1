@@ -30,5 +30,19 @@
 
 	}
 
+  function firstCategoryToKey($arr = array())
+  {
+    if (empty($arr)) {
+      return false;
+    } else {
+      $tmp = array();
+      foreach ($arr as $k => $v) {
+        $tmp[$v['id']] = array();
+      }
+    }
+    return $tmp;
+
+  }
+
 
 ?>

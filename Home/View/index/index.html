@@ -1,114 +1,7 @@
-<!--分类导航头部 -->
-
-<!--<div class="head-nav">-->
-<!--<div class="head-nav-container">-->
-<!--<div class="head-nav-category">-->
-<!--<a href="">商城分类</a>-->
-<!--</div>-->
-<!--<div class="head-nav-bar">-->
-<!--<a href="">商城首页</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--分类导航底部-->
-
-<!--<div class="head-class">-->
-<!--<div class="class-content">-->
-<!--<div class="header">-->
-<!--<div class="img-controller">-->
-<!--<div class="img-controller-circle"></div>-->
-<!--<div class="img-controller-circle"></div>-->
-<!--<div class="img-controller-circle"></div>-->
-<!--<div class="img-controller-circle"></div>-->
-<!--<div class="img-controller-circle"></div>-->
-<!--</div>-->
-<!--<div class="header-img">-->
-<!--<img src="banner.jpg" alt="">-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="category">-->
-<!--<ul class="menu">-->
-<!--<li class="item">-->
-<!--<div class="category-item">-->
-<!--<h4><a href="">食品生鲜</a></h4>-->
-<!--</div>-->
-<!--<div class="sub-category">-->
-<!--<div class="sub-category-item">-->
-<!--<dl>-->
-<!--<dt>-->
-<!--<a href="">二级分类1</a>-->
-<!--</dt>-->
-<!--<dd>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--<dl>-->
-<!--<dt>-->
-<!--<a href="">二级分类2</a>-->
-<!--</dt>-->
-<!--<dd>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类22</a>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--</div>-->
-<!--</div>-->
-<!--</li>-->
-
-<!--<li class="item">-->
-<!--<div class="category-item">-->
-<!--<h4><a href="">食品生鲜</a></h4>-->
-<!--</div>-->
-<!--<div class="sub-category">-->
-<!--<div class="sub-category-item">-->
-<!--<dl>-->
-<!--<dt>-->
-<!--<a href="">二级分类3</a>-->
-<!--</dt>-->
-<!--<dd>-->
-<!--<a href="">三级分类31</a>-->
-<!--<a href="">三级分类41</a>-->
-<!--<a href="">三级分类51</a>-->
-<!--<a href="">三级分类61</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类11</a>-->
-<!--<a href="">三级分类21</a>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--<dl>-->
-<!--<dt>-->
-<!--<a href="">二级分类4</a>-->
-<!--</dt>-->
-<!--<dd>-->
-<!--<a href="">三级分类21</a>-->
-<!--<a href="">三级分类22</a>-->
-<!--</dd>-->
-<!--</dl>-->
-<!--</div>-->
-<!--</div>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-
-<!-- 限时抢购 -->
 <?php $this->header() ?>
 <?php $this->nav() ?>
+
+<!-- 限时抢购 -->
 
 
 <div class="limit-time-nav">
@@ -121,43 +14,24 @@
     </div>
     <div class="limit-time-nav">
       <ul>
+        <!--<?php-->
+        <!--$i=0;-->
+        <!--foreach($data as $k => $v ){-->
+        <!--if($i==5){-->
+        <!--break;-->
+        <!--}elseif($v['sale']==1){-->
+        <!--echo '<li> <a href=""><img src="'. imgUrl($v['icon']).'"></a></li>';-->
+        <!--}-->
+        <!--}-->
+        <!--?>-->
+        <?php foreach($saleGoods as $k => $v): ?>
         <li>
           <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
+            <img src="<?= imgUrl($v['icon']) ?>" alt="">
           </a>
-
         </li>
-        <li>
-          <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
-          </a>
+        <?php endforeach ?>
 
-        </li>
-        <li>
-          <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
-          </a>
-
-        </li>
-
-        <li>
-          <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
-          </a>
-
-        </li>
-        <li>
-          <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
-          </a>
-
-        </li>
-        <li>
-          <a href="">
-            <img src="../../../attachment/lt-item.png" alt="">
-          </a>
-
-        </li>
       </ul>
     </div>
   </div>
@@ -189,80 +63,27 @@
 
     <div class="forsale-item">
       <ul>
+
+        <?php foreach($hotGoods as $k => $v): ?>
+
+
         <li>
           <dl>
             <dt>
-              <a href="">商品名称
+              <a href=""><?= $v['name'] ?>
               </a>
             </dt>
             <dd class="goods-thumb">
               <a href=""><img src="" alt="商品图片"></a>
             </dd>
             <dd class="goods-price">商城价:
-              <em> 99 元</em>
+              <em> <?= $v['price'] ?> 元</em>
             </dd>
           </dl>
         </li>
+        <?php endforeach ?>
 
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
 
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="../../../attachment/lt-item.png" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
-
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片" class="goods-icon"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 111199 元</em>
-            </dd>
-          </dl>
-        </li>
-
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
       </ul>
     </div>
     <div class="forsale-news">
@@ -331,90 +152,25 @@
     </div>
     <div class="right-goods-lists-layout ">
       <ul>
+        <?php foreach($data as $k => $v): ?>
+        <?php foreach($v as $key => $value): ?>
+
         <li>
           <dl>
             <dt>
-              <a href="">商品名称1
+              <a href=""><?= $value['name'] ?>
               </a>
             </dt>
             <dd class="goods-thumb">
               <a href=""><img src="../../../attachment/lt-item.png" alt="商品图片"></a>
             </dd>
             <dd class="goods-price">商城价:
-              <em> 99 元</em>
+              <em> <?= $value['price'] ?> 元</em>
             </dd>
           </dl>
         </li>
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称2
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称3
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称4
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称5
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
-        <li>
-          <dl>
-            <dt>
-              <a href="">商品名称6
-              </a>
-            </dt>
-            <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
-            </dd>
-            <dd class="goods-price">商城价:
-              <em> 99 元</em>
-            </dd>
-          </dl>
-        </li>
+        <?php endforeach ?>
+        <?php endforeach ?>
 
       </ul>
     </div>
