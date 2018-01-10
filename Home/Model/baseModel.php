@@ -155,4 +155,32 @@
     }
 
 
+    public function getUserIndex()
+    {
+      try {
+        $res = $this->pdo
+          ->field('icon, name ')
+          ->table('user')
+          ->where(' id = ' . $_SESSION['user']['uid'])
+          ->find();
+      } catch (Exception $e) {
+        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+      }
+      return $res;
+    }
+
+    public function cookieLogin()
+    {
+      try {
+        $res = $this->pdo
+          ->field('*')
+          ->table('user')
+          ->where(' mobile = "' . $_COOKIE['mobile'] . '" and pwd = "' . $_COOKIE['pwd'] . '"')
+          ->find();
+      } catch (Exception $e) {
+        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+      }
+      return $res;
+    }
+
   }

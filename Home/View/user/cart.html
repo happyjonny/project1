@@ -21,28 +21,29 @@
             <form action="" method="post" name="cart_buy">
 
               <!--商品信息 根据购物车商品数量遍历-->
+              <?php foreach($data as $k => $v): ?>
               <div class="item-infos">
                 <div class="item-infos-img">
-                  <img src="" alt="">
+                  <img src="<?= imgUrl($v['icon']) ?>" alt="">
                 </div>
                 <div class="item-infos-inner">
                   <div class="item-title">
                     <!--商品链接-->
-                    <a href="">青苹果</a>
+                    <a href=""><?= $v['name'] ?></a>
                   </div>
                   <div class="item-subtitle">
-                    300克
+                    <!--TODO 需要增加简短描述字段-->
                   </div>
                 </div>
                 <div class="item-infos-price">
                   <!--TODO 商品价格-->
                   <span class="marketprice " id="marketprice">
-                      &yen;13.8
+                      &yen;<?= $v['price'] ?>
                   </span>
                   <p>数量:</p>
                   <!--TODO name=商品id value=数量-->
-                  <input type="text" name="quantity" value="">
-                  <!--TODO 删除该购物车该商品id-->
+                  <input type="text" name="quantity" value="<?= $v['quantity'] ?>">
+                  <!--TODO 删除该购物车该商品id $v['id']-->
                   <a href="">
                     <div class="doDel">
                       删除
@@ -50,12 +51,21 @@
                   </a>
                 </div>
               </div>
+              <?php
+
+										$xj = $v['price'] * $v['quantity'];
+
+										$sum += $xj;
+										$count += $v['quantity'];
+								?>
+              <?php endforeach ?>
+
 
               <!--订单统计-->
               <div class="item-infos-total">
                 <span class="status">
-                  共: 多少商品 实付:
-                  <span>&yen;300</span>
+                  共: <?= $count ?>件商品 实付:
+                  <span>&yen;<?= $sum ?></span>
 
                 </span>
               </div>

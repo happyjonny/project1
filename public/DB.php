@@ -85,7 +85,7 @@
 			// insert into xxx() values()
 			// 1. 判断$arr 是否有值
 				if( empty($arr) ){
-//					return false;
+          return false;
 				}
 
 			// 2. 拼接数据
@@ -102,7 +102,7 @@
 				$sql = 'insert into '.$this->table.'('.$field.') values('.$value.')';
 				$this->sql = $sql;
       $this->initialization();
-
+//        var_dump($sql);die;
 			// 4. 执行sql 
 				$res = $this->db->exec($sql);
 

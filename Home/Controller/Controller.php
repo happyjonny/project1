@@ -7,8 +7,22 @@
 //			if( empty($_SESSION['admin']) ){
 //				header('location: index.php?c=login'); die;
 //			}
-
       $this->base = new baseModel();
+//      var_dump($_COOKIE);
+      //免登陆
+      if (!empty($_COOKIE['mobile'])) {
+        if (empty($_SESSION['user'])) {
+          $res = $this->base->cookieLogin();
+          if (!empty($res)) {
+            $_SESSION['user']['uid'] = $res['id'];
+            $_SESSION['user']['mobile'] = $res['mobile'];
+            $_SESSION['user']['status'] = $res['status'];
+            $_SESSION['user']['icon'] = $res['icon'];
+            $_SESSION['user']['name'] = $res['name'];
+          }
+        }
+      }
+
     }
 
     public function __call($k, $v)
@@ -44,7 +58,11 @@
 
     public function userIndex()
     {
+      $data2 = $this->base->getUserIndex();
+
       include_once 'View/user/_index.html';
+      unset($data2);
+//      var_dump($data2);die;
     }
 
 

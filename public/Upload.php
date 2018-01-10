@@ -58,7 +58,7 @@
 					$arr[] = $filename;
 					return $arr;
 				}
-				var_dump($_FILES);die;
+//				var_dump($_FILES);die;
 			return '上传失败';
 		}
 

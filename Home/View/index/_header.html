@@ -14,11 +14,11 @@
   <div class="topbar-container">
     <div class="topbar-left">
       <span>Hi,欢迎光临</span>
-      <?php if (empty($_SESSION['mobile'])): ?>
+      <?php if (empty($_SESSION['user'])): ?>
       <a href="./index.php?c=user&m=login" class="topbar-link">登录</a>
       <a href="./index.php?c=user&m=register" class="topbar-link">免费注册</a>
       <?php else: ?>
-      <a href="./index.php?c=user" class="topbar-link">我的</a>
+      <a href="./index.php?c=user" class="topbar-link" style="color: palevioletred">我的会员中心</a>
       <a href="./index.php?c=user&m=doLogout" class="topbar-link">注销</a>
       <?php endif ?>
 

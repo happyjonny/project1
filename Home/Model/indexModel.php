@@ -7,6 +7,8 @@
     public function __construct()
     {
       $this->pdo = new DB;
+
+
     }
 
   }

@@ -1,0 +1,61 @@
+<?php $this->header() ?>
+<?php $this->nav() ?>
+<?php $this->userIndex() ?>
+
+<div class="member-right-container" xmlns="http://www.w3.org/1999/html">
+  <div class="member-right-content">
+    <div class="tabmenu">
+      <ul>
+        <li><a href="">收货地址</a></li>
+      </ul>
+    </div>
+
+    <!--查看收货地址-->
+    <div class="page-show-container">
+      <div class="order-lists">
+        <div class="content">
+          <?php if(!empty($data)): ?>
+          <?php foreach($data as $k => $v ): ?>
+          <div class="list-group address-item">
+            <div class="lists-list">
+              <div class="list-inner">
+                <div class="title">
+                  <span class="realname"><?= $v['realname'] ?></span>
+                  <span class="mobile"><?= $v['tel'] ?></span>
+                </div>
+                <div class="text">
+                  <span class="address"><?= $v['address'] ?></span>
+                </div>
+                <div class="bar">
+                  <span class="pull-right">
+                    <a href="">编辑</a>
+                    <a href="./index.php?c=user&m=addressdoDel&aid=<?= $v['id']?>">删除</a>
+                  </span>
+
+                  <label class="radio-inline">
+                    <!--TODO value为收货地址ID 默认为checked-->
+                    <input type="radio" name="defaults" class="radio" <?= $v['defaults']==1?'checked':'' ?>>
+                    <a href="./index.php?c=user&m=addressdoDefaults&aid=<?= $v['id']?> ">设置默认</a>
+                  </label>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach ?>
+          <?php else: ?>
+          <p>没有收货地址</p>
+          <?php endif ?>
+        </div>
+      </div>
+    </div>
+
+    <!--新增地址-->
+    <a href="./index.php?c=user&m=addressadd" class="submit-btn address-btn">新增地址</a>
+  </div>
+</div>
+</div>
+</div>
+
+<?php $this->footer() ?>
+<?php $this->contact() ?>

@@ -21,7 +21,7 @@
         $res = $this->pdo
           ->field('*')
           ->table('user')
-          ->where(' id = ' . $_SESSION['uid'])
+          ->where(' id = ' . $_SESSION['user']['uid'])
           ->find();
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
@@ -52,6 +52,17 @@
       return $uid;
     }
 
+    //更新个人信息
+
+    public function editProfile()
+    {
+      $res = $this->pdo
+        ->table('user')
+        ->where('id = ' . $_SESSION['user']['uid'])
+        ->update($_POST);
+      return $res;
+    }
+
     //获取购物车所有商品及商品信息
     public function getCartItemInfoAll()
     {
@@ -59,7 +70,7 @@
         $res = $this->pdo
           ->field('c.id, c.uid, c.gid, c.quantity, g.price, g.stock, g.name , g.desc ,i.icon ')
           ->table('cart as c , goods as g , goodsimg as i')
-          ->where('c.gid = g.id and c.gid = i.gid and g.id = i.gid and  i.face = 2  and c.uid = ' . $_SESSION['uid'])
+          ->where('c.gid = g.id and c.gid = i.gid and g.id = i.gid and  i.face = 2  and c.uid = ' . $_SESSION['user']['uid'])
           ->select();
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
@@ -74,7 +85,7 @@
         $res = $this->pdo
           ->field('*')
           ->table('cart')
-          ->where('uid = ' . $_SESSION['uid'])
+          ->where('uid = ' . $_SESSION['user']['uid'])
           ->select();
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
@@ -115,6 +126,51 @@
         ->table('cart')
         ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
         ->update($_POST);
+      return $res;
+    }
+
+    //根据uid获取收货地址信息(所有)
+    public function getAddress($where = '')
+    {
+      $res = $this->pdo
+        ->field('*')
+        ->table('address')
+        ->where($where)
+        ->select();
+      return $res;
+    }
+
+    //新增地址
+    public function addressadd()
+    {
+      $res = $this->pdo
+        ->table('address')
+        ->insert($_POST);
+      return $res;
+    }
+
+    //更新收货地址
+    public function addressupdate($where = '', $arr = array())
+    {
+      if (empty($where) || empty($arr)) {
+        return false;
+      }
+      $res = $this->pdo
+        ->table('address')
+        ->where($where)
+        ->update($arr);
+      return $res;
+    }
+
+    public function addressdoDel($where)
+    {
+      if (empty($where)) {
+        return false;
+      }
+      $res = $this->pdo
+        ->table('address')
+        ->where($where)
+        ->delete();
       return $res;
     }
 

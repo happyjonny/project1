@@ -21,15 +21,16 @@
     public function index()
     {
       self::isLogin();
+      $data = $this->user->getCartItemInfoAll();
+      var_dump($data);
       include_once 'View/user/cart.html';
-
     }
 
     public function cart()
     {
       self::isLogin();
       $data = $this->user->getCartItemInfoAll();
-      var_dump($data);
+//      var_dump($data);
       include_once 'View/user/cart.html';
     }
 
@@ -38,6 +39,130 @@
     {
       include_once 'View/user/login.html';
     }
+
+    public function profile()
+    {
+      self::isLogin();
+      $data = $this->user->getUserInfo();
+//      var_dump($data);
+      include_once 'View/user/profile.html';
+    }
+
+    public function address()
+    {
+      self::isLogin();
+
+      $data = $this->user->getAddress('uid = ' . $_SESSION['user']['uid']);
+//       var_dump($data);die;
+      include_once 'View/user/address.html';
+    }
+
+    public function addressadd()
+    {
+      self::isLogin();
+
+      include_once 'View/user/addressadd.html';
+    }
+
+    public function doaddressadd()
+    {
+      if (empty($_POST['address']) || empty($_POST['realname']) || empty($_POST['tel'])) {
+        myNotice('输入有误', 3);
+      }
+
+      //验证信息
+      //验证地址
+      $preg = "/\W+/u";
+      if (preg_match($preg, $_POST['address'])) {
+        myNotice('地址格式不正确');
+      }
+
+      $preg = '/^[\x{4e00}-\x{9fa5}]{2,10}$|^[a-zA-Z\s]*[a-zA-Z\s]{2,20}$/isu';
+      if (!preg_match($preg, $_POST['realname'])) {
+        myNotice('姓名格式不正确');
+      }
+
+      $preg = '/^1[34578]\d{9}$/';
+      if (!preg_match($preg, $_POST['tel'])) {
+        myNotice('手机号码格式不正确');
+      }
+
+      //TODO
+//      //地区可以不填
+//      if (empty($_POST['area'])){
+//        unset($_POST['area']);
+//      }
+      //验证地区
+//      $preg ='/^[\x{4e00}-\x{9fa5}]{2,10}$|^[a-zA-Z\s]*[a-zA-Z\s]{2,20}$/isu';
+//      if(preg_match($preg,$_POST['area'])){
+//        myNotice('地区格式不正确');
+//      }
+
+
+      $_POST['uid'] = $_SESSION['user']['uid'];
+
+      //查询该用户已有收货信息
+      $res = $this->user->getAddress('uid = ' . $_SESSION['user']['uid']);
+      //如果没有收货地址
+      if (empty($res)) {
+        //新增 且该地址设置为默认
+        $_POST['defaults'] = 1;
+      } else {
+        //已存在, 则不用设置为默认
+        $_POST['defaults'] = 2;
+      }
+      $data = $this->user->addressadd();
+
+
+      header('location: ./index.php?c=user&m=address');
+      die;
+    }
+
+    public function addressdoDefaults()
+    {
+      self::isLogin();
+
+      $data = $this->user->getAddress('id = ' . $_GET['aid']);
+      if ($data[0]['uid'] != $_SESSION['user']['uid']) {
+        myNotice('非法访问', './index.php?c=user&m=address');
+      }
+      //先设置该用户所有地址为非默认
+      $arr['defaults'] = 2;
+      $data = $this->user->addressupdate(' uid = ' . $data[0]['uid'], $arr);
+      //再设置所选择的收货地址为默认
+      $arr['defaults'] = 1;
+      $data = $this->user->addressupdate('id = ' . $_GET['aid'], $arr);
+      header('location: ./index.php?c=user&m=address');
+      die;
+    }
+
+    public function addressdoDel()
+    {
+      self::isLogin();
+      //用户验证
+      $data = $this->user->getAddress('id = ' . $_GET['aid']);
+      if ($data[0]['uid'] != $_SESSION['user']['uid']) {
+        myNotice('非法访问', './index.php?c=user&m=address');
+      }
+      $d = $data[0]['defaults'];
+      //删除该收货地址信息
+      $data = $this->user->addressdoDel('id = ' . $_GET['aid']);
+      unset($data);
+      //如果该收货地址是默认 则要去修改其他地址设置为默认
+      if ($d == 1) {
+        //获取该用户还有的所有收货地址
+        $data = $this->user->getAddress('uid = ' . $_SESSION['user']['uid']);
+        if (!empty($data)) {
+          //如果还有 设置数据库中该用户查询到的第一个收货地址为默认
+          $arr['defaults'] = 1;
+          $data = $this->user->addressupdate('id = ' . $data[0]['id'], $arr);
+        }
+      }
+
+      header('location: ./index.php?c=user&m=address');
+      die;
+    }
+
 
     public function doLogin()
     {
@@ -55,11 +180,11 @@
         }
         setcookie('uid', $data['id'], time() + 3600 * 24 * 7);
         setcookie('name', $data['name'], time() + 3600 * 24 * 7);
-        $_SESSION['uid'] = $data['id'];
-        $_SESSION['mobile'] = $_POST['mobile'];
-        $_SESSION['status'] = $data['status'];
-        $_SESSION['icon'] = $data['icon'];
-        $_SESSION['name'] = $data['name'];
+        $_SESSION['user']['uid'] = $data['id'];
+        $_SESSION['user']['mobile'] = $_POST['mobile'];
+        $_SESSION['user']['status'] = $data['status'];
+        $_SESSION['user']['icon'] = $data['icon'];
+        $_SESSION['user']['name'] = $data['name'];
       } else {
         myNotice('请检查用户名密码');
       }
@@ -75,11 +200,11 @@
       setcookie('pwd', '', time() - 1);
       setcookie('uid', '', time() - 1);
       setcookie('name', '', time() - 1);
-      unset($_SESSION['uid']);
-      unset($_SESSION['mobile']);
-      unset($_SESSION['status']);
-      unset($_SESSION['icon']);
-      unset($_SESSION['name']);
+      unset($_SESSION['user']['uid']);
+      unset($_SESSION['user']['mobile']);
+      unset($_SESSION['user']['status']);
+      unset($_SESSION['user']['icon']);
+      unset($_SESSION['user']['name']);
       header('location: ./index.php');
       die;
     }
@@ -119,13 +244,13 @@
 //        setcookie('uid', $uid, time() + 3600 * 2);
 //        setcookie('mobile', $_POST['mobile'], time() + 3600 * 2);
 
-        $_SESSION['uid'] = $uid;
-        $_SESSION['mobile'] = $_POST['mobile'];
+        $_SESSION['user']['uid'] = $uid;
+        $_SESSION['user']['mobile'] = $_POST['mobile'];
 
         $userInfo = $this->user->getUserInfo();
-        $_SESSION['status'] = $userInfo['status'];
-        $_SESSION['icon'] = $userInfo['icon'];
-        $_SESSION['name'] = $userInfo['name'];
+        $_SESSION['user']['status'] = $userInfo['status'];
+        $_SESSION['user']['icon'] = $userInfo['icon'];
+        $_SESSION['user']['name'] = $userInfo['name'];
         header('location: ./index.php');
         die;
       }
@@ -138,17 +263,23 @@
       self::isLogin();
       //保证 uid为session的uid
       // 即时用户篡改input标签 也可以正常使用
-      $_POST['uid'] = $_SESSION['uid'];
+      $_POST['uid'] = $_SESSION['user']['uid'];
       //添加至购物车表
       //先查询原来购物车是否存在该物品
       $res = $this->user->getCart();
       if (!empty($res)) {
         //有该物品
         //先把数量增加 再更新
+        if (empty($_POST['quantity'])) {
+          $_POST['quantity'] = 1;
+        }
         $_POST['quantity'] += $res['quantity'];
         $data = $this->user->updateCart($_POST);
       } else {
         // 购物车没有该商品  直接新增
+        if (empty($_POST['quantity'])) {
+          $_POST['quantity'] = 1;
+        }
         $data = $this->user->addCart($_POST);
       }
       if (!empty($data)) {
@@ -160,10 +291,72 @@
 
     }
 
+    //修改会员信息
+    public function editProfile()
+    {
+      //密码验证
+      //2次密码不一致
+//      var_dump($_POST);
+      if (empty($_POST['pwd'])) {
+        unset($_POST['pwd']);
+        unset($_POST['repwd']);
+      } else {
+        if ($_POST['pwd'] != $_POST['repwd']) {
+          myNotice('两次密码不一致,请重新输入');
+        }
+        $preg = '/^[a-zA-Z0-9]{6,20}$/';
+        if (!preg_match($preg, $_POST['pwd'])) {
+          myNotice('密码格式不正确');
+        }
+
+        $_POST['pwd'] = md5($_POST['pwd']);
+        unset($_POST['repwd']);
+      }
+      //昵称
+      if (empty($_POST['name'])) {
+        unset($_POST['name']);
+      } else {
+        $preg = "/\W+/u";
+        if (preg_match($preg, $_POST['name'])) {
+          myNotice('昵称格式不正确');
+        }
+      }
+      //地址
+      if (empty($_POST['address'])) {
+        unset($_POST['address']);
+      } else {
+        $preg = "/\W+/u";
+        if (preg_match($preg, $_POST['address'])) {
+
+          myNotice('地址格式不正确');
+        }
+      }
+
+      //上传icon: 如果用户上传文件则处理,如果不上传则不处理
+      if (!empty($_FILES)) {
+        $file = new Upload;
+        $icon = $file->singleFile();
+
+        if (is_array($icon)) {
+          $_POST['icon'] = $icon[0];
+        }
+      }
+
+      $res = $this->user->editProfile();
+
+      if ($res !== false) {
+        myNotice('更新成功');
+      } else {
+        myNotice('更新失败');
+      }
+
+    }
+
+
 
     static public function isLogin()
     {
-      if (empty($_SESSION)) {
+      if (empty($_SESSION['user'])) {
         myNotice('请先登录', './index.php?c=user&m=login');
       }
     }

@@ -1,0 +1,60 @@
+<?php $this->header() ?>
+<?php $this->nav() ?>
+<?php $this->userIndex() ?>
+
+<div class="member-right-container" xmlns="http://www.w3.org/1999/html">
+  <div class="member-right-content">
+    <div class="tabmenu">
+      <ul>
+        <li><a href="">新增地址</a></li>
+      </ul>
+    </div>
+    <div class="page-show-container">
+      <div class="order-lists">
+        <div class="content">
+          <form action="./index.php?c=user&m=doaddressadd" method="post" name="set_address">
+            <!--value为收货地址id -->
+            <!--<input type="text" hidden name="addressid" value="">-->
+            <div class="cell-group">
+              <div class="cell">
+                <div class="cell-label">收货人</div>
+                <div class="cell-info">
+                  <!--value为收货人-->
+                  <input type="text" class="input" placeholder="收货人" name="realname">
+                </div>
+              </div>
+              <div class="cell">
+                <div class="cell-label">联系电话</div>
+                <div class="cell-info">
+                  <!--value为电话-->
+                  <input type="text" class="input" placeholder="联系电话" name="tel">
+                </div>
+              </div>
+              <!--<div class="cell">-->
+              <!--<div class="cell-label">所在地区</div>-->
+              <!--<div class="cell-info">-->
+              <!--&lt;!&ndash;value为地区&ndash;&gt;-->
+              <!--<input type="text" class="input" placeholder="所在地区" name="area">-->
+              <!--</div>-->
+              <!--</div>-->
+              <div class="cell">
+                <div class="cell-label">详细地址</div>
+                <div class="cell-info">
+                  <!--value为详细地址-->
+                  <input type="text" class="input" placeholder="详细地址" name="address">
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-block" value="保存地址">
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<?php $this->footer() ?>
+<?php $this->contact() ?>
