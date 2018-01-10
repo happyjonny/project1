@@ -10,6 +10,7 @@
   {
     private $pdo;
 
+
     public function __construct()
     {
       $this->pdo = new DB;
@@ -21,7 +22,6 @@
 //      echo 'showall';die;
 
       $res = $this->getTreeClassList();
-//      var_dump($res);
 
       $tmp1 = $res;
 

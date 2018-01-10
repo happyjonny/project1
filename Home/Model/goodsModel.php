@@ -99,6 +99,7 @@
         ->where('g.id = i.gid and g.id = ' . $id)
         ->order(' face desc')
         ->find();
+      echo $this->pdo->sql;
       return $res;
     }
 

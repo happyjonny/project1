@@ -26,8 +26,8 @@
         <!--?>-->
         <?php foreach($saleGoods as $k => $v): ?>
         <li>
-          <a href="">
-            <img src="<?= imgUrl($v['icon']) ?>" alt="">
+          <a href="./index.php?c=goods&m=detail&id=<?= $v['id']?>">
+            <img src="<?= !empty($v['icon'])?imgUrl($v['icon']):'../../../attachment/lt-item.png' ?>" alt="">
           </a>
         </li>
         <?php endforeach ?>
@@ -70,11 +70,12 @@
         <li>
           <dl>
             <dt>
-              <a href=""><?= $v['name'] ?>
+              <a href=""><?= $v['goodsName'] ?>
               </a>
             </dt>
             <dd class="goods-thumb">
-              <a href=""><img src="" alt="商品图片"></a>
+              <a href=""><img src="<?= !empty($v['icon'])?imgUrl($v['icon']):'../../../attachment/lt-item.png' ?>"
+                              alt="商品图片"></a>
             </dd>
             <dd class="goods-price">商城价:
               <em> <?= $v['price'] ?> 元</em>
@@ -95,49 +96,59 @@
 
 
 <!-- 主题模块 -->
+<?php $i = 1 ?>
+<?php foreach($category as $key => $v ): ?>
 
+<?php if($v['deep']==1): ?>
 <div class="main-content">
   <div class="left-content">
     <div class="left-title">
       <div class="title">
-        <span>1F</span>
-        <h2>食品生鲜</h2>
+        <span><?= $i ?>F</span>
+        <h2><?= $v['name']?></h2>
       </div>
     </div>
+
+
     <div class="left-category">
       <ul>
-        <li><a href="">二级分类1</a></li>
-        <li><a href="">二级分类1</a></li>
-        <li><a href="">二级分类1</a></li>
-        <li><a href="">二级分类1</a></li>
+        <?php foreach ($category as $key => $value): ?>
+        <?php if($value['deep']==2&&$value['pid']==$v['id']): ?>
+        <li><a href=""><?= $value['goodsName']?></a></li>
+        <?php endif ?>
+        <?php endforeach ?>
 
       </ul>
 
     </div>
     <div class="left-advs">
-      <div class="advs">
-        <ul>
-          <li>
-            <a href=""><img src="../../../attachment/lt-ico.png" alt="图片1"></a>
-          </li>
-          <li>
-            <a href=""><img src="../../../attachment/lt-ico.png" alt="图片2"></a>
-          </li>
-        </ul>
-      </div>
+      <!--<div class="advs">-->
+      <!--<ul>-->
+      <!--<li>-->
+      <!--<a href=""><img src="../../../attachment/lt-ico.png" alt="图片1"></a>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--<a href=""><img src="../../../attachment/lt-ico.png" alt="图片2"></a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
     </div>
     <div class="hot-sale">
       <h2>热卖推荐</h2>
       <ul>
-        <li><a href="">商品1</a></li>
-        <li><a href="">商品2</a></li>
-        <li><a href="">商品3</a></li>
-        <li><a href="">商品4</a></li>
+        <?php foreach($data2[$v['id']] as $key1 => $value1): ?>
 
+        <?php if(is_array($value1)): ?>
+        <li><a href=""><?= $value1['goodsName'] ?></a></li>
+        <?php endif ?>
+
+        <?php endforeach ?>
       </ul>
     </div>
 
   </div>
+
+
   <div class="right-content">
     <div class="right-more">
       <p><a href="">更多</a></p>
@@ -158,11 +169,15 @@
         <li>
           <dl>
             <dt>
-              <a href=""><?= $value['name'] ?>
+              <a href=""><?= $value['goodsName'] ?>
               </a>
             </dt>
             <dd class="goods-thumb">
-              <a href=""><img src="../../../attachment/lt-item.png" alt="商品图片"></a>
+
+              <a href=""><img
+                  src=" <?= !empty($value['icon'])?imgUrl($value['icon']):'../../../attachment/lt-item.png' ?>"
+                  alt="商品图片"></a>
+
             </dd>
             <dd class="goods-price">商城价:
               <em> <?= $value['price'] ?> 元</em>
@@ -176,7 +191,12 @@
     </div>
   </div>
 
+
 </div>
+<?php $i++ ?>
+<?php endif?>
+<?php endforeach ?>
+
 
 <?php $this->footer() ?>
 <?php $this->contact() ?>

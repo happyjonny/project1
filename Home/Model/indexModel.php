@@ -31,14 +31,14 @@
     }
 
     //获取一级分类
-    public function getFirstCategory()
+    public function getFirstCategory($where)
     {
 
       try {
         $res = $this->pdo
           ->field('id')
           ->table('category')
-          ->where('pid = 0')
+          ->where($where)
           ->select();
         return $res;
       } catch (Exception $e) {
@@ -63,6 +63,21 @@
 //      var_dump($cid);die;
       $cid .= $id;
       return $cid;
+    }
+
+    public function getSingleIcon($where)
+    {
+      try {
+        $res = $this->pdo
+          ->field('icon')
+          ->table('goodsimg')
+          ->where($where)
+          ->find();
+        return $res['icon'];
+
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
     }
 
 
