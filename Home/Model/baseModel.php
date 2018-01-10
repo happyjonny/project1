@@ -67,6 +67,7 @@
     }
 
     /**
+     * 执行 2
      * 取分类列表，最多为三级
      *
      * @param int   $show_deep 显示深度
@@ -99,7 +100,9 @@
     }
 
     /**
-     * 所有分类列表
+     * 执行 1
+     * 从数据库获取所有分类列表
+     * 必须以pid asc排序
      *
      * @param  array $condition 检索条件
      *
@@ -107,12 +110,13 @@
      */
     public function getGoodsClassList($condition, $field = 'id,pid,name')
     {
+
       $result = $this->pdo->field($field)->table('category')->where($condition)->order('pid asc,id asc')->select();
 //     var_dump($result);die;
       return $result;
     }
 
-    /**
+    /** 执行3
      * 递归 整理分类
      *
      * @param int   $show_deep  显示深度

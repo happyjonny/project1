@@ -44,5 +44,18 @@
       return $uid;
     }
 
+    //获取购物车信息
+    public function getCart()
+    {
+      $res = $this->pdo
+        ->field('*')
+        ->table('cart')
+        ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
+        ->find();
+      return $res;
+    }
+
+    //添加商品到购物车表
+
 
   }

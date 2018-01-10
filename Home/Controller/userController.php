@@ -31,6 +31,7 @@
       include_once 'View/user/cart.html';
     }
 
+
     public function login()
     {
       include_once 'View/user/login.html';
@@ -129,11 +130,27 @@
 
     }
 
+    //添加至购物车
+    public function addCart()
+    {
+      self::isLogin();
+      $_POST['uid'] = $_SESSION['uid'];
+
+      //添加至购物车表
+      //先查询原来购物车是否存在该物品
+      $res = $this->user->getCart();
+
+
+    }
+
+
+
     static public function isLogin()
     {
       if (empty($_SESSION)) {
         myNotice('请先登录', './index.php?c=user&m=login');
       }
     }
+
 
   }
