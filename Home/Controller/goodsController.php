@@ -70,6 +70,12 @@
     public function detail()
     {
       $data = $this->goods->showOne();
+      if (empty($data)) {
+        myNotice('你要找的商品不存在');
+      } else {
+//        var_dump($data);
+        $data['icon'] = $this->goods->getImgs($data['id']);
+      }
 //      var_dump($data);
       include_once 'View/goods/detail.html';
     }

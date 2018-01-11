@@ -68,9 +68,9 @@
     {
       try {
         $res = $this->pdo
-          ->field('c.id, c.uid, c.gid, c.quantity, g.price, g.stock, g.name , g.desc ,i.icon ')
-          ->table('cart as c , goods as g , goodsimg as i')
-          ->where('c.gid = g.id and c.gid = i.gid and g.id = i.gid and  i.face = 2  and c.uid = ' . $_SESSION['user']['uid'])
+          ->field('c.id, c.uid, c.gid, c.quantity, g.price, g.stock, g.name , g.desc ')
+          ->table('cart as c , goods as g ')
+          ->where('c.gid = g.id and c.uid = ' . $_SESSION['user']['uid'])
           ->select();
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
@@ -103,7 +103,7 @@
           ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
           ->find();
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__, './index.php?c=user&m=cart');
       }
       return $res;
     }
@@ -114,7 +114,7 @@
     {
       $res = $this->pdo
         ->table('cart')
-        ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
+        ->where('uid = ' . $_SESSION['user']['uid'] . ' and gid = ' . $_POST['gid'])
         ->insert($_POST);
       return $res;
     }
@@ -124,7 +124,7 @@
     {
       $res = $this->pdo
         ->table('cart')
-        ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
+        ->where('uid = ' . $_SESSION['user']['uid'] . ' and gid = ' . $_POST['gid'])
         ->update($_POST);
       return $res;
     }

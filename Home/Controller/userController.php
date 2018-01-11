@@ -15,22 +15,43 @@
       parent::__construct();
       User::sessionStart();
       $this->user = new userModel();
+      $this->goods = new goodsModel();
     }
 
 
     public function index()
     {
       self::isLogin();
+      //没图片
       $data = $this->user->getCartItemInfoAll();
-      var_dump($data);
+//      var_dump($data);die;die
+      //获取图片
+      foreach ($data as $k => $v) {
+        $tmp = $this->goods->getImgs($v['gid']);
+        foreach ($tmp as $key => $value) {
+          if ($value['face'] == 1) {
+            $data[$k]['icon'] = $value['icon'];
+          }
+        }
+      }
       include_once 'View/user/cart.html';
     }
 
     public function cart()
     {
       self::isLogin();
+      //没图片
       $data = $this->user->getCartItemInfoAll();
-//      var_dump($data);
+//      var_dump($data);die;die
+      //获取图片
+      foreach ($data as $k => $v) {
+        $tmp = $this->goods->getImgs($v['gid']);
+        foreach ($tmp as $key => $value) {
+          if ($value['face'] == 1) {
+            $data[$k]['icon'] = $value['icon'];
+          }
+        }
+      }
       include_once 'View/user/cart.html';
     }
 
@@ -260,6 +281,7 @@
     //添加至购物车
     public function addCart()
     {
+//      var_dump($_POST);
       self::isLogin();
       //保证 uid为session的uid
       // 即时用户篡改input标签 也可以正常使用

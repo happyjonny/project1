@@ -10,7 +10,11 @@
     <div class="product-detail-pic">
       <div class="pic-container">
         <div class="pics">
-          <img src="<?= imgUrl($data['icon']) ?>" alt="big pic">
+          <?php foreach($data['icon'] as $k => $v ): ?>
+          <?php if($v['face']==1): ?>
+          <img src="<?= imgUrl($v['icon']) ?>" alt="big pic">
+          <?php endif ?>
+          <?php endforeach ?>
         </div>
       </div>
       <div class="controller-container">
@@ -18,9 +22,12 @@
           <ul>
       <!--TODO 商品 多图片上传-->
             <!--goodsModel 89行 需要改为返回多数组图片 然后遍历-->
-            <li>
-              <img src="<?= imgUrl($data['icon']) ?>" alt="pic">
-            </li>
+            <?php foreach($data['icon'] as $k => $v ): ?>
+
+            <img src="<?= imgUrl($v['icon']) ?>" alt="big pic"
+                 style="height: 60px;width: 60px;display: inline-block;margin-right: 5px">
+
+            <?php endforeach ?>
 
           </ul>
         </div>

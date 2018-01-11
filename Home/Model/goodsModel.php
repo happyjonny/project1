@@ -10,23 +10,31 @@
     }
 
     //得到一个分类ID, 返回该分类下所有子分类包括自己的分类ID
-    public function  showCate($where = ''){
+    public function showCate($id = '0')
+    {
 
-        // 1. 查询该分类的所有后辈id
-        // select id
-        // from category
-        // where path like "%,1,%"
-        $id = $_GET['id'];
-        $cateId = $this->pdo
-          ->field('id')
-          ->table('category')
-          ->where(' path like "%,' . $id . ',%" ')
-          ->select();
+      // 1. 查询该分类的所有后辈id
+      // select id
+      // from category
+      // where path like "%,1,%"
+      $cid = self::getPath($id);
+      return $cid;
+    }
+
+    public function getPath($id)
+    {
+      $cateId = $this->pdo
+        ->field('id')
+        ->table('category')
+        ->where(' path like "%,' . $id . ',%" ')
+        ->select();
+//        var_dump($this->pdo->sql);
       $cid = '';
       foreach ($cateId as $k => $v) {
         $cid .= $v['id'] . ',';
       }
       $cid .= $id;
+
       return $cid;
     }
 
@@ -39,49 +47,49 @@
       // from category
       // where path like "%,1,%"
       $id = $_GET['id'];
-      $cateId = $this->pdo
-        ->field('id')
-        ->table('category')
-        ->where(' path like "%,' . $id . ',%" ')
-        ->select();
-//      $this->pdo->sql;die;
-
-      // 将 cid 数组 转成 字符串
-      $cid = '';
-      foreach ($cateId as $k => $v) {
-        $cid .= $v['id'] . ',';
-      }
-      $cid .= $id;
+      $cid = self::showCate($id);
+//      $cateId = $this->pdo
+//        ->field('id')
+//        ->table('category')
+//        ->where(' path like "%,' . $id . ',%" ')
+//        ->select();
+//      echo $this->pdo->sql;
+//      die;
+//
+//      // 将 cid 数组 转成 字符串
+//      $cid = '';
+//      foreach ($cateId as $k => $v) {
+//        $cid .= $v['id'] . ',';
+//      }
+//      $cid .= $id;
 
       // 2. 查询商品cid 属于cateId之一, 就证明该商品属于该分类
       // select name, `desc`, price, sold, g.id, icon
       // from goods g, goodsimg i
       // where cid in (1,3,4,8,9,10,11,12) and g.id=i.gid and face = 1
-
-      if(!empty($where)){
+      if (!empty($where)) {
         $where .= ' and ';
       }
 
-
-      if(!empty($cid)) {
+      if (!empty($cid)) {
         $res = $this->pdo
           ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
           ->table('goods g, goodsimg i')
-          ->where($where . 'cid in (' . $cid . ') and g.id=i.gid and face = 2')
+          ->where($where . 'cid in (' . $cid . ') and g.id=i.gid and face = 1')
           ->limit($limit)
           ->order($order)
           ->select();
-      }else{
+      } else {
         $res = $this->pdo
           ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
           ->table('goods g, goodsimg i')
-          ->where($where .' g.id=i.gid and face = 2')
+          ->where($where . ' g.id=i.gid and face = 1')
           ->limit($limit)
           ->order($order)
           ->select();
       }
 
-//      echo $this->pdo->sql;die;
+//      echo $this->pdo->sql;
       return $res;
     }
 
@@ -94,19 +102,33 @@
       // 准备sql
       // select * from goods where id = xxx
       $res = $this->pdo
-        ->field(' g.id, cid, name, price, stock, sold , hot, sale, `desc`, recommend, icon, face, rate')
-        ->table('goods g, goodsimg i')
-        ->where('g.id = i.gid and g.id = ' . $id)
-        ->order(' face desc')
+        ->field(' id, cid, name, price, stock, sold , hot, sale, `desc`, recommend, rate')
+        ->table('goods')
+        ->where('id = ' . $id)
+//        ->order(' face desc')
         ->find();
-      echo $this->pdo->sql;
+//      echo $this->pdo->sql;
       return $res;
+    }
+
+    public function getImgs($id)
+    {
+      try {
+        $res = $this->pdo
+          ->field('icon, face')
+          ->table('goodsimg')
+          ->where(' gid = ' . $id)
+          ->select();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('服务器出错了' . $e->getMessage(), './index.php');
+      }
     }
 
     // 统计总个数
     public function doCount($where = '')
     {
-      if(!empty($_GET['id'])) {
+      if (!empty($_GET['id'])) {
         $id = $_GET['id'];
         $cateId = $this->pdo
           ->field('id')
@@ -127,7 +149,7 @@
           ->table('goods')
           ->where($where . 'cid in (' . $cid . ')')
           ->select();
-      }else{
+      } else {
         // 如果搜索所有商品
         $res = $this->pdo
           ->field(' count(id) as count')
@@ -137,7 +159,7 @@
       }
 
 //      var_dump($res);die;
-        return $res[0]['count'];
+      return $res[0]['count'];
 
     }
 

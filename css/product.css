@@ -153,7 +153,7 @@
   position: absolute;
   left: 20px;
   right: 20px;
-  bottom: -42px;
+  bottom: -65px;
 }
 
 .product-detail-pic .controller-container .controller{
@@ -161,6 +161,7 @@
   height: 52px;
   position: relative;
   overflow: hidden;
+  /*top: 15px;*/
 }
 
 .product-detail-pic .controller-container .controller ul {

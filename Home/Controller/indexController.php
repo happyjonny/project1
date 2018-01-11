@@ -38,7 +38,19 @@
         }
       }
 
-      // 获取所有一级分类(包括子分类)下推荐的商品
+
+//      测试
+//      foreach ($category as $k => $v){
+//        if($v['deep']==1){
+//          foreach($data[$v['id']] as $key3 => $value3) {
+//            var_dump('goodsname = '.$value3['id']);
+//            }
+//          }
+//        }
+
+//      var_dump($data);die;
+
+      // 获取所有一级分类(包括子分类)下 推荐 的商品
       foreach ($category as $k => $v) {
         if ($v['deep'] == 1) {
           $data2[$v['id']] = $this->index->getChildCategory($v['id']);
@@ -56,7 +68,7 @@
 //
       foreach ($data2[2] as $key => $value) {
 
-        echo $value['goodsName'] . '<br>';
+//        echo $value['goodsName'] . '<br>';
 
       }
 //      die;
@@ -83,6 +95,7 @@
 //      var_dump($data);
 //      echo '<hr>';
 //      echo '<hr>';
+//      var_dump($data2);
 //      var_dump($saleGoods);
 //      echo '<hr>';
 //      echo '<hr>';
