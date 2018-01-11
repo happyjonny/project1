@@ -27,8 +27,21 @@
 		$url .= $filename;
 		return $url;
 		// /upload/2018/01/04/201801045a4dd4962370e.jpg
+  }
 
-	}
+  // 专门用于解析 图片文件地址
+  function imgDir($filename)
+  {
+    // 201801045a4dd4962370e.jpg
+    $url = '../upload/';
+    $url .= substr($filename, 0, 4) . '/';
+    $url .= substr($filename, 4, 2) . '/';
+    $url .= substr($filename, 6, 2) . '/';
+    $url .= $filename;
+
+    return $url;
+    // /upload/2018/01/04/201801045a4dd4962370e.jpg
+  }
 
   function firstCategoryToKey($arr = array())
   {

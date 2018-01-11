@@ -125,6 +125,42 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
         </tr>
 
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">新品:</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <select name="new" id="level">
+            <option value="1"
+            <?= $data['new']==1?'selected':'' ?>> 新品 </option>
+            <option value="2"
+            <?= $data['new']==2?'selected':'' ?>> 该换代了 </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">是否推荐:</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <select name="recommend" id="level">
+            <option value="1"
+            <?= $data['recommend']==1?'selected':'' ?>> 推荐 </option>
+            <option value="2"
+            <?= $data['recommend']==2?'selected':'' ?>> 要给钱 </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">折扣商品:</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <select name="sale" id="level">
+            <option value="1"
+            <?= $data['sale']==1?'selected':'' ?> > 折扣商品 </option>
+            <option value="2"
+            <?= $data['sale']==2?'selected':'' ?>> 不怎么赚钱 </option>
+          </select>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">&nbsp;</td>
         <td align="left" valign="middle" class="borderright borderbottom main-for">
         <input name="" type="submit" value="提交" class="text-but">

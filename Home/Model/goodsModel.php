@@ -102,7 +102,7 @@
       // 准备sql
       // select * from goods where id = xxx
       $res = $this->pdo
-        ->field(' id, cid, name, price, stock, sold , hot, sale, `desc`, recommend, rate')
+        ->field(' id, cid, name, price, stock,up, sold , hot, sale, `desc`, recommend, rate')
         ->table('goods')
         ->where('id = ' . $id)
 //        ->order(' face desc')

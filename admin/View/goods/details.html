@@ -116,6 +116,27 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
         </tr>
 
       <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">热销 :</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <?= $data['sale']==1?'折扣':'没给钱' ?>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">热销 :</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <?= $data['recommend']==1?'推荐':'未充值' ?>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+        <td align="right" valign="middle" class="borderright borderbottom bggray">热销 :</td>
+        <td align="left" valign="middle" class="borderright borderbottom main-for">
+          <?= $data['new']==1?'新品':'该换代了' ?>
+        </td>
+      </tr>
+
+      <tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
         <td align="right" valign="middle" class="borderright borderbottom bggray">更新时间&nbsp;</td>
         <td align="left" valign="middle" class="borderright borderbottom main-for">
           <?= date('Y-m-d H:i:s',$data['uptime']) ?>

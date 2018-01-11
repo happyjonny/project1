@@ -73,7 +73,10 @@
       if (empty($data)) {
         myNotice('你要找的商品不存在');
       } else {
-//        var_dump($data);
+        if ($data['up'] == 2) {
+          myNotice('该商品已下架', './index.php');
+        }
+
         $data['icon'] = $this->goods->getImgs($data['id']);
       }
 //      var_dump($data);

@@ -148,9 +148,9 @@
 		public function delete()
 		{
 			// delete from xxx where xxx 
-			$sql = 'delete from '.$this->table.$this->where;
+      $this->sql = 'DELETE FROM ' . $this->table . $this->where;
       $this->initialization();
-      $res = $this->db->exec($sql);
+      $res = $this->db->exec($this->sql);
 
 
 			return $res;
@@ -236,6 +236,7 @@
       $this->group = '';
       $this->having = '';
       $this->limit = '';
+
     }
 
 	}

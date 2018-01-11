@@ -1,45 +1,46 @@
 <?php
 
-	class goodsController extends Controller
-	{
-		private $goods;
+  class goodsController extends Controller
+  {
+    private $goods;
 
-		public function __construct()
-		{
-			parent::__construct();
-			$this->goods = new goodsModel;	
-		}
+    public function __construct()
+    {
+      parent::__construct();
+      $this->goods = new goodsModel;
+    }
 
-		public function index()
-		{
-			// 接收 search 值
-				$search = $_GET['search'];
-				$where = null;
-				if( !empty($search) ){
-					$where = 'name like "%'.$search.'%"';
-				}
-			
-			// 实例化 page.php
-				$page = new Page;
-			// 统计 总条数
-				$count = $this->count($where);
+    public function index()
+    {
+      // 接收 search 值
+      $search = $_GET['search'];
+      $where = null;
+      if (!empty($search)) {
+        $where = 'name like "%' . $search . '%"';
+      }
 
-			// 计算 分页下标
-				$limit = $page->cNum($count);
+      // 实例化 page.php
+      $page = new Page;
+      // 统计 总条数
+      $count = $this->count($where);
 
-			$data = $this->goods->showAll($where, $limit);
-			include 'View/goods/index.html';
-		}
+      // 计算 分页下标
+      $limit = $page->cNum($count);
 
-		public function count($where = '')
-		{
-			$data = $this->goods->doCount($where);
-			return $data;
-		}
-	
-		// 加载 新增商品界面 
-		public function add()
-		{
+      $data = $this->goods->showAll($where, $limit);
+//				var_dump($data);
+      include 'View/goods/index.html';
+    }
+
+    public function count($where = '')
+    {
+      $data = $this->goods->doCount($where);
+      return $data;
+    }
+
+    // 加载 新增商品界面
+    public function add()
+    {
 
       // 根据id 查询商品
       $cate = new CategoryController;
@@ -52,26 +53,33 @@
         // 3. 将空格 塞到$data
         $data[$k]['nbsp'] = $nbsp;
       }
-			include 'View/goods/add.html';
-		}
+      include 'View/goods/add.html';
+    }
 
-		public function doAdd()
-		{
-			$data = $this->goods->doAdd();
+    public function doAdd()
+    {
 
-			if($data){
-				myNotice('新增成功', 'index.php?c=goods');
-			}
-			myNotice('新增失败');
-		}
+      //如果不传图片,直接返回
+      if (empty($_FILES['icon']['name'])) {
+//        var_dump($_FILES);die;
+        myNotice('请上传图片', './index.php?c=goods&m=add');
+      }
 
-		// 加载 编辑商品界面
-		public function edit()
-		{
+      $data = $this->goods->doAdd();
+
+      if ($data) {
+        myNotice('新增成功', 'index.php?c=goods');
+      }
+      myNotice('新增失败');
+    }
+
+    // 加载 编辑商品界面
+    public function edit()
+    {
 //		  $data2 = new categoryModel();
-			// 根据id 查询商品
-			$data = $this->goods->showOne();
-			//获取商品分类信息
+      // 根据id 查询商品
+      $data = $this->goods->showOne();
+      //获取商品分类信息
       // 根据id 查询商品
       $cate = new CategoryController;
       $data2 = $cate->orderCate();
@@ -86,38 +94,105 @@
 
 //        var_dump($data);die;
 
-			include 'View/goods/edit.html';
-		}
+      include 'View/goods/edit.html';
+    }
 
-		public function  details(){
+    public function details()
+    {
       // 根据id 查询商品
       $data = $this->goods->showOne();
 //      var_dump($data);die;
       include 'View/goods/details.html';
     }
 
-		public function doEdit()
-		{
-			$data = $this->goods->doEdit();
+    public function doEdit()
+    {
+//		  var_dump($_POST);die;
+      $data = $this->goods->doEdit();
 
-			if($data){
-				myNotice('编辑成功', 'index.php?c=goods');
-			}
-			myNotice('编辑失败');
-		}
+      if ($data) {
+        myNotice('编辑成功', 'index.php?c=goods');
+      }
+      myNotice('编辑失败');
+    }
 
-		// 执行 删除商品
-		public function doDel()
-		{
-			$this->goods->doDel();
-			header('location: index.php?c=goods'); die;
-		}
+    // 执行 删除商品
+    public function doDel()
+    {
+      $this->goods->doDel();
+      header('location: index.php?c=goods');
+      die;
+    }
 
-		// 修改 状态
-		public function doStatus()
-		{
-			$this->goods->doStatus();
-			header('location: index.php?c=goods'); die;
-		}
+    // 修改 状态
+    public function doStatus()
+    {
+      $this->goods->doStatus();
+      header('location: index.php?c=goods');
+      die;
+    }
 
-	}
+    //查看商品所有图片
+    public function editImg()
+    {
+      $data = $this->goods->showImgs();
+//		  var_dump($data);
+//		  var_dump($data[0]['gid']);
+      include_once 'View/goods/editImg.html';
+    }
+
+    public function doEditImg()
+    {
+//      var_dump($_GET);
+//		  var_dump($_POST);die;
+      if (empty($_POST['gid'])) {
+        $arr['gid'] = $_GET['gid'];
+      } else {
+        $arr['gid'] = $_POST['gid'];
+      }
+      if (!empty($_POST['id'])) {
+        $arr['id'] = $_POST['id'];
+      }
+      $arr['face'] = 1;
+//      var_dump($arr);die;
+
+      if (!empty($_FILES['icon']['name'])) {
+        $data = $this->goods->uploadImg($arr);
+        if (!$data) {
+          //添加失败
+          myNotice('上传图片失败');
+        }
+      }
+      $tmp = $this->goods->setFace($arr);
+      myNotice('修改成功');
+    }
+
+    public function setFace()
+    {
+      $arr['gid'] = $_GET['gid'];
+      $arr['id'] = $_GET['id'];
+      $arr['face'] = 1;
+      $arr['flag'] = 1;
+      $this->goods->setFace($arr);
+      header('location: ./index.php?c=goods&m=editImg&id=' . $arr['gid']);
+
+    }
+
+    public function delImg()
+    {
+
+
+      $arr['id'] = $_GET['id'];
+      $arr['gid'] = $_GET['gid'];
+      $arr['flag'] = 1;
+
+      $res = $this->goods->delImg($arr);
+      if ($res) {
+        myNotice('删除成功');
+      } else {
+        myNotice('删除失败');
+      }
+
+    }
+
+  }
