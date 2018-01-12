@@ -106,11 +106,6 @@
       include_once 'View/index/index.html';
     }
 
-    public function saleGoods()
-    {
-
-
-    }
 
 
   }

@@ -270,6 +270,25 @@
         ->update($res);
     }
 
+    public function getGoodsInfo($gids = '')
+    {
+      if (empty($gids)) {
+        return false;
+      }
+      try {
+        $res = $this->pdo
+          ->field('g.id as gid, stock, price , up, name , icon')
+          ->table('goods as g, goodsimg as i ')
+          ->where('g.id in (' . $gids . ') and g.id = i.gid and face =1')
+          ->select();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('服务器出错', './index.php');
+      }
+
+
+    }
+
 
   }
 

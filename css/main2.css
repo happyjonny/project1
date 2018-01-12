@@ -1379,6 +1379,15 @@
   display: list-item;
 }
 
+/**/
+
+.numControl {
+  display: inline-block;
+  width: 5px;
+  font-size: large;
+  margin-left: 2px;
+}
+
 /*hover效果*/
 .member-container .member-left-container .sidebar-menu .side-menu li a:hover {
   background: #f0f0f0;

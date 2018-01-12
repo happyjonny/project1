@@ -63,9 +63,10 @@
       return $res;
     }
 
-    //获取购物车所有商品及商品信息
+    //获取购物车所有商品及商品信息(不含图片)
     public function getCartItemInfoAll()
     {
+//      TODO 查询字段需增加stock与up 来配合js使用
       try {
         $res = $this->pdo
           ->field('c.id, c.uid, c.gid, c.quantity, g.price, g.stock, g.name , g.desc ')
@@ -171,6 +172,40 @@
         ->table('address')
         ->where($where)
         ->delete();
+      return $res;
+    }
+
+
+//    创建新订单(购物车到创建订单)
+    public function validorderCreate()
+    {
+      //验证数据
+      //获取商品
+      $gids = '';
+      foreach ($_POST as $k => $v) {
+        $gids .= $k . ',';
+      }
+      $gids = rtrim($gids, ',');
+//      var_dump($gids);
+      $goods = new goodsModel();
+      $tmp = $goods->getGoodsInfo($gids);
+
+      //重新排序res
+      foreach ($tmp as $k => $v) {
+        $res[$v['gid']] = $v;
+      }
+      unset($tmp);
+
+      //验证商品上架与库存情况
+      foreach ($res as $k => $v) {
+        $res[$k]['quantity'] = $_POST[$k];
+        if ($v['stock'] < $_POST[$k]) {
+          myNotice('商品: ' . $v['name'] . '数量不足', '', 2);
+        } elseif ($v['up'] !== '1') {
+          myNotice('商品: ' . $v['name'] . '已下架', '', 2);
+        }
+      }
+      var_dump($res);
       return $res;
     }
 

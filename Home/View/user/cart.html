@@ -2,6 +2,7 @@
 <?php $this->nav() ?>
 <?php $this->userIndex() ?>
 <link rel="stylesheet" href="../css/main2.css">
+
 <div class="member-right-container" xmlns="http://www.w3.org/1999/html">
   <div class="member-right-content">
     <div class="tabmenu">
@@ -18,7 +19,7 @@
           <div class="order-list-items">
             <!--订单号-->
             <!--<a href="">-->
-            <form action="" method="post" name="cart_buy">
+            <form action="./index.php?c=user&m=ordercreate" method="post" name="cart_buy">
 
               <!--商品信息 根据购物车商品数量遍历-->
               <?php foreach($data as $k => $v): ?>
@@ -40,10 +41,14 @@
                   <span class="marketprice " id="marketprice">
                       &yen;<?= $v['price'] ?>
                   </span>
+
                   <p>数量:</p>
                   <!--TODO name=商品id value=数量-->
-                  <input type="text" name="quantity" value="<?= $v['quantity'] ?>">
+                  <!--<em title="减少数量" id="count_sub" value='jian' class="br" onclick="jian()">-</em>-->
+                  <input type="text" id="quantity" name="<?= $v['gid'] ?>" value="<?= $v['quantity'] ?>">
+                  <!--<em	title="增加数量" id="count_sub" value='jia' class="bl" onclick="jia()">+</em>-->
                   <!--TODO 删除该购物车该商品id $v['id']-->
+
                   <a href="">
                     <div class="doDel">
                       删除
@@ -51,31 +56,31 @@
                   </a>
                 </div>
               </div>
-              <?php
+              <!--<?php-->
 
-										$xj = $v['price'] * $v['quantity'];
+              <!--$xj = $v['price'] * $v['quantity'];-->
 
-										$sum += $xj;
-										$count += $v['quantity'];
-								?>
+              <!--$sum += $xj;-->
+              <!--$count += $v['quantity'];-->
+              <!--?>-->
               <?php endforeach ?>
 
 
               <!--订单统计-->
-              <div class="item-infos-total">
-                <span class="status">
-                  共: <?= $count ?>件商品 实付:
-                  <span>&yen;<?= $sum ?></span>
+              <!--<div class="item-infos-total">-->
+              <!--<span class="status">-->
+              <!--共: <?= $count ?>件商品 实付:-->
+              <!--<span>&yen;<?= $sum ?></span>-->
 
-                </span>
-              </div>
+              <!--</span>-->
+              <!--</div>-->
 
               <!--下订单-->
               <div class="delete-order">
 
                 <!--<div class="doDel">-->
                 <span>
-                   <input type="submit" value="提交订单" class="order-submit">
+                   <input type="submit" value="去购买" class="order-submit">
 
                   <!--</div>-->
                 </span>
@@ -103,7 +108,34 @@
 </div>
 </div>
 </div>
+<!--<script>-->
+<!--var mynum = document.getElementById('quantity');-->
 
+<!--// 购买数量-减-->
+<!--function jian()-->
+<!--{-->
+
+<!--// mynum.value  就是  PHP中对象名->属性名  js中对象名.属性名-->
+<!--// alert(mynum.value);-->
+<!--if(mynum.value > 0){-->
+<!--mynum.value = mynum.value - 1;-->
+<!--}-->
+
+<!--if(mynum.value < 1){-->
+<!--mynum.value = 1;-->
+<!--}-->
+<!--}-->
+
+
+<!--// 购买数量-加-->
+<!--function jia()-->
+<!--{-->
+<!--// js中 只有纯数字类型 才能相加, 其余用+ 都是拼接的意思-->
+<!--// parseInt() 强制转换成 整型-->
+<!--mynum.value = parseInt(mynum.value) + 1;-->
+<!--// mynum.value = mynum.value + 1;-->
+<!--}-->
+<!--</script>-->
 
 <?php $this->footer() ?>
 <?php $this->contact() ?>

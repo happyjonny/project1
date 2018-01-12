@@ -34,6 +34,7 @@
           }
         }
       }
+
       include_once 'View/user/cart.html';
     }
 
@@ -370,6 +371,49 @@
         myNotice('更新成功');
       } else {
         myNotice('更新失败');
+      }
+
+    }
+
+    //创建新订单
+    public function ordercreate()
+    {
+//      var_dump($_POST);die;
+      //验证数量: 必须大于0
+      $preg = '/^[1-9]\d*$/';
+
+      foreach ($_POST as $k => $v) {
+        if (!preg_match($preg, $_POST[$k])) {
+          myNotice('请重新确认你购买的数量');
+        }
+      }
+
+      $goods = $this->user->validorderCreate();
+      if ($goods) {
+        $address = $this->user->getAddress(' uid = ' . $_SESSION['user']['uid']);
+        var_dump($address);
+
+
+        include_once './View/user/ordercreate.html';
+      } else {
+        myNotice('你的购物车信息有误,请查看或联系管理员', './index.php?c=user&m=cart', 3);
+      }
+    }
+
+    public function doOrderCreate()
+    {
+//        var_dump($_POST);die;
+
+      //$res 为新创建的订单id
+//      $res = $this->user->orderCreate();
+      if ($res) {
+        //创建成功
+        //获取订单信息
+        //
+        include_once './View/user/ordercreate.html';
+      } else {
+        //创建失败
+        myNotice('出问题了');
       }
 
     }
