@@ -9,6 +9,7 @@
   class userModel
   {
     private $pdo;
+    private static $goodsInfos = array();
 
     public function __construct()
     {
@@ -205,8 +206,32 @@
           myNotice('商品: ' . $v['name'] . '已下架', '', 2);
         }
       }
-      var_dump($res);
+      self::$goodsInfos = $res;
+      var_dump(self::$goodsInfos);
       return $res;
+    }
+
+    public function doOrderCrate()
+    {
+      //把数据存入order与orders表中
+      $order = new Order();
+      //先创建订单号
+      $orderInfo['orderNum'] = Order::trade_no();
+      $orderInfo['uid'] = $_SESSION['user']['uid'];
+      $orderInfo['aid'] = $_POST['addressid'];
+      $orderInfo['paymenttype'] = $_POST['payment_tpye'];
+      if ($orderInfo['paymenttype'] === '1') {
+        //如果货到付款, 状态为 待发货 已付款
+        $orderInfo['status'] = '2';
+        $orderInfo['ispay'] = '1';
+      } else {
+        //如果线上支付, 状态为代付款 , 未付款
+        $orderInfo['status'] = '1';
+        $orderInfo['ispay'] = '2';
+      }
+      $orderInfo['addtime'] = $orderInfo['uptime'] = time();
+
+
     }
 
   }

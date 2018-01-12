@@ -11,31 +11,31 @@
     </div>
 
     <form action="./index.php?c=user&m=doOrderCreate" method="post" name="order_create">
-      <!--存放订单id-->
-      <input type="hidden" name="oderId" value="">
       <!--收货信息-->
       <div class="ncc-receipt-info">
         <div class="fui-content">
           <div class="list-group">
             <!--遍历收货地址-->
+            <?php foreach($address  as $key => $value): ?>
             <label class="lists-list">
               <!--value 为 addressid-->
               <!--<option value="">-->
-              <input type="radio" name="addressid">
+              <input type="radio" name="addressid" value="<?= $value['id'] ?>" <?= $value['defaults']==1?'checked':'' ?>
+              >
               <div class="list-inner">
                 <div class="title">
-                  <span class="realname">袁玮</span>
-                  <span class="mobile">13818101665</span>
+                  <span class="realname"><?= $value['realname'] ?></span>
+                  <span class="mobile"><?= $value['tel'] ?></span>
                 </div>
                 <div class="text">
                   <span class="address">
-                    上海市38490128938129
+                    <?= $value['address'] ?>
                   </span>
                 </div>
               </div>
               <!--</option>-->
             </label>
-
+            <?php endforeach ?>
           </div>
         </div>
       </div>
@@ -76,6 +76,14 @@
             </div>
 
           </div>
+          <?php
+
+          $xj = $v['price'] * $v['quantity'];
+
+          $sum += $xj;
+          $count += $v['quantity'];
+          ?>
+
           <?php endforeach ?>
 
 
@@ -83,11 +91,11 @@
           <div class="cell-group">
             <div class="cell">
               <div class="cell-info" style="text-align: right">
-                共: <span class="text-danger">2</span>
+                共: <span class="text-danger"><?= $count ?></span>
                 件商品 合计:
                 <span class="text-danger">&yen;
                   <span class="goodsprice">
-                  200
+                  <?= $sum ?>
                 </span>
                 </span>
               </div>
@@ -119,7 +127,7 @@
             <label class="lists-list">
               <!--value 为 addressid-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type">
+              <input type="radio" name="payment_type" value="3">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">支付宝</span>
@@ -130,7 +138,7 @@
             <label class="lists-list">
               <!--value 为 payment_type-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type" value>
+              <input type="radio" name="payment_type" value="2">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">微信</span>
@@ -141,7 +149,7 @@
             <label class="lists-list">
               <!--value 为 addressid-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type" checked>
+              <input type="radio" name="payment_type" checked value="1">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">货到付款</span>
@@ -162,7 +170,7 @@
           <div class="cell-info"></div>
           <div class="cell-remark">
             &yen;
-            <span class="goodsprice">200</span>
+            <span class="goodsprice"><?= $sum ?></span>
           </div>
         </div>
 
@@ -171,7 +179,7 @@
           <div class="cell-info"></div>
           <div class="cell-remark">
             &yen;
-            <span class="goodsprice">200</span>
+            <span class="goodsprice">0</span>
           </div>
         </div>
 
@@ -181,7 +189,7 @@
               <span class="text-danger">
               &yen;
                 <span class="totalprice">
-              200
+              <?= $sum ?>
                 </span>
                </span>
             </span>

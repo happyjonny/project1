@@ -402,7 +402,8 @@
 
     public function doOrderCreate()
     {
-//        var_dump($_POST);die;
+      var_dump($_POST);
+      die;
 
       //$res 为新创建的订单id
 //      $res = $this->user->orderCreate();
