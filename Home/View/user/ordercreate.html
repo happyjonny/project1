@@ -96,6 +96,7 @@
                 <span class="text-danger">&yen;
                   <span class="goodsprice">
                   <?= $sum ?>
+                    <input type="hidden" name="total" value="<?= $sum ?>">
                 </span>
                 </span>
               </div>
@@ -127,7 +128,7 @@
             <label class="lists-list">
               <!--value 为 addressid-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type" value="3">
+              <input type="radio" name="paymenttype" value="3">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">支付宝</span>
@@ -138,7 +139,7 @@
             <label class="lists-list">
               <!--value 为 payment_type-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type" value="2">
+              <input type="radio" name="paymenttype" value="2">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">微信</span>
@@ -149,7 +150,7 @@
             <label class="lists-list">
               <!--value 为 addressid-->
               <!--<option value="">-->
-              <input type="radio" name="payment_type" checked value="1">
+              <input type="radio" name="paymenttype" checked value="1">
               <div class="list-inner">
                 <div class="title">
                   <span class="alipay">货到付款</span>

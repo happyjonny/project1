@@ -49,7 +49,7 @@
                   <!--<em	title="增加数量" id="count_sub" value='jia' class="bl" onclick="jia()">+</em>-->
                   <!--TODO 删除该购物车该商品id $v['id']-->
 
-                  <a href="">
+                  <a href="./index.php?c=user&m=doDelCart&gid=<?= $v['gid'] ?>">
                     <div class="doDel">
                       删除
                     </div>
@@ -80,8 +80,11 @@
 
                 <!--<div class="doDel">-->
                 <span>
+                  <?php if(empty($data)): ?>
+                  <a href="./index.php">我饿了,请去选一点来喂我</a>
+                  <?php else: ?>
                    <input type="submit" value="去购买" class="order-submit">
-
+                  <?php endif ?>
                   <!--</div>-->
                 </span>
 

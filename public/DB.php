@@ -70,7 +70,7 @@
 			$this->sql = $sql;
       $this->initialization();
 
-//    var_dump($this->sql);die;
+
 			$res = $this->db->query($sql);
       if (!$res) {
         throw new Exception('数据库查询语句出错', 10002);
@@ -133,16 +133,48 @@
 				}
 				$field = rtrim($field, ',');
 
-			// 3. SQL
-				$sql = 'update '.$this->table.' set '.$field.$this->where;
-				$this->sql = $sql;
+      // 3. SQL
+      $sql = 'update ' . $this->table . ' set ' . $field . $this->where;
+      $this->sql = $sql;
       $this->initialization();
 
-			// 4. 执行sql 
-				$res = $this->db->exec($sql);
+      // 4. 执行sql
+      $res = $this->db->exec($sql);
 
-				return $res;
-		}
+      return $res;
+    }
+
+    //带函数的update
+    // value 带mysql 函数 不需要'' 包起来
+    public function funcUpdate($arr = array())
+    {
+      /*
+        update xxx
+        set  `` = "", `` = "",
+        where xxx
+       */
+      // 1. 判断$arr 是否有值
+      if (empty($arr)) {
+        return false;
+      }
+
+      // 2. 拼接数据
+      $field = '';
+      foreach ($arr as $k => $v) {
+        $field .= "`{$k}`= {$v},";
+      }
+      $field = rtrim($field, ',');
+
+      // 3. SQL
+      $sql = 'update ' . $this->table . ' set ' . $field . $this->where;
+      $this->sql = $sql;
+      $this->initialization();
+
+      // 4. 执行sql
+      $res = $this->db->exec($sql);
+
+      return $res;
+    }
 
 		
 		public function delete()

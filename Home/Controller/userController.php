@@ -9,6 +9,7 @@
   class userController extends Controller
   {
     private $user;
+    public $goodsInfos;
 
     public function __construct()
     {
@@ -227,6 +228,7 @@
       unset($_SESSION['user']['status']);
       unset($_SESSION['user']['icon']);
       unset($_SESSION['user']['name']);
+      unset($_SESSION['user']);
       header('location: ./index.php');
       die;
     }
@@ -287,6 +289,15 @@
       //保证 uid为session的uid
       // 即时用户篡改input标签 也可以正常使用
       $_POST['uid'] = $_SESSION['user']['uid'];
+      if (empty($_POST['gid'])) {
+        header('./index.php?c=user&m=cart');
+        die;
+      }
+      //先判断库存是否为空
+      if ($_POST['stock'] < 1) {
+        myNotice('该商品已售空');
+      }
+      unset($_POST['stock']);
       //添加至购物车表
       //先查询原来购物车是否存在该物品
       $res = $this->user->getCart();
@@ -388,12 +399,16 @@
         }
       }
 
+      //验证是否有收货地址
+      $add = $this->user->getAddress(' uid = ' . $_SESSION['user']['uid']);
+      if (empty($add)) {
+        myNotice('请先添加收货地址', './index.php?c=user&m=addressadd');
+      }
+
       $goods = $this->user->validorderCreate();
       if ($goods) {
         $address = $this->user->getAddress(' uid = ' . $_SESSION['user']['uid']);
-        var_dump($address);
-
-
+        $_SESSION['user']['cart']['goodsinfos'] = $goods;
         include_once './View/user/ordercreate.html';
       } else {
         myNotice('你的购物车信息有误,请查看或联系管理员', './index.php?c=user&m=cart', 3);
@@ -402,21 +417,41 @@
 
     public function doOrderCreate()
     {
-      var_dump($_POST);
-      die;
 
       //$res 为新创建的订单id
-//      $res = $this->user->orderCreate();
+      $res = $this->user->doOrderCreate($this->goodsInfos);
       if ($res) {
         //创建成功
-        //获取订单信息
-        //
-        include_once './View/user/ordercreate.html';
+        myNotice('下单成功', './index.php');
+
       } else {
         //创建失败
         myNotice('出问题了');
       }
 
+    }
+
+    public function doDelCart()
+    {
+      $this->user->doDelCart();
+      header('location: ./index.php?c=user&cart');
+      die;
+    }
+
+    public function orderList()
+    {
+      //验证来源
+      //不带参不管
+      //带参 只考虑这个  ordernum是否是这个合法用户的
+
+
+      //全部通过, 分页  分页也要带参数和不带参数
+
+
+      //整理数据
+
+
+      include_once 'View/user/orderList.html';
     }
 
 

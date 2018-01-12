@@ -38,6 +38,19 @@
       return $cid;
     }
 
+    //商品购买成功之后 更新库存与销量
+
+    public function updateGoodsStock($arr = array(), $where)
+    {
+      if (!empty($arr)) {
+        $res = $this->pdo
+          ->table('goods')
+          ->where($where)
+          ->funcUpdate($arr);
+//        var_dump($this->pdo->sql);die;
+      }
+    }
+
 
     // 查询所有的商品数据
     public function showAll($where = '', $limit = '', $order = '')

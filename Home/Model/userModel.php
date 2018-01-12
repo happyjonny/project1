@@ -9,11 +9,15 @@
   class userModel
   {
     private $pdo;
-    private static $goodsInfos = array();
+    private $Order;
+    private $Goods;
+
 
     public function __construct()
     {
       $this->pdo = new DB;
+      $this->Order = new Order;
+      $this->Goods = new goodsModel;
     }
 
     public function getUserInfo()
@@ -95,15 +99,23 @@
       return $res;
     }
 
-    //获取购物车单个物品信息 (添加商品至购物车用)
+    //获取购物车单个物品信息 (添加商品至购物车用)/或者用来验证来源是否正确
     public function getCart()
     {
       try {
-        $res = $this->pdo
-          ->field('*')
-          ->table('cart')
-          ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
-          ->find();
+        if (!empty($_POST['uid'])) {
+          $res = $this->pdo
+            ->field('*')
+            ->table('cart')
+            ->where('uid = ' . $_POST['uid'] . ' and gid = ' . $_POST['gid'])
+            ->find();
+        } else {
+          $res = $this->pdo
+            ->field('*')
+            ->table('cart')
+            ->where('uid = ' . $_SESSION['user']['uid'] . ' and gid = ' . $_GET['gid'])
+            ->find();
+        }
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__, './index.php?c=user&m=cart');
       }
@@ -128,6 +140,16 @@
         ->table('cart')
         ->where('uid = ' . $_SESSION['user']['uid'] . ' and gid = ' . $_POST['gid'])
         ->update($_POST);
+      return $res;
+    }
+
+    //删除购物车
+    public function deleteCart()
+    {
+      $res = $this->pdo
+        ->table('cart')
+        ->where('uid = ' . $_SESSION['user']['uid'])
+        ->delete();
       return $res;
     }
 
@@ -188,8 +210,8 @@
       }
       $gids = rtrim($gids, ',');
 //      var_dump($gids);
-      $goods = new goodsModel();
-      $tmp = $goods->getGoodsInfo($gids);
+
+      $tmp = $this->Goods->getGoodsInfo($gids);
 
       //重新排序res
       foreach ($tmp as $k => $v) {
@@ -201,25 +223,25 @@
       foreach ($res as $k => $v) {
         $res[$k]['quantity'] = $_POST[$k];
         if ($v['stock'] < $_POST[$k]) {
-          myNotice('商品: ' . $v['name'] . '数量不足', '', 2);
+          myNotice('商品: ' . $v['name'] . '数量不足', './index.php?c=user&m=cart', 2);
         } elseif ($v['up'] !== '1') {
-          myNotice('商品: ' . $v['name'] . '已下架', '', 2);
+          myNotice('商品: ' . $v['name'] . '已下架', './index.php?c=user&m=cart', 2);
         }
       }
-      self::$goodsInfos = $res;
-      var_dump(self::$goodsInfos);
       return $res;
     }
 
-    public function doOrderCrate()
+    public function doOrderCreate($goodsInfos = array())
     {
+//      var_dump($goods);die;
       //把数据存入order与orders表中
-      $order = new Order();
-      //先创建订单号
-      $orderInfo['orderNum'] = Order::trade_no();
+
+      //先创建订单信息(order表字段)
+      $orderInfo['ordernum'] = Order::trade_no();
       $orderInfo['uid'] = $_SESSION['user']['uid'];
       $orderInfo['aid'] = $_POST['addressid'];
-      $orderInfo['paymenttype'] = $_POST['payment_tpye'];
+      $orderInfo['paymenttype'] = $_POST['paymenttype'];
+      $orderInfo['total'] = $_POST['total'];
       if ($orderInfo['paymenttype'] === '1') {
         //如果货到付款, 状态为 待发货 已付款
         $orderInfo['status'] = '2';
@@ -231,7 +253,63 @@
       }
       $orderInfo['addtime'] = $orderInfo['uptime'] = time();
 
+      //插入新数据到order表中 成功返回订单id
+      $orderId = $this->Order->orderCreate($orderInfo);
+//      var_dump($orderId);die;
+      if ($orderId) {
+        //如果新建订单成功, 添加订单详情
+        foreach ($_SESSION['user']['cart']['goodsinfos'] as $k => $v) {
+          unset($_SESSION['user']['cart']['goodsinfos'][$k]['stock']);
+          unset($_SESSION['user']['cart']['goodsinfos'][$k]['up']);
+          unset($_SESSION['user']['cart']['goodsinfos'][$k]['name']);
+          unset($_SESSION['user']['cart']['goodsinfos'][$k]['icon']);
+          $_SESSION['user']['cart']['goodsinfos'][$k]['oid'] = $orderId;
+          $res = $this->Order->orderdetailCreate($_SESSION['user']['cart']['goodsinfos'][$k]);
+          if (!$res) {
+            myNotice('创建订单失败(添加订单详情)', './index.php?c=user&m=cart');
+          }
+          $tmp['stock'] = '  stock - ' . $_SESSION['user']['cart']['goodsinfos'][$k]['quantity'];
+          $tmp['sold'] = '  sold + ' . $_SESSION['user']['cart']['goodsinfos'][$k]['quantity'];
+          $res = $this->Goods->updateGoodsStock($tmp, ' id = ' . $_SESSION['user']['cart']['goodsinfos'][$k]['gid']);
+
+        }
+        //创建成功 清空session
+        unset($_SESSION['user']['cart']['goodsinfos']);
+        unset($tmp);
+        //清空购物车
+        $this->deleteCart();
+        //全部完成
+        return true;
+      } else {
+        myNotice('创建订单失败', './index.php?c=user&m=cart');
+      }
+
 
     }
+
+
+    //购物车内删除某个商品
+    public function doDelCart()
+    {
+      $check = $this->getCart();
+      if (empty($check)) {
+        myNotice('非法访问', './index.php?c=user&m=cart');
+      }
+      $res = $this->pdo
+        ->table('cart')
+        ->where(' gid = ' . $_GET['gid'] . ' and uid = ' . $_SESSION['user']['uid'])
+        ->delete();
+
+    }
+
+
+
+    //订单功能
+    //查询一个订单 带条件
+
+
+    //查询所有订单 带条件 带limit 带order
+
+
 
   }

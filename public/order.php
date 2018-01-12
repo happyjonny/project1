@@ -15,11 +15,29 @@
       $this->pdo = new DB;
     }
 
-    public function orderCreate()
+    //返回订单id
+    public function orderCreate($arr = array())
     {
-      $res = $this->pdo
-        ->table('order')
-        ->
+      if (!empty($arr)) {
+        $res = $this->pdo
+          ->table('`order`')
+          ->insert($arr);
+//        echo $this->pdo->sql;die;
+        return $res;
+        //TODO 查看sql
+      }
+      return false;
+    }
+
+    public function orderdetailCreate($arr = array())
+    {
+      if (!empty($arr)) {
+        $res = $this->pdo
+          ->table('orderdetails')
+          ->insert($arr);
+        return $res;
+      }
+      return false;
     }
 
     /**
