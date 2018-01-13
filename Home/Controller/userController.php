@@ -444,27 +444,32 @@
       //param  status  ordernum
       // 实例化 page.php
 
-
+//      var_dump($_GET);
       $page = new Page;
       // 统计
 
+      if (empty($_GET['status'])) {
+        $_GET['status'] = '0';
+      }
       //TODO 先获取订单  再每个订单遍历
 
       //如果带条件
       if (!empty($_GET['ordernum'])) {
-        if ($_GET['status'] === '-1' || ($_GET['status'] >= '1' || $_GET['status'] <= '6')) {
+        if ($_GET['status'] === '-1' || ($_GET['status'] >= '1' && $_GET['status'] <= '6')) {
+//          echo '111';
           $where = ' uid = ' . $_SESSION['user']['uid'] . ' and status = ' . $_GET['status'] . ' and ordernum = ' . $_GET['ordernum'];
           $count = $this->count($where);
           // 计算 分页下标
           $limit = $page->cNum($count);
-          $data = $this->user->getAllOrders($where, $limit);
+
+          $data = $this->user->getAllOrdersLists($where, $limit);
         } else {
 
           $where = ' uid = ' . $_SESSION['user']['uid'] . ' and ordernum = ' . $_GET['ordernum'];
           $count = $this->count($where);
           // 计算 分页下标
           $limit = $page->cNum($count);
-          $data = $this->user->getAllOrders($where, $limit);
+          $data = $this->user->getAllOrdersLists($where, $limit);
         }
       } elseif ($_GET['status'] === '-1' || ($_GET['status'] >= '1' && $_GET['status'] <= '6')) {
 
@@ -472,17 +477,17 @@
         $count = $this->count($where);
         // 计算 分页下标
         $limit = $page->cNum($count);
-        $data = $this->user->getAllOrders($where, $limit);
+        $data = $this->user->getAllOrdersLists($where, $limit);
       } else {
         //没有输入订单号查询 也没有订单状态( 订单列表首页, 不带参查询) 或者 只有订单状态 且只为0 或者非其他预留状态值
         $where = ' uid = ' . $_SESSION['user']['uid'];
         $count = $this->count($where);
         // 计算 分页下标
         $limit = $page->cNum($count);
-        $data = $this->user->getAllOrders($where, $limit);
+        $data = $this->user->getAllOrdersLists($where, $limit);
       }
 
-      var_dump($data);
+//      var_dump($data);
 
       //全部通过, 分页  分页也要带参数和不带参数
 
@@ -496,15 +501,57 @@
     public function count($where = '')
     {
       $data = $this->user->doCount($where);
+
       return $data;
     }
 
-    public function doOrderList()
+//    public function doOrderList()
+//    {
+//      var_dump($_GET);
+//      die;
+//    }
+
+    public function orderDetail()
     {
-      var_dump($_GET);
-      die;
+      $where = ' ordernum = ' . $_GET['ordernum'];
+      $data = $this->user->getOrder($where);
+      if (empty($data)) {
+        myNotice('非法访问', './index.php?c=user&m=orderList');
+      }
+
+      include_once 'View/user/orderdetail.html';
     }
 
+    //取消订单
+    public function cancelOrder()
+    {
+
+      $where = ' status = 1 and ordernum = ' . $_GET['ordernum'];
+      $do['status'] = '-1';
+      $res = $this->user->getOrderStatus($where);
+      if (empty($res)) {
+        myNotice('非法访问', './index.php?c=user&m=orderList');
+      }
+      unset($res);
+      $res = $this->user->changeStatus($where, $do);
+      if ($res === '-1') {
+        myNotice('取消失败,请联系客服');
+      }
+
+      myNotice('取消成功');
+    }
+
+    //删除订单
+    public function delOrderList()
+    {
+      $where = ' (status = 5 OR status = 6) and ordernum = ' . $_GET['ordernum'];
+      $res = $this->user->getOrderStatus($where);
+      if ($res == 1) {
+        myNotice('删除成功');
+      } else {
+        myNotice('删除失败');
+      }
+    }
 
     static public function isLogin()
     {

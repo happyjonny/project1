@@ -67,18 +67,20 @@
           <?php foreach($data as $k => $v): ?>
           <div class="order-list-items ">
             <!--订单号-->
-            <a href="">
+            <a href="./index.php?c=user&m=orderdetail&ordernum=<?= $k ?>">
               <div class="order-num">
-                订单号: <?= $v['ordernum'] ?>
+                订单号: <?= $k ?>
               </div>
               <!--商品信息 根据商品数量遍历-->
+              <?php foreach ($v as $key => $value): ?>
+              <?php $count += $value['quantity'] ?>
               <div class="item-infos">
                 <div class="item-infos-img">
-                  <img src="<?= imgUrl($v['icon']) ?>" alt="">
+                  <img src="<?= imgUrl($value['icon']) ?>" alt="">
                 </div>
                 <div class="item-infos-inner">
                   <div class="item-title">
-                    <?= $v['name'] ?>
+                    <?= $value['name'] ?>
                   </div>
                   <!--<div class="item-subtitle">-->
                   <!--300克-->
@@ -87,62 +89,20 @@
                 <div class="item-infos-price">
                   <!--TODO 商品价格-->
                   <span class="marketprice">
-                      &yen;<?= $v['price'] ?>
+                      &yen;<?= $value['price'] ?>
                     <br>
-                    x<?= $v['quantity'] ?>
+                    x<?= $value['quantity'] ?>
                   </span>
                 </div>
               </div>
 
-              <div class="item-infos">
-                <div class="item-infos-img">
-                  <img src="" alt="">
-                </div>
-                <div class="item-infos-inner">
-                  <div class="item-title">
-                    青苹果
-                  </div>
-                  <div class="item-subtitle">
-                    300克
-                  </div>
-                </div>
-                <div class="item-infos-price">
-                  <!--TODO 商品价格-->
-                  <span class="marketprice">
-                      &yen;13.8
-                    <br>
-                    x3
-                  </span>
-                </div>
-              </div>
-
-              <div class="item-infos">
-                <div class="item-infos-img">
-                  <img src="" alt="">
-                </div>
-                <div class="item-infos-inner">
-                  <div class="item-title">
-                    青苹果
-                  </div>
-                  <div class="item-subtitle">
-                    300克
-                  </div>
-                </div>
-                <div class="item-infos-price">
-                  <!--TODO 商品价格-->
-                  <span class="marketprice">
-                      &yen;13.8
-                    <br>
-                    x3
-                  </span>
-                </div>
-              </div>
+              <?php endforeach ?>
 
               <!--订单统计-->
               <div class="item-infos-total">
                 <span class="status">
-                  共: 多少商品 实付:
-                  <span>&yen;300</span>
+                  共: <?= $count ?>多少商品 实付:
+                  <span>&yen;<?= $data[$k][0]['total'] ?></span>
 
                 </span>
               </div>
@@ -150,12 +110,8 @@
               <!--TODO 根据订单状态 显示不同状态下的订单操作-->
               <!--删除订单-->
               <div class="delete-order">
-                <a href="">
-                  <div class="doDel">
-                    删除订单
-                  </div>
-                </a>
-                <a href="">
+                <?php if($data[$k][0]['status']==1): ?>
+                <a href="./index.php?c=user&m=cancelOrder&ordernum=<?= $k ?>">
                   <div class="doDel">
                     取消订单
                   </div>
@@ -165,6 +121,31 @@
                     支付订单
                   </div>
                 </a>
+                <?php elseif($data[$k][0]['status']==6 ||$data[$k][0]['status']==5 ): ?>
+                <a href="./index.php?c=user&m=delOrderList&ordernum=<?= $k ?>">
+                  <div class="doDel">
+                    删除订单
+                  </div>
+                </a>
+                <?php elseif($data[$k][0]['status']==2): ?>
+                <a href="./index.php?c=user&m=orderList&ordernum=<?= $k ?>">
+                  <div class="doDel">
+                    待发货
+                  </div>
+                </a>
+                <?php elseif($data[$k][0]['status']==3): ?>
+                <a href="./index.php?c=user&m=orderList&ordernum=<?= $k ?>">
+                  <div class="doDel">
+                    待收货
+                  </div>
+                </a>
+                <?php elseif($data[$k][0]['status']==4): ?>
+                <a href="./index.php?c=user&m=orderList&ordernum=<?= $k ?>">
+                  <div class="doDel">
+                    退货中
+                  </div>
+                </a>
+                <?php endif ?>
               </div>
             </a>
           </div>

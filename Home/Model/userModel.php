@@ -305,24 +305,95 @@
 
 
     //订单功能
-    //查询一个订单 带条件
+    //查询一个订单详情 带条件
     public function getOrder($where = '')
     {
+      $res = $this->pdo
+        ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name, a.address, a.realname, a.tel')
+        ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g , address as a')
+        ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id and a.id = o.aid and o.uid = ' . $_SESSION['user']['uid'])
+        ->select();
+//      var_dump($res);
+      return $res;
 
+    }
+
+    //查看订单状态
+    public function getOrderStatus($where = '')
+    {
+      $res = $this->pdo
+        ->field('`status`')
+        ->table('`order`')
+        ->where($where . ' and uid = ' . $_SESSION['user']['uid'])
+        ->find();
+//      var_dump($res);die;
+      return $res;
+    }
+
+    public function getAllOrdersLists($where = '', $limit = '')
+    {
+      $tmp = $this->pdo
+        ->field(' ordernum ')
+        ->table(' `order` ')
+        ->where($where)
+        ->limit($limit)
+        ->select();
+      foreach ($tmp as $k => $v) {
+        $res[$v['ordernum']] = array();
+      }
+
+      $res = $this->getAllOrdersInfo($res);
+//      var_dump($this->pdo->sql);die;
+      return $res;
+
+    }
+
+    public function getAllOrdersInfo($arr = array())
+    {
+//      var_dump($arr);
+
+      foreach ($arr as $k => $v) {
+        $arr[$k] = $this->pdo
+          ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
+          ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
+          ->where(' o.ordernum = ' . $k . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
+          ->select();
+      }
+
+      return $arr;
     }
 
 
 
     //查询所有订单 带条件 带limit 带order
-    public function getAllOrders($where = '', $limit = '')
+//    public function getAllOrdersLists($where = '', $limit = '')
+//    {
+//      $res = $this->pdo
+//        ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
+//        ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
+//        ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
+//        ->select();
+//      var_dump($this->pdo->sql);
+//      return $res;
+//
+//    }
+
+    public function changeStatus($where = '', $arr = array())
     {
       $res = $this->pdo
-        ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
-        ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
-        ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
-        ->select();
-      var_dump($this->pdo->sql);
+        ->table('`order`')
+        ->where($where)
+        ->update($arr);
+
       return $res;
+    }
+
+    public function delOrderList($where = '')
+    {
+      $res = $this->pdo
+        ->table('`order`')
+        ->where($where)
+        ->delete();
 
     }
 
@@ -334,8 +405,8 @@
         ->table('`order`')
         ->where($where)
         ->find();
-      var_dump($res);
-      return $res[0]['count'];
+//      var_dump($res);
+      return $res['count'];
 
     }
 

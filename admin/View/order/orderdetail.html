@@ -1,11 +1,7 @@
-<?php $this->header() ?>
-<?php $this->nav() ?>
-<?php $this->userIndex() ?>
-
 <link rel="stylesheet" href="../css/main2.css">
 
-<div class="member-right-container">
-  <div class="member-right-content">
+<div class="member-right-container" style="width: 100%">
+  <div class="member-right-content" style="width: 100%">
     <div class="tabmenu">
       <ul>
         <li><a>订单详情</a></li>
@@ -92,7 +88,7 @@
               <!--TODO 商品价格-->
               <span class="marketprice">
                       &yen;<?= $v['price']?>
-                    <br>
+                <br>
                     x <?= $v['quantity']?>
                   </span>
             </div>
@@ -151,5 +147,3 @@
 </div>
 </div>
 
-<?php $this->footer() ?>
-<?php $this->contact() ?>
