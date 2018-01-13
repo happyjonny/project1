@@ -441,9 +441,48 @@
     public function orderList()
     {
       //验证来源
-      //不带参不管
-      //带参 只考虑这个  ordernum是否是这个合法用户的
+      //param  status  ordernum
+      // 实例化 page.php
 
+
+      $page = new Page;
+      // 统计
+
+      //TODO 先获取订单  再每个订单遍历
+
+      //如果带条件
+      if (!empty($_GET['ordernum'])) {
+        if ($_GET['status'] === '-1' || ($_GET['status'] >= '1' || $_GET['status'] <= '6')) {
+          $where = ' uid = ' . $_SESSION['user']['uid'] . ' and status = ' . $_GET['status'] . ' and ordernum = ' . $_GET['ordernum'];
+          $count = $this->count($where);
+          // 计算 分页下标
+          $limit = $page->cNum($count);
+          $data = $this->user->getAllOrders($where, $limit);
+        } else {
+
+          $where = ' uid = ' . $_SESSION['user']['uid'] . ' and ordernum = ' . $_GET['ordernum'];
+          $count = $this->count($where);
+          // 计算 分页下标
+          $limit = $page->cNum($count);
+          $data = $this->user->getAllOrders($where, $limit);
+        }
+      } elseif ($_GET['status'] === '-1' || ($_GET['status'] >= '1' && $_GET['status'] <= '6')) {
+
+        $where = ' uid = ' . $_SESSION['user']['uid'] . ' and status = ' . $_GET['status'];
+        $count = $this->count($where);
+        // 计算 分页下标
+        $limit = $page->cNum($count);
+        $data = $this->user->getAllOrders($where, $limit);
+      } else {
+        //没有输入订单号查询 也没有订单状态( 订单列表首页, 不带参查询) 或者 只有订单状态 且只为0 或者非其他预留状态值
+        $where = ' uid = ' . $_SESSION['user']['uid'];
+        $count = $this->count($where);
+        // 计算 分页下标
+        $limit = $page->cNum($count);
+        $data = $this->user->getAllOrders($where, $limit);
+      }
+
+      var_dump($data);
 
       //全部通过, 分页  分页也要带参数和不带参数
 
@@ -454,6 +493,17 @@
       include_once 'View/user/orderList.html';
     }
 
+    public function count($where = '')
+    {
+      $data = $this->user->doCount($where);
+      return $data;
+    }
+
+    public function doOrderList()
+    {
+      var_dump($_GET);
+      die;
+    }
 
 
     static public function isLogin()

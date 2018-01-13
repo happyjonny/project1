@@ -11,83 +11,85 @@
         <li><a href="">回收站</a></li>
       </ul>
     </div>
-    <form action="" method="get" class="order-search">
 
-      <!--TODO 页面参数补充-->
-      <input type="text" hidden>
-      <input type="text" hidden>
-      <table>
-        <tr>
-          <th>订单状态:</th>
-          <td class="order-status">
-            <select name="status" id="" style="width: 100px">
-              <option value="0" selected>所有订单</option>
-              <option value="1">
-                待付款
-              </option>
-              <option value="2">
-                待发货
-              </option>
-              <option value="3">
-                待收货
-              </option>
-              <option value="4">
-                退/换货中
-              </option>
-              <option value="5">
-                已退/换货
-              </option>
-              <option value="-1">
-                已取消
-              </option>
-              <option value="6">
-                已完成
-              </option>
-            </select>
-          </td>
-          <th>订单号</th>
-          <td style="width: 160px">
-            <input type="text" name="ordernum">
-          </td>
-          <td style="width: 70px;text-align: center">
-            <label class="submit-search">
-              <input type="submit" class="submit" value="搜索">
-            </label>
-          </td>
-        </tr>
-      </table>
-    </form>
+    <!--TODO 问老师-->
+    <!--<form action="./index.php?c=user" method="get" class="order-search">-->
+
+    <!--&lt;!&ndash;TODO 页面参数补充&ndash;&gt;-->
+
+    <!--<table>-->
+    <!--<tr>-->
+    <!--<th>订单状态:</th>-->
+    <!--<td class="order-status">-->
+    <!--<select name="status" id="" style="width: 100px">-->
+    <!--<option value="0" selected>所有订单</option>-->
+    <!--<option value="1">-->
+    <!--待付款-->
+    <!--</option>-->
+    <!--<option value="2">-->
+    <!--待发货-->
+    <!--</option>-->
+    <!--<option value="3">-->
+    <!--待收货-->
+    <!--</option>-->
+    <!--<option value="4">-->
+    <!--退/换货中-->
+    <!--</option>-->
+    <!--<option value="5">-->
+    <!--已退/换货-->
+    <!--</option>-->
+    <!--<option value="-1">-->
+    <!--已取消-->
+    <!--</option>-->
+    <!--<option value="6">-->
+    <!--已完成-->
+    <!--</option>-->
+    <!--</select>-->
+    <!--</td>-->
+    <!--<th>订单号</th>-->
+    <!--<td style="width: 160px">-->
+    <!--<input type="text" name="ordernum">-->
+    <!--</td>-->
+    <!--<td style="width: 70px;text-align: center">-->
+    <!--<label class="submit-search">-->
+    <!--<input type="submit" class="submit" name="serachorder"  value="搜索">-->
+    <!--</label>-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</table>-->
+    <!--</form>-->
 
     <!--订单列表-->
     <div class="page-show-container">
       <div class="order-lists">
         <div class="content">
           <!--TODO 根据订单数量遍历 -->
+          <?php foreach($data as $k => $v): ?>
           <div class="order-list-items ">
             <!--订单号-->
             <a href="">
               <div class="order-num">
-                订单号: 23049819028490128590
+                订单号: <?= $v['ordernum'] ?>
               </div>
               <!--商品信息 根据商品数量遍历-->
               <div class="item-infos">
                 <div class="item-infos-img">
-                  <img src="" alt="">
+                  <img src="<?= imgUrl($v['icon']) ?>" alt="">
                 </div>
                 <div class="item-infos-inner">
                   <div class="item-title">
-                    青苹果
+                    <?= $v['name'] ?>
                   </div>
-                  <div class="item-subtitle">
-                    300克
-                  </div>
+                  <!--<div class="item-subtitle">-->
+                  <!--300克-->
+                  <!--</div>-->
                 </div>
                 <div class="item-infos-price">
                   <!--TODO 商品价格-->
                   <span class="marketprice">
-                      &yen;13.8
+                      &yen;<?= $v['price'] ?>
                     <br>
-                    x3
+                    x<?= $v['quantity'] ?>
                   </span>
                 </div>
               </div>
@@ -166,6 +168,7 @@
               </div>
             </a>
           </div>
+          <?php endforeach ?>
         </div>
       </div>
     </div>
@@ -173,8 +176,7 @@
     <!--订单页数-->
     <div class="page-num-container">
       <ul>
-        <li><a href="">1</a></li>
-        <li><a href="">2</a></li>
+        <?= $page->showPage() ?>
       </ul>
     </div>
 

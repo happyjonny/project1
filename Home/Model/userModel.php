@@ -306,10 +306,38 @@
 
     //订单功能
     //查询一个订单 带条件
+    public function getOrder($where = '')
+    {
+
+    }
+
 
 
     //查询所有订单 带条件 带limit 带order
+    public function getAllOrders($where = '', $limit = '')
+    {
+      $res = $this->pdo
+        ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
+        ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
+        ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
+        ->select();
+      var_dump($this->pdo->sql);
+      return $res;
 
+    }
+
+
+    public function doCount($where = '')
+    {
+      $res = $this->pdo
+        ->field(' count(id) as count ')
+        ->table('`order`')
+        ->where($where)
+        ->find();
+      var_dump($res);
+      return $res[0]['count'];
+
+    }
 
 
   }
