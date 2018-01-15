@@ -47,6 +47,9 @@
 
 		public function doAdd()
 		{
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
 			$data = $this->category->doAdd();
 //      var_dump($data);die;
 			if($data){
@@ -59,6 +62,9 @@
 		public function edit()
 		{
 			// 根据id 查询分类
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
 			$data = $this->category->showOne();
 
       $cate = new CategoryController;
@@ -80,6 +86,9 @@
 		public function doEdit()
 		{
 //      var_dump($_POST);die;
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
 			$data = $this->category->doEdit();
 
 			if($data){

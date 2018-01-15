@@ -13,16 +13,18 @@
     public function showAll($where, $limit)
     {
       // select * from user
-      $res = $this->pdo
-        ->field('*')
-        ->table('user')
-        ->where($where)
-        ->order('id desc')
-        ->limit($limit)
-        ->select();
-//      var_dump($res);
-//      die;
+      try {
+        $res = $this->pdo
+          ->field('*')
+          ->table('user')
+          ->where($where)
+          ->order('id desc')
+          ->limit($limit)
+          ->select();
       return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     // 查询单个用户
@@ -33,23 +35,31 @@
 
       // 准备sql
       // select * from userController where id = xxx
-      $res = $this->pdo
-        ->field('*')
-        ->table('user')
-        ->where(' id = ' . $id)
-        ->find();
-      return $res;
+      try {
+        $res = $this->pdo
+          ->field('*')
+          ->table('user')
+          ->where(' id = ' . $id)
+          ->find();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     // 统计总个数
     public function doCount($where = '')
     {
-      $res = $this->pdo
-        ->field(' count(id) as count')
-        ->table('user')
-        ->where($where)
-        ->select();
-      return $res[0]['count'];
+      try {
+        $res = $this->pdo
+          ->field(' count(id) as count')
+          ->table('user')
+          ->where($where)
+          ->select();
+        return $res[0]['count'];
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
 
     }
@@ -87,12 +97,15 @@
 
       // 数据验证完成了,  调用DB, 插入数据
       // insert into user() values();
-      $data = $this->pdo
-        ->table('user')
-        ->insert($_POST);
-//      var_dump($this->pdo->sql, $data);
-//      die;
-      return $data;
+      try {
+        $data = $this->pdo
+          ->table('user')
+          ->insert($_POST);
+        return $data;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
+
     }
 
     public function doEdit()
@@ -109,12 +122,12 @@
         $_POST['pwd'] = md5($_POST['pwd']);
       }
 
+
       // 头像
       $key = key($_FILES);
       if ($_FILES[$key]['error'] != 4) {
         $file = new Upload;
         $icon = $file->singleFile();
-        var_dump($icon);
         if (is_string($icon)) {
           myNotice($icon);
         }
@@ -127,11 +140,15 @@
       // 	如果下面的更新失败. 则不操作
 
       // 数据验证完成了,  调用DB, 更新数据
-      $data = $this->pdo
-        ->table('user')
-        ->where('id = ' . $_POST['id'])
-        ->update($_POST);
-      return $data;
+      try {
+        $data = $this->pdo
+          ->table('user')
+          ->where('id = ' . $_POST['id'])
+          ->update($_POST);
+        return $data;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function doDel()
@@ -140,11 +157,15 @@
       $id = $_GET['id'];
 
       // 2. 调用DB类
-      $res = $this->pdo
-        ->table('user')
-        ->where('id = ' . $id)
-        ->delete();
-      return $res;
+      try {
+        $res = $this->pdo
+          ->table('user')
+          ->where('id = ' . $id)
+          ->delete();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function doStatus()
@@ -152,18 +173,24 @@
       // 查询该用户的状态
       $id = $_GET['id'];
       // select status from user where id = xx
-      $res = $this->pdo
-        ->field('status')
-        ->table('user')
-        ->where('id = ' . $id)
-        ->find();
-
+      try {
+        $res = $this->pdo
+          ->field('status')
+          ->table('user')
+          ->where('id = ' . $id)
+          ->find();
       $res['status'] = ($res['status'] == 1 ? 2 : 1);
-
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
+      try {
       $res = $this->pdo
         ->table('user')
         ->where('id = ' . $id)
         ->update($res);
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
 

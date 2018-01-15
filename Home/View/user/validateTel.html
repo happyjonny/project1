@@ -1,10 +1,9 @@
 <?php $this->header() ?>
 
-<!--<link rel="stylesheet" href="/member/css/main.css">-->
 
 <div class="nc-register-bg">
-  <div class="nc-register-box" id="nc-login-box">
-    <div class="nc-register-layout" id="nc-register-layout">
+  <div class="nc-register-box">
+    <div class="nc-register-layout">
 
       <!--左侧-->
       <div class="left">
@@ -14,33 +13,27 @@
           <ul class="tabs-nav">
             <li>
               <a class="tabulous_active">
-                立即登录
+                验证手机
               </a>
             </li>
           </ul>
 
           <div class="tabs-container" style="height: 387px;">
             <div class="tabs-content" style="position: absolute; top: 0;">
-              <form action="./index.php?c=user&m=doLogin" method="post" name="register" id="register_form"
+              <form action="./index.php?c=user&m=dovalidateMobile" method="post" name="register" id="register_form"
                     class="nc-login-form">
+
 
                 <dl>
                   <dt>手机号:</dt>
                   <dd>
-                    <input type="text" class="text" name="mobile" placeholder="您的账号">
+                    <input type="text" class="text" name="mobile" value="<?= $data['mobile'] ?>">
                   </dd>
                 </dl>
 
                 <!--TODO 手机验证码-->
                 <!--<div class="code-div"></div>-->
                 <!--<div class="tiptext"></div>-->
-
-                <dl>
-                  <dt>密码:</dt>
-                  <dd>
-                    <input type="password" class="text" name="pwd" placeholder="6-20个大小写字母/符号或数字">
-                  </dd>
-                </dl>
 
                 <dl>
                   <dt>验证码:</dt>
@@ -60,17 +53,9 @@
                   </dd>
                 </dl>
 
-
-                <dl>
-                  <dt>7天免登陆:</dt>
-                  <dd>
-                    <input type="checkbox" class="text" name="rememberme">
-                  </dd>
-                </dl>
-
                 <div class="submit-div">
                   <div class="submit" style="text-align: center;line-height: 42px;">
-                    <input type="submit" value="立即登录">
+                    <input type="submit" value="获取短信验证码">
                   </div>
                   <a href="" class="account-login-link">忘记密码</a>
                 </div>
@@ -83,20 +68,15 @@
       </div>
 
       <!--右侧-->
-      <!--<div class="right">-->
-      <!--<div class="register-after">-->
-      <!--<h4>注册之后您可以</h4>-->
-      <!--<ol>-->
-      <!--<li class="ico">购买商品支付订单</li>-->
-      <!--<li class="ico">收藏商品关注店铺</li>-->
-      <!--<li class="ico">安全交易诚信无忧</li>-->
-      <!--<li class="ico">积分获取优惠购物</li>-->
-      <!--<li class="ico">会员等级享受特权</li>-->
-      <!--<li class="ico">评价晒单站外分享</li>-->
-      <!--</ol>-->
-      <!--</div>-->
+      <div class="right">
+        <div class="register-after">
+          <h4>验证之后您可以</h4>
+          <ol>
+            <li class="ico">购买商品支付订单</li>
+          </ol>
+        </div>
 
-      <!--</div>-->
+      </div>
     </div>
   </div>
 </div>

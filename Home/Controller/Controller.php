@@ -4,11 +4,7 @@
   {
     public function __construct()
     {
-//			if( empty($_SESSION['admin']) ){
-//				header('location: index.php?c=login'); die;
-//			}
       $this->base = new baseModel();
-//      var_dump($_COOKIE);
       //免登陆
       if (!empty($_COOKIE['mobile'])) {
         if (empty($_SESSION['user'])) {
@@ -62,7 +58,6 @@
 
       include_once 'View/user/_index.html';
       unset($data2);
-//      var_dump($data2);die;
     }
 
 

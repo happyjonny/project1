@@ -24,12 +24,12 @@
               >
               <div class="list-inner">
                 <div class="title">
-                  <span class="realname"><?= $value['realname'] ?></span>
-                  <span class="mobile"><?= $value['tel'] ?></span>
+                  <span class="realname"><?= strip_tags($value['realname']) ?></span>
+                  <span class="mobile"><?= strip_tags($value['tel']) ?></span>
                 </div>
                 <div class="text">
                   <span class="address">
-                    <?= $value['address'] ?>
+                    <?= strip_tags($value['address']) ?>
                   </span>
                 </div>
               </div>
@@ -55,7 +55,7 @@
             <div class="list-inner">
               <a href="">
                 <div class="text"></div>
-                <div class="text"><?=$v['name']?></div>
+                <div class="text"><?=strip_tags($v['name'])?></div>
               </a>
             </div>
 
@@ -64,7 +64,7 @@
               <span class="price">
                 &yen;
                 <span class="marketprice">
-                    <?=$v['price']?>
+                    <?=strip_tags($v['price'])?>
                 </span>
                 <!--数量-->
 
@@ -109,15 +109,15 @@
       <!--TODO 以后做, 优惠券用-->
       <!--<div class="ncc-receipt-info"></div>-->
       <!--买家留言-->
-      <div class="ncc-receipt-info cell-group sm">
+      <!--<div class="ncc-receipt-info cell-group sm">-->
 
-        <div class="cell">
-          <div class="cell-info">
-            <input type="text" class="fui-input" placeholder="选填: 买家留言(50字以内)" maxlength="50">
-          </div>
-        </div>
+      <!--<div class="cell">-->
+      <!--<div class="cell-info">-->
+      <!--<input type="text" class="fui-input" placeholder="选填: 买家留言(50字以内)" maxlength="50">-->
+      <!--</div>-->
+      <!--</div>-->
 
-      </div>
+      <!--</div>-->
 
       <!--支付方式-->
 

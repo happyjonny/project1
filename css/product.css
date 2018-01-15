@@ -493,9 +493,115 @@
   text-align: center;
 }
 
+.product-comment {
 
+}
 
+.product-comment .title {
+  color: #333;
+  background-color: #fff;
+  padding: 8px 35px 6px 35px;
+  border-style: solid;
+  border-color: #f87622 #ddd transparent #ddd;
+  border-width: 3px 1px 0 1px;
+  display: block;
+  font: normal 14px/20px "Microsoft Yahei";
+}
 
+.product-comment .comment {
+  font-size: 0;
+  background-color: #fff;
+  border: solid #e6e6e6 1px;
+  display: block;
+}
 
+.product-comment .comment ul {
+  font-size: 12px;
+  display: block;
+}
+
+.comment ul .customer {
+  display: block;
+  margin-bottom: 5px;
+
+}
+
+.comment ul li p {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.comment span {
+  margin-top: 2px;
+  display: block;
+  font-size: 16px;
+  overflow: auto;
+}
+
+.comment ul .store {
+  color: #666;
+  background: #dadada url(../images/shop/goods_meta_bg.png) no-repeat 0 50%;
+  background-size: cover;
+  padding: 15px 0;
+  position: relative;
+  z-index: 3;
+  box-shadow: inset 4px 0 1px rgba(153, 153, 153, 0.15);
+}
+
+.doComment {
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  position: relative;
+  z-index: 70;
+  zoom: 1;
+  background-color: #f40;
+  font: bold 16px/32px "Microsoft Yahei";
+  color: #fff;
+  text-align: center;
+  padding: 5px 12px;
+  margin-top: 10px;
+  /*margin-left: 5px;*/
+  margin-right: 5px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.doComment a {
+  color: #fff;
+}
+
+.comments input {
+  display: block;
+}
+
+.comments .text {
+  display: block;
+  width: 200px;
+  height: 60px;
+  border: 1px solid #ccc;
+  line-height: 20px;
+  font-size: 12px;
+  resize: none;
+  cursor: text;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -webkit-appearance: textarea;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  flex-direction: column;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui;
+
+}
 
 

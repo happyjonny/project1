@@ -25,7 +25,6 @@
       self::isLogin();
       //没图片
       $data = $this->user->getCartItemInfoAll();
-//      var_dump($data);die;die
       //获取图片
       foreach ($data as $k => $v) {
         $tmp = $this->goods->getImgs($v['gid']);
@@ -37,6 +36,7 @@
       }
 
       include_once 'View/user/cart.html';
+      unset($data);
     }
 
     public function cart()
@@ -44,7 +44,6 @@
       self::isLogin();
       //没图片
       $data = $this->user->getCartItemInfoAll();
-//      var_dump($data);die;die
       //获取图片
       foreach ($data as $k => $v) {
         $tmp = $this->goods->getImgs($v['gid']);
@@ -55,6 +54,7 @@
         }
       }
       include_once 'View/user/cart.html';
+      unset($data);
     }
 
 
@@ -67,17 +67,17 @@
     {
       self::isLogin();
       $data = $this->user->getUserInfo();
-//      var_dump($data);
       include_once 'View/user/profile.html';
+      unset($data);
     }
 
     public function address()
     {
       self::isLogin();
 
-      $data = $this->user->getAddress('uid = ' . $_SESSION['user']['uid']);
-//       var_dump($data);die;
+      $data = $this->user->getAddress(' display  = 1 and uid = ' . $_SESSION['user']['uid']);
       include_once 'View/user/address.html';
+      unset($data);
     }
 
     public function addressadd()
@@ -89,6 +89,8 @@
 
     public function doaddressadd()
     {
+      self::isLogin();
+
       if (empty($_POST['address']) || empty($_POST['realname']) || empty($_POST['tel'])) {
         myNotice('输入有误', 3);
       }
@@ -125,7 +127,7 @@
       $_POST['uid'] = $_SESSION['user']['uid'];
 
       //查询该用户已有收货信息
-      $res = $this->user->getAddress('uid = ' . $_SESSION['user']['uid']);
+      $res = $this->user->getAddress(' display  = 1 and uid = ' . $_SESSION['user']['uid']);
       //如果没有收货地址
       if (empty($res)) {
         //新增 且该地址设置为默认
@@ -169,7 +171,10 @@
       }
       $d = $data[0]['defaults'];
       //删除该收货地址信息
-      $data = $this->user->addressdoDel('id = ' . $_GET['aid']);
+      $data = $this->user->addressdoDel('id = ' . $_GET['aid'], $_GET['aid']);
+      if (!$data) {
+        myNotice('删除失败', './index.php?c=user&m=address');
+      }
       unset($data);
       //如果该收货地址是默认 则要去修改其他地址设置为默认
       if ($d == 1) {
@@ -192,7 +197,12 @@
       //如果有cookie
 
       $_POST['pwd'] = md5($_POST['pwd']);
-
+      //验证 验证码输入是否正确
+      if (strtolower($_POST['yzm']) != strtolower($_SESSION['user']['code'])) {
+        unset($_SESSION['user']['code']);
+        myNotice('验证码错误');
+      }
+      unset($_SESSION['user']['code']);
       $data = $this->user->doLogin();
 
       if (!empty($data)) {
@@ -240,6 +250,11 @@
 
     public function doRegister()
     {
+      if (strtolower($_POST['yzm']) != strtolower($_SESSION['user']['code'])) {
+        unset($_SESSION['user']['code']);
+        myNotice('验证码错误');
+      }
+      unset($_SESSION['user']['code']);
       // 电话
       $preg = '/^1[34578]\d{9}$/';
       if (!preg_match($preg, $_POST['mobile'])) {
@@ -260,6 +275,8 @@
 
       //验证通过
       $_POST['regtime'] = time();
+      //默认状态为2, 手机号码为验证
+      $_POST['status'] = 2;
 
       // $uid 为用户id  类型:string
       $uid = $this->user->doRegister();
@@ -281,11 +298,70 @@
 
     }
 
+    //验证手机号(获取当前用户信息页面)
+    public function validateMobile()
+    {
+      $data = $this->user->getUserInfo();
+      var_dump($data);
+      include_once 'View/user/validateTel.html';
+    }
+
+    //提交验证
+    public function dovalidateMobile()
+    {
+      if (strtolower($_POST['yzm']) != strtolower($_SESSION['user']['code'])) {
+        unset($_SESSION['user']['code']);
+        myNotice('验证码错误');
+      }
+      unset($_SESSION['user']['code']);
+
+      $preg = '/^1[34578]\d{9}$/';
+      if (!preg_match($preg, $_POST['mobile'])) {
+        myNotice('手机号码格式不正确');
+      }
+      //查看输入的手机号是否以存在
+      $check = $this->user->getUserInfoByMobile($_POST['mobile']);
+      if (!empty($check)) {
+        myNotice('该号码以存在,请不要重复设置', './index.php?c=user&m=cart');
+      }
+      $_SESSION['user']['tMobile'] = $_POST['mobile'];
+
+      $random = $_SESSION['user']['validateCode'] = rand(100000, 999999);
+
+
+      $sms = new sendSMS();
+      $sms->sendsms($_POST['mobile'], array($random, 1), "1");
+      include "View/user/doValidate.html";
+    }
+
+    //审核验证
+    public function doValidate()
+    {
+      if ($_SESSION['user']['validateCode'] != $_POST['validateCode']) {
+        myNotice('验证码错误,请重新验证', './index.php/c=user&m=validateMobile');
+      }
+      $arr['mobile'] = $_SESSION['user']['tMobile'];
+      $arr['status'] = 1;
+      $res = $this->user->editProfile($arr);
+      $_SESSION['user']['mobile'] = $arr['mobile'];
+      $_SESSION['user']['status'] = 1;
+      unset($_SESSION['user']['tMobile']);
+      header('location: ./index.php?c=user&m=cart');
+      die;
+    }
+
+
     //添加至购物车
     public function addCart()
     {
-//      var_dump($_POST);
       self::isLogin();
+      //验证数量填写是否正确
+      $preg = '/^[1-9]\d*$/';
+
+      if (!preg_match($preg, $_POST['quantity'])) {
+        myNotice('请重新确认你购买的数量');
+      }
+
       //保证 uid为session的uid
       // 即时用户篡改input标签 也可以正常使用
       $_POST['uid'] = $_SESSION['user']['uid'];
@@ -328,6 +404,8 @@
     //修改会员信息
     public function editProfile()
     {
+      self::isLogin();
+
       //密码验证
       //2次密码不一致
 //      var_dump($_POST);
@@ -376,7 +454,7 @@
         }
       }
 
-      $res = $this->user->editProfile();
+      $res = $this->user->editProfile($_POST);
 
       if ($res !== false) {
         myNotice('更新成功');
@@ -389,6 +467,12 @@
     //创建新订单
     public function ordercreate()
     {
+      self::isLogin();
+
+      if ($_SESSION['user']['status'] == 2) {
+        myNotice('请先验证手机号');
+      }
+
 //      var_dump($_POST);die;
       //验证数量: 必须大于0
       $preg = '/^[1-9]\d*$/';
@@ -397,17 +481,18 @@
         if (!preg_match($preg, $_POST[$k])) {
           myNotice('请重新确认你购买的数量');
         }
+
       }
 
       //验证是否有收货地址
-      $add = $this->user->getAddress(' uid = ' . $_SESSION['user']['uid']);
+      $add = $this->user->getAddress(' display = 1 and  uid = ' . $_SESSION['user']['uid']);
       if (empty($add)) {
         myNotice('请先添加收货地址', './index.php?c=user&m=addressadd');
       }
 
       $goods = $this->user->validorderCreate();
       if ($goods) {
-        $address = $this->user->getAddress(' uid = ' . $_SESSION['user']['uid']);
+        $address = $this->user->getAddress(' display = 1 and uid = ' . $_SESSION['user']['uid']);
         $_SESSION['user']['cart']['goodsinfos'] = $goods;
         include_once './View/user/ordercreate.html';
       } else {
@@ -417,12 +502,14 @@
 
     public function doOrderCreate()
     {
+      self::isLogin();
+
 
       //$res 为新创建的订单id
       $res = $this->user->doOrderCreate($this->goodsInfos);
       if ($res) {
         //创建成功
-        myNotice('下单成功', './index.php');
+        myNotice('下单成功', 'index.php?c=user&m=orderList');
 
       } else {
         //创建失败
@@ -433,6 +520,8 @@
 
     public function doDelCart()
     {
+      self::isLogin();
+
       $this->user->doDelCart();
       header('location: ./index.php?c=user&cart');
       die;
@@ -440,6 +529,8 @@
 
     public function orderList()
     {
+      self::isLogin();
+
       //验证来源
       //param  status  ordernum
       // 实例化 page.php
@@ -513,11 +604,14 @@
 
     public function orderDetail()
     {
+      self::isLogin();
+
       $where = ' ordernum = ' . $_GET['ordernum'];
       $data = $this->user->getOrder($where);
       if (empty($data)) {
         myNotice('非法访问', './index.php?c=user&m=orderList');
       }
+//      var_dump($data);
 
       include_once 'View/user/orderdetail.html';
     }
@@ -525,6 +619,8 @@
     //取消订单
     public function cancelOrder()
     {
+      self::isLogin();
+
 
       $where = ' status = 1 and ordernum = ' . $_GET['ordernum'];
       $do['status'] = '-1';
@@ -544,6 +640,8 @@
     //删除订单
     public function delOrderList()
     {
+      self::isLogin();
+
       $where = ' (status = 5 OR status = 6) and ordernum = ' . $_GET['ordernum'];
       $res = $this->user->getOrderStatus($where);
       if ($res == 1) {
@@ -553,11 +651,51 @@
       }
     }
 
+    //确认收货
+    public function doOrder()
+    {
+      //验证
+//      var_dump($_GET);die;
+      if (empty($_GET['ordernum'])) {
+        myNotice('非法访问');
+      }
+      $where = ' status = 3 and  ordernum = ' . $_GET['ordernum'];
+      $res = $this->user->getOrderStatus($where);
+      if (empty($res)) {
+        myNotice('非法访问');
+      }
+      $tmp['credit'] = $res['total'] * CREDITS;
+      $arr['status'] = 6;
+      $arr['ordernum'] = $_GET['ordernum'];
+      //改变状态
+      $where .= ' and uid = ' . $_SESSION['user']['uid'];
+      $res = $this->user->changeStatus($where, $arr);
+
+      $res = $this->user->editProfile($tmp);
+      unset($arr);
+      unset($tmp);
+      header('location: ./index.php?c=user&m=orderList&status=6');
+      die;
+    }
+
+    //评论
+    public function doComment()
+    {
+      var_dump($_POST);
+    }
+
     static public function isLogin()
     {
       if (empty($_SESSION['user'])) {
         myNotice('请先登录', './index.php?c=user&m=login');
       }
+    }
+
+    public function yzm()
+    {
+      $yzm = new Validate;
+      $yzm->doimg();
+      $_SESSION['user']['code'] = $yzm->getCode();
     }
 
 

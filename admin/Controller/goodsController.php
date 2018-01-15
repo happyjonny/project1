@@ -58,6 +58,21 @@
 
     public function doAdd()
     {
+      //数据验证
+      $preg = '/^[1-9]\d*$/';
+      if (!preg_match($preg, $_POST['stock'])) {
+        myNotice('库存填写不正确');
+      }
+
+      $preg = '/^[0-9]+(.[0-9]{1,2})?$/';
+      if (!preg_match($preg, $_POST['price'])) {
+        myNotice('价格填写不正确');
+      }
+
+
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
 
       //如果不传图片,直接返回
       if (empty($_FILES['icon']['name'])) {
@@ -107,6 +122,10 @@
 
     public function doEdit()
     {
+
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
 //		  var_dump($_POST);die;
       $data = $this->goods->doEdit();
 

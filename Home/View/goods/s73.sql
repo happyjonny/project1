@@ -49,3 +49,16 @@ create table if not exists `cart`(
   `mobile`   int comment '电话',
   `area`     varchar(255) comment '所在地区'
 )engine=MyISAM default charset=utf8;
+
+-- 评论表
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id`        INT AUTO_INCREMENT PRIMARY KEY,
+  `uid`       INT NOT NULL
+  COMMENT '用户id',
+  `comments`  VARCHAR(255) COMMENT '评论',
+  `gid`       INT COMMENT '商品id',
+  `commentid` INT COMMENT '回复哪条评论id',
+  `status`    INT COMMENT '回复状态 1管理员回复 2管理员未回复'
+)
+  ENGINE = MyISAM
+  DEFAULT CHARSET = utf8;

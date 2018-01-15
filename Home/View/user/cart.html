@@ -30,7 +30,7 @@
                 <div class="item-infos-inner">
                   <div class="item-title">
                     <!--商品链接-->
-                    <a href=""><?= $v['name'] ?></a>
+                    <a href=""><?= strip_tags($v['name']) ?></a>
                   </div>
                   <div class="item-subtitle">
                     <!--TODO 需要增加简短描述字段-->
@@ -39,17 +39,18 @@
                 <div class="item-infos-price">
                   <!--TODO 商品价格-->
                   <span class="marketprice " id="marketprice">
-                      &yen;<?= $v['price'] ?>
+                      &yen;<?= strip_tags($v['price']) ?>
                   </span>
 
                   <p>数量:</p>
                   <!--TODO name=商品id value=数量-->
                   <!--<em title="减少数量" id="count_sub" value='jian' class="br" onclick="jian()">-</em>-->
-                  <input type="text" id="quantity" name="<?= $v['gid'] ?>" value="<?= $v['quantity'] ?>">
+                  <input type="text" id="quantity" name="<?= strip_tags($v['gid']) ?>"
+                         value="<?= strip_tags($v['quantity']) ?>">
                   <!--<em	title="增加数量" id="count_sub" value='jia' class="bl" onclick="jia()">+</em>-->
                   <!--TODO 删除该购物车该商品id $v['id']-->
 
-                  <a href="./index.php?c=user&m=doDelCart&gid=<?= $v['gid'] ?>">
+                  <a href="./index.php?c=user&m=doDelCart&gid=<?= strip_tags($v['gid']) ?>">
                     <div class="doDel">
                       删除
                     </div>

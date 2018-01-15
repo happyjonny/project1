@@ -4,9 +4,10 @@
 	{
 		public function __construct()
 		{
-//			if( empty($_SESSION['admin']) ){
-//				header('location: index.php?c=login'); die;
-//			}
+      if (empty($_SESSION['admin'])) {
+        header('location: index.php?c=login');
+        die;
+      }
 		}
 
 		public function __call($k, $v)

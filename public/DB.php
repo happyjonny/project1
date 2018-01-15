@@ -47,7 +47,7 @@
       $this->initialization();
 
 			$res = $this->db->query($sql);
-//			var_dump($sql);die;
+//			var_dump($sql);
 
       if (!$res) {
         throw new Exception('数据库查询语句出错:' . $this->sql, 10001);
@@ -74,7 +74,6 @@
 			$res = $this->db->query($sql);
       if (!$res) {
         throw new Exception('数据库查询语句出错', 10002);
-
       }
 			$data = $res->fetch(PDO::FETCH_ASSOC);
 			return $data;
@@ -102,8 +101,7 @@
 				$sql = 'insert into '.$this->table.'('.$field.') values('.$value.')';
 				$this->sql = $sql;
       $this->initialization();
-//        var_dump($sql);die;
-			// 4. 执行sql 
+      // 4. 执行sql
 				$res = $this->db->exec($sql);
 
 				if($res){

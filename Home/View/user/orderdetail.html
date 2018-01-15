@@ -36,6 +36,8 @@
                    echo '退款/退货中';break;
                    case '5':
                    echo '已退款';break;
+                   case '6':
+                   echo '已完成';break;
                    default :
                    echo '待支付';break;
                    }
@@ -62,9 +64,9 @@
             <!--收货人信息-->
             <div class="lists-list">
               <div class="list-inner">
-                <div class="text">收货人姓名:<?= $data[0]['realname'] ?>
-                  &nbsp;&nbsp;&nbsp;&nbsp;电话:<?= $data[0]['tel'] ?></div>
-                <div class="text">收货人地址:<?= $data[0]['address'] ?></div>
+                <div class="text">收货人姓名:<?= strip_tags($data[0]['realname']) ?>
+                  &nbsp;&nbsp;&nbsp;&nbsp;电话:<?= strip_tags($data[0]['tel']) ?></div>
+                <div class="text">收货人地址:<?= strip_tags($data[0]['address']) ?></div>
               </div>
             </div>
           </div>
@@ -82,7 +84,7 @@
             </div>
             <div class="item-infos-inner">
               <div class="item-title">
-                <?= $v['name']?>
+                <?= strip_tags($v['name'])?>
               </div>
               <!--<div class="item-subtitle">-->
               <!--300克-->

@@ -79,7 +79,6 @@
 
         $data['icon'] = $this->goods->getImgs($data['id']);
       }
-//      var_dump($data);
       include_once 'View/goods/detail.html';
     }
 

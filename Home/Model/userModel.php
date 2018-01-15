@@ -20,6 +20,21 @@
       $this->Goods = new goodsModel;
     }
 
+    public function getUserInfoByMobile($mobile = '')
+    {
+      try {
+        $res = $this->pdo
+          ->field('*')
+          ->table('user')
+          ->where(' mobile = \'' . $mobile . '\'')
+          ->find();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
+
+    }
+
     public function getUserInfo()
     {
       try {
@@ -28,24 +43,24 @@
           ->table('user')
           ->where(' id = ' . $_SESSION['user']['uid'])
           ->find();
+        return $res;
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
-      return $res;
     }
 
     public function doLogin()
     {
       try {
         $res = $this->pdo
-          ->field('id', 'status', 'icon', 'name')
+          ->field('id ,  status , icon , name')
           ->table('user')
           ->where(' mobile = \'' . $_POST['mobile'] . '\' and pwd = \'' . ($_POST['pwd'] . '\''))
           ->find();
+        return $res;
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
-      return $res;
     }
 //      注册新用户
 //      返回用户id
@@ -59,12 +74,15 @@
 
     //更新个人信息
 
-    public function editProfile()
+    public function editProfile($arr = array())
     {
+      if (empty($arr)) {
+        return false;
+      }
       $res = $this->pdo
         ->table('user')
         ->where('id = ' . $_SESSION['user']['uid'])
-        ->update($_POST);
+        ->update($arr);
       return $res;
     }
 
@@ -78,10 +96,10 @@
           ->table('cart as c , goods as g ')
           ->where('c.gid = g.id and c.uid = ' . $_SESSION['user']['uid'])
           ->select();
+        return $res;
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
-      return $res;
     }
 
     //获取购物车所有商品
@@ -93,10 +111,10 @@
           ->table('cart')
           ->where('uid = ' . $_SESSION['user']['uid'])
           ->select();
+        return $res;
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
-      return $res;
     }
 
     //获取购物车单个物品信息 (添加商品至购物车用)/或者用来验证来源是否正确
@@ -116,10 +134,10 @@
             ->where('uid = ' . $_SESSION['user']['uid'] . ' and gid = ' . $_GET['gid'])
             ->find();
         }
+        return $res;
       } catch (Exception $e) {
         myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__, './index.php?c=user&m=cart');
       }
-      return $res;
     }
 
 
@@ -156,12 +174,16 @@
     //根据uid获取收货地址信息(所有)
     public function getAddress($where = '')
     {
-      $res = $this->pdo
-        ->field('*')
-        ->table('address')
-        ->where($where)
-        ->select();
-      return $res;
+      try {
+        $res = $this->pdo
+          ->field('*')
+          ->table('address')
+          ->where($where)
+          ->select();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php?c=user&m=address');
+      }
     }
 
     //新增地址
@@ -186,16 +208,43 @@
       return $res;
     }
 
-    public function addressdoDel($where)
+    public function addressdoDel($where = '', $aid = '')
     {
-      if (empty($where)) {
+      if (empty($aid)) {
         return false;
+      }
+      //验证收货地址是否使用过
+      $check = $this->isAddressUsed($aid);
+      if (!empty($check)) {
+        $tmp['display'] = 2;
+        $do = $this->pdo
+          ->table('`address`')
+          ->where(' id = ' . $aid)
+          ->update($tmp);
+        unset($tmp);
+        unset($do);
+        return true;
       }
       $res = $this->pdo
         ->table('address')
         ->where($where)
         ->delete();
       return $res;
+    }
+
+    //验证收货地址是否使用过
+    public function isAddressUsed($aid = '')
+    {
+      try {
+        $res = $this->pdo
+          ->field('id')
+          ->table('`order`')
+          ->where(' aid = ' . $aid)
+          ->find();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php?c=user&m=address');
+      }
     }
 
 
@@ -270,7 +319,7 @@
           }
           $tmp['stock'] = '  stock - ' . $_SESSION['user']['cart']['goodsinfos'][$k]['quantity'];
           $tmp['sold'] = '  sold + ' . $_SESSION['user']['cart']['goodsinfos'][$k]['quantity'];
-          $res = $this->Goods->updateGoodsStock($tmp, ' id = ' . $_SESSION['user']['cart']['goodsinfos'][$k]['gid']);
+          $this->Goods->updateGoodsStock($tmp, ' id = ' . $_SESSION['user']['cart']['goodsinfos'][$k]['gid']);
 
         }
         //创建成功 清空session
@@ -308,59 +357,75 @@
     //查询一个订单详情 带条件
     public function getOrder($where = '')
     {
-      $res = $this->pdo
-        ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name, a.address, a.realname, a.tel')
-        ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g , address as a')
-        ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id and a.id = o.aid and o.uid = ' . $_SESSION['user']['uid'])
-        ->select();
-//      var_dump($res);
-      return $res;
+      try {
+        $res = $this->pdo
+          ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name, a.address, a.realname, a.tel')
+          ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g , address as a')
+          ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id and a.id = o.aid and o.uid = ' . $_SESSION['user']['uid'])
+          ->select();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
     }
 
     //查看订单状态
     public function getOrderStatus($where = '')
     {
-      $res = $this->pdo
-        ->field('`status`')
-        ->table('`order`')
-        ->where($where . ' and uid = ' . $_SESSION['user']['uid'])
-        ->find();
-//      var_dump($res);die;
-      return $res;
+      try {
+        $res = $this->pdo
+          ->field('`status`, total')
+          ->table('`order`')
+          ->where($where . ' and uid = ' . $_SESSION['user']['uid'])
+          ->find();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function getAllOrdersLists($where = '', $limit = '')
     {
-      $tmp = $this->pdo
-        ->field(' ordernum ')
-        ->table(' `order` ')
-        ->where($where)
-        ->limit($limit)
-        ->select();
-      foreach ($tmp as $k => $v) {
-        $res[$v['ordernum']] = array();
+      try {
+        $tmp = $this->pdo
+          ->field(' ordernum ')
+          ->table(' `order` ')
+          ->where($where)
+          ->order(' ordernum desc ')
+          ->limit($limit)
+          ->select();
+        if (!empty($tmp)) {
+          foreach ($tmp as $k => $v) {
+            $res[$v['ordernum']] = array();
+          }
+        }
+        if (!empty($tmp)) {
+          $res = $this->getAllOrdersInfo($res);
+        }
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
       }
-
-      $res = $this->getAllOrdersInfo($res);
-//      var_dump($this->pdo->sql);die;
-      return $res;
-
     }
 
     public function getAllOrdersInfo($arr = array())
     {
 //      var_dump($arr);
 
-      foreach ($arr as $k => $v) {
-        $arr[$k] = $this->pdo
-          ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
-          ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
-          ->where(' o.ordernum = ' . $k . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
-          ->select();
-      }
+      try {
+        foreach ($arr as $k => $v) {
+          $arr[$k] = $this->pdo
+            ->field(' o.id, o.ordernum, o.addtime, o.uptime, o.total, o.ispay, o.status, o.paymenttype, o.aid, od.oid, od.price, od.gid, od.quantity, i.icon, g.name')
+            ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g')
+            ->where(' o.ordernum = ' . $k . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id')
+            ->select();
+        }
 
-      return $arr;
+        return $arr;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
 
@@ -400,14 +465,16 @@
 
     public function doCount($where = '')
     {
-      $res = $this->pdo
-        ->field(' count(id) as count ')
-        ->table('`order`')
-        ->where($where)
-        ->find();
-//      var_dump($res);
-      return $res['count'];
-
+      try {
+        $res = $this->pdo
+          ->field(' count(id) as count ')
+          ->table('`order`')
+          ->where($where)
+          ->find();
+        return $res['count'];
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
 

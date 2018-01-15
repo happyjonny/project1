@@ -43,19 +43,19 @@
         <dl>
           <dt>市 场 价:</dt>
           <dd class="cost-price">
-            <strong><?= $data['price'] ?></strong>
+            <strong><?= strip_tags($data['price'])?></strong>
           </dd>
         </dl>
         <dl>
           <dt>商 城 价:</dt>
           <dd class="price">
-            <strong><?= $data['price'] ?></strong>
+            <strong><?= strip_tags($data['price']) ?></strong>
           </dd>
         </dl>
         <dl class="rate">
           <dt>商品评分: </dt>
           <dd>
-            <?= $data['rate'] ?>
+            <?= strip_tags($data['rate']) ?>
           </dd>
         </dl>
       </div>
@@ -81,13 +81,18 @@
         <form action="./index.php?c=user&m=addCart" class="" method="post" name="addtocart">
           <input type="hidden" name="stock" value="<?= $data['stock'] ?>">
           <input type="hidden" name="gid" value="<?= $data['id'] ?>">
-          数量: <input type="text" name="quantity" class="quantity" value="1">
+          数量:
+          <em title="减少数量" id="count_sub" value='jian' class="quantity" onclick="jian()" style="cursor: pointer;">-</em>
+
+          <input type="text" name="quantity" id="quantity" class="quantity" value="1">
+          <em title="增加数量" id="count_sub" value='jia' class="quantity" onclick="jia()" style="cursor: pointer;">+</em>
+
           <input type="submit" value="添加购物车" class="add-to-cart">
-          <div>
-            <a href="">
-              立即购买
-            </a>
-          </div>
+          <!--<div>-->
+          <!--<a href="">-->
+          <!--立即购买-->
+          <!--</a>-->
+          <!--</div>-->
         </form>
       </div>
     </div>
@@ -122,19 +127,83 @@
           <!--商品介绍-->
           <div class="product-info-details">
             <div>
-              <?= $data['desc'] ?>
+              <?= strip_tags($data['desc']) ?>
             </div>
           </div>
         </div>
       </div>
       <!--TODO 商品评论-->
-      <div class="product-comment">
+      <!--<div class="product-comment ">-->
+      <!--<div class="title">-->
+      <!--<p>商品评价</p>-->
+      <!--</div>-->
 
-      </div>
+      <!--<div class="comment">-->
+      <!--<ul>-->
+      <!--<li class="customer">-->
+      <!--<p class="realname">用户: 13818100000</p>-->
+      <!--<p>评论时间 2018-01-01</p>-->
+      <!--<span class="text">-->
+      <!--dsjalfkjdkljlkdsajfklsajdkfjd-->
+      <!--</span>-->
+      <!--</li>-->
+
+      <!--<li class="store">-->
+      <!--<p class="realname">-->
+      <!--商城回复-->
+      <!--</p>-->
+      <!--<p>评论时间 2012312</p>-->
+      <!--<span class="text">-->
+      <!--都看见看见快乐健康了的减肥-->
+      <!--</span>-->
+      <!--</li>-->
+      <!--<form action="./index.php?c=user&m=doComment" method="post" name="comments" class="comments">-->
+      <!--<input type="hidden" name="gid" id="<?= $data['id'] ?>" >-->
+      <!--<p class="realname">-->
+      <!--添加评论-->
+      <!--</p>-->
+      <!--<textarea name="text" id="" cols="30" rows="10" class="text">-->
+
+      <!--</textarea>-->
+
+      <!--<input type="submit" name="comment" class="doComment">-->
+      <!--</form>-->
+      <!--</ul>-->
+      <!--</div>-->
+
+
+      <!--</div>-->
     </div>
 
   </div>
 </div>
+
+<script>
+    var mynum = document.getElementById('quantity');
+
+    // 购买数量-减
+    function jian() {
+
+// mynum.value  就是  PHP中对象名->属性名  js中对象名.属性名
+// alert(mynum.value);
+        if (mynum.value > 0) {
+            mynum.value = mynum.value - 1;
+        }
+
+        if (mynum.value < 1) {
+            mynum.value = 1;
+        }
+    }
+
+
+    // 购买数量-加
+    function jia() {
+// js中 只有纯数字类型 才能相加, 其余用+ 都是拼接的意思
+// parseInt() 强制转换成 整型
+        mynum.value = parseInt(mynum.value) + 1;
+// mynum.value = mynum.value + 1;
+    }
+</script>
 
 <?php $this->footer() ?>
 <?php $this->contact() ?>

@@ -39,16 +39,8 @@
       }
 
 
-//      测试
-//      foreach ($category as $k => $v){
-//        if($v['deep']==1){
-//          foreach($data[$v['id']] as $key3 => $value3) {
-//            var_dump('goodsname = '.$value3['id']);
-//            }
-//          }
-//        }
 
-//      var_dump($data);die;
+
 
       // 获取所有一级分类(包括子分类)下 推荐 的商品
       foreach ($category as $k => $v) {
@@ -61,22 +53,6 @@
           continue;
         }
       }
-
-//      var_dump($data2);die;
-//      echo '<hr>';
-//      echo '<hr>';
-//
-      foreach ($data2[2] as $key => $value) {
-
-//        echo $value['goodsName'] . '<br>';
-
-      }
-//      die;
-//      var_dump($data2[2]);die;
-
-
-      // $category[$key]['id'] = $data[$category[$key]['id']
-//      var_dump($category);die;
 
 
       //折扣商品
@@ -92,18 +68,10 @@
         $hotGoods[$k]['icon'] = $this->index->getSingleIcon(' gid = ' . $hotGoods[$k]['id']);
       }
 
-//      var_dump($data);
-//      echo '<hr>';
-//      echo '<hr>';
-//      var_dump($data2);
-//      var_dump($saleGoods);
-//      echo '<hr>';
-//      echo '<hr>';
-//      var_dump($hotGoods);
-//      die;
-
-
       include_once 'View/index/index.html';
+
+      unset($data);
+      unset($data2);
     }
 
 

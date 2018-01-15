@@ -207,7 +207,6 @@ body {
 .search-container .site-logo {
   height: 60px;
   width: 60px;
-  background-color: #00b492;
   /*position: absolute;*/
   float: left;
   line-height: 20px;
@@ -582,7 +581,6 @@ body {
   width: 212px;
   height: 160px;
   float: left;
-  background-color: pink;
   position: absolute;
 }
 
@@ -605,7 +603,6 @@ body {
   float: left;
   width: 900px;
   left:212px;
-  background-color: burlywood;
   position: absolute;
   overflow: hidden;
 }
@@ -832,6 +829,7 @@ body {
   width: 200px;
   height: 94px;
   padding: 22px 0 8px 22px;
+  font-size: 16px;
 }
 
 .left-content .left-category ul li{
@@ -931,7 +929,7 @@ body {
   height: 100%;
   width: 988px;
   position: absolute;
-  background-color: #ccc;
+  /*background-color: #ccc;*/
   margin-left: 212px;
   float: left;
 }
@@ -963,7 +961,6 @@ body {
 .main-content .right-content .right-slide-layout{
   float: left;
   width: 358px;
-  background-color: blue;
 }
 .main-content .right-content .right-slide-layout .right-slide-content{
   width: 358px;

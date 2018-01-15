@@ -9,7 +9,7 @@
     <div class="limit-time-img">
       <!--TODO-->
       <a href="./index.php">
-        <img src="../../../attachment/lt-ico.png" alt="">
+        <img src="../attachment/jptj.png" alt="">
       </a>
 
     </div>
@@ -107,7 +107,7 @@
     <div class="left-title">
       <div class="title">
         <span><?= $i ?>F</span>
-        <h2><?= $v['name']?></h2>
+        <h2><?= strip_tags($v['name'])?></h2>
       </div>
     </div>
 
@@ -116,7 +116,7 @@
       <ul>
         <?php foreach ($category as $key => $value): ?>
         <?php if($value['deep']==2&&$value['pid']==$v['id']): ?>
-        <li><a href="./index.php?c=goods&id=<?= $value['id']?>"><?= $value['name']?></a></li>
+        <li><a href="./index.php?c=goods&id=<?= $value['id']?>"><?= strip_tags($value['name'])?></a></li>
         <?php endif ?>
         <?php endforeach ?>
 
@@ -141,7 +141,8 @@
         <?php foreach($data2[$v['id']] as $key1 => $value1): ?>
 
         <?php if(is_array($value1)): ?>
-        <li><a href="./index.php?c=goods&m=detail&id=<?= $value1['id']?>"><?= $value1['goodsName'] ?></a></li>
+        <li><a href="./index.php?c=goods&m=detail&id=<?= $value1['id']?>"><?= strip_tags($value1['goodsName']) ?></a>
+        </li>
         <?php endif ?>
 
         <?php endforeach ?>

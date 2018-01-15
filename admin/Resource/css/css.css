@@ -64,7 +64,7 @@ div.sdmenu div span {
 	display: block;
 	padding: 0px 25px;
 	font-weight: bold;
-	color: #548fc7;
+  color: 548 fc7;
 	background: url(../images/main/expanded.jpg) no-repeat 10px center;
 	cursor: default;
 	cursor:pointer;

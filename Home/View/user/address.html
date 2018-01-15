@@ -20,11 +20,11 @@
             <div class="lists-list">
               <div class="list-inner">
                 <div class="title">
-                  <span class="realname"><?= $v['realname'] ?></span>
-                  <span class="mobile"><?= $v['tel'] ?></span>
+                  <span class="realname"><?= strip_tags($v['realname']) ?></span>
+                  <span class="mobile"><?= strip_tags($v['tel']) ?></span>
                 </div>
                 <div class="text">
-                  <span class="address"><?= $v['address'] ?></span>
+                  <span class="address"><?= strip_tags($v['address']) ?></span>
                 </div>
                 <div class="bar">
                   <span class="pull-right">

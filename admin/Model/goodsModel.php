@@ -13,36 +13,46 @@
     public function showAll($where, $limit)
     {
       // select * from goods
-      $res = $this->pdo
-        ->field('* ')
-        ->table('goods')
-        ->where($where)
-        ->order('id desc')
-        ->limit($limit)
-        ->select();
+      try {
+        $res = $this->pdo
+          ->field('* ')
+          ->table('goods')
+          ->where($where)
+          ->order('id desc')
+          ->limit($limit)
+          ->select();
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
       foreach ($res as $k => $v) {
-        $tmp = $this->pdo
-          ->field('icon')
-          ->table('goodsimg')
-          ->where('face = 1 and gid = ' . $res[$k]['id'])
-          ->order('id desc')
+        try {
+          $tmp = $this->pdo
+            ->field('icon')
+            ->table('goodsimg')
+            ->where('face = 1 and gid = ' . $res[$k]['id'])
+            ->order('id desc')
 //          ->limit($limit)
-          ->find();
+            ->find();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
 //        echo $this->pdo->sql;die;
         $res[$k]['icon'] = $tmp['icon'];
         unset($tmp);
-        $tmp = $this->pdo
-          ->field('name')
-          ->table('category')
-          ->where(' id = ' . $res[$k]['cid'])
-          ->find();
+        try {
+          $tmp = $this->pdo
+            ->field('name')
+            ->table('category')
+            ->where(' id = ' . $res[$k]['cid'])
+            ->find();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
         // cname 分类名
         $res[$k]['cname'] = $tmp['name'];
         unset($tmp);
       }
-      $this->pdo->initialization();
-//			var_dump($res);die;
 
       return $res;
     }
@@ -63,26 +73,34 @@
 
       // 准备sql
       // select * from goods where id = xxx
-      $res = $this->pdo
-        ->field('g.id , cid , g.name , price , stock , sold , up , hot , `desc` , addtime  , uptime , new , recommend , sale , rate , c.name as cname , i.icon')
-        ->table('goods as g ,category as c , goodsimg as i')
-        ->where(' g.cid = c.id and i.gid = g.id and  g.id = ' . $id)
-        ->find();
-//      echo $this->pdo->sql;die;
+      try {
+        $res = $this->pdo
+          ->field('g.id , cid , g.name , price , stock , sold , up , hot , `desc` , addtime  , uptime , new , recommend , sale , rate , c.name as cname , i.icon')
+          ->table('goods as g ,category as c , goodsimg as i')
+          ->where(' g.cid = c.id and i.gid = g.id and  g.id = ' . $id)
+          ->find();
       return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
+
 
     }
 
     // 统计总个数
     public function doCount($where = '')
     {
-      $res = $this->pdo
-        ->field(' count(id) as count')
-        ->table('goods')
-        ->where($where)
-        ->select();
+      try {
+        $res = $this->pdo
+          ->field(' count(id) as count')
+          ->table('goods')
+          ->where($where)
+          ->select();
 //      var_dump($this->pdo->sql);die;
-      return $res[0]['count'];
+        return $res[0]['count'];
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function doAdd()
@@ -111,10 +129,14 @@
           $arr['gid'] = $gid;
           $arr['icon'] = $icon[0];
           $arr['face'] = 1;
-          $gid = $this->pdo
-            ->table('goodsimg')
-            ->insert($arr);
-          return $gid;
+          try {
+            $gid = $this->pdo
+              ->table('goodsimg')
+              ->insert($arr);
+            return $gid;
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
         } else {
           //必须上传图片
           myNotice('上传图片失败', './index.php?c=goods&m=add');
@@ -141,16 +163,23 @@
           $arr['icon'] = $icon[0];
           $arr['face'] = 1;
           // 把原来的封面图删除
-          $tmp = $this->pdo
-            ->table('goodsimg')
-            ->where('face  = 1 and gid = ' . $gid)
-            ->delete();
+          try {
+            $tmp = $this->pdo
+              ->table('goodsimg')
+              ->where('face  = 1 and gid = ' . $gid)
+              ->delete();
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
           //添加新图片入库
-          $gid = $this->pdo
-            ->table('goodsimg')
-            ->insert($arr);
-//          echo $this->pdo->sql;die;
-          return $gid;
+          try {
+            $gid = $this->pdo
+              ->table('goodsimg')
+              ->insert($arr);
+            return $gid;
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
         } else {
           // 删除该商品
           // 保存 后期补图片
@@ -161,13 +190,16 @@
       $_POST['uptime'] = time();
 
       // 数据验证完成了,  调用DB, 更新数据
-      $data = $this->pdo
-        ->table('goods')
-        ->where('id = ' . $_POST['id'])
-        ->update($_POST);
-      echo $this->pdo->sql;
-      die;
-      return $data;
+      try {
+        $data = $this->pdo
+          ->table('goods')
+          ->where('id = ' . $_POST['id'])
+          ->update($_POST);
+        return $data;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
+
     }
 
     public function doDel()
@@ -193,31 +225,43 @@
       // 查询该商品的状态
       $id = $_GET['id'];
       // select status from goods where id = xx
-      $res = $this->pdo
-        ->field('up')
-        ->table('goods')
-        ->where('id = ' . $id)
-        ->find();
+      try {
+        $res = $this->pdo
+          ->field('up')
+          ->table('goods')
+          ->where('id = ' . $id)
+          ->find();
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
       $res['up'] = ($res['up'] == 1 ? 2 : 1);
 
       $res['uptime'] = time();
-      $res = $this->pdo
-        ->table('goods')
-        ->where('id = ' . $id)
-        ->update($res);
+      try {
+        $res = $this->pdo
+          ->table('goods')
+          ->where('id = ' . $id)
+          ->update($res);
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function showImgs()
     {
 
       $id = $_GET['id'];
-      $res = $this->pdo
-        ->field(' * ')
-        ->table(' goodsimg ')
-        ->where(' gid = ' . $id)
-        ->select();
-      return $res;
+      try {
+        $res = $this->pdo
+          ->field(' * ')
+          ->table(' goodsimg ')
+          ->where(' gid = ' . $id)
+          ->select();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function uploadImg($arr1 = array())
@@ -241,11 +285,14 @@
             $arr['face'] = 1;
 
             //添加新图片入库
-            $gid = $this->pdo
-              ->table('goodsimg')
-              ->insert($arr);
-//          echo $this->pdo->sql;die;
-            return $gid;
+            try {
+              $gid = $this->pdo
+                ->table('goodsimg')
+                ->insert($arr);
+              return $gid;
+            } catch (Exception $e) {
+              myNotice('非法访问', './index.php');
+            }
           }
         }
       }
@@ -271,26 +318,37 @@
 
         //全部设置非封面
         $tmp['face'] = 2;
-        $res = $this->pdo
-          ->table('goodsimg')
-          ->where(' gid = ' . $arr['gid'])
-          ->update($tmp);
-
+        try {
+          $res = $this->pdo
+            ->table('goodsimg')
+            ->where(' gid = ' . $arr['gid'])
+            ->update($tmp);
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
 //        echo '设置全部为2 : '.$this->pdo->sql.'<br>';
         unset($tmp);
         unset($res);
         if (empty($arr['id'])) {
           //如果第一次上传图片, 用gid 作为查询条件
-          $res = $this->pdo
-            ->table('goodsimg')
-            ->where(' gid = ' . $arr['gid'])
-            ->update($arr);
+          try {
+            $res = $this->pdo
+              ->table('goodsimg')
+              ->where(' gid = ' . $arr['gid'])
+              ->update($arr);
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
         } else {
           //如果已经存在商品图片, 则用图片id作为查询条件
-          $res = $this->pdo
-            ->table('goodsimg')
-            ->where(' id = ' . $arr['id'])
-            ->update($arr);
+          try {
+            $res = $this->pdo
+              ->table('goodsimg')
+              ->where(' id = ' . $arr['id'])
+              ->update($arr);
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
         }
 
 //        echo '设置 1: '.$this->pdo->sql.'<br>';die;
@@ -363,7 +421,7 @@
 
         }
       } catch (Exception $e) {
-
+        myNotice('非法访问', './index.php');
       }
 
     }

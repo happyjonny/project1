@@ -23,19 +23,21 @@
 
     public function getPath($id)
     {
-      $cateId = $this->pdo
-        ->field('id')
-        ->table('category')
-        ->where(' path like "%,' . $id . ',%" ')
-        ->select();
-//        var_dump($this->pdo->sql);
-      $cid = '';
-      foreach ($cateId as $k => $v) {
-        $cid .= $v['id'] . ',';
+      try {
+        $cateId = $this->pdo
+          ->field('id')
+          ->table('category')
+          ->where(' path like "%,' . $id . ',%" ')
+          ->select();
+        $cid = '';
+        foreach ($cateId as $k => $v) {
+          $cid .= $v['id'] . ',';
+        }
+        $cid .= $id;
+        return $cid;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
       }
-      $cid .= $id;
-
-      return $cid;
     }
 
     //商品购买成功之后 更新库存与销量
@@ -43,11 +45,14 @@
     public function updateGoodsStock($arr = array(), $where)
     {
       if (!empty($arr)) {
-        $res = $this->pdo
-          ->table('goods')
-          ->where($where)
-          ->funcUpdate($arr);
-//        var_dump($this->pdo->sql);die;
+        try {
+          $res = $this->pdo
+            ->table('goods')
+            ->where($where)
+            ->funcUpdate($arr);
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
       }
     }
 
@@ -85,24 +90,31 @@
       }
 
       if (!empty($cid)) {
-        $res = $this->pdo
-          ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
-          ->table('goods g, goodsimg i')
-          ->where($where . 'cid in (' . $cid . ') and g.id=i.gid and face = 1')
-          ->limit($limit)
-          ->order($order)
-          ->select();
+        try {
+          $res = $this->pdo
+            ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
+            ->table('goods g, goodsimg i')
+            ->where($where . 'cid in (' . $cid . ') and g.id=i.gid and face = 1')
+            ->limit($limit)
+            ->order($order)
+            ->select();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
       } else {
-        $res = $this->pdo
-          ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
-          ->table('goods g, goodsimg i')
-          ->where($where . ' g.id=i.gid and face = 1')
-          ->limit($limit)
-          ->order($order)
-          ->select();
+        try {
+          $res = $this->pdo
+            ->field('name, `desc`, price, sold, g.id, icon , hot , new , sale , recommend ')
+            ->table('goods g, goodsimg i')
+            ->where($where . ' g.id=i.gid and face = 1')
+            ->limit($limit)
+            ->order($order)
+            ->select();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
       }
 
-//      echo $this->pdo->sql;
       return $res;
     }
 
@@ -114,13 +126,15 @@
 
       // 准备sql
       // select * from goods where id = xxx
-      $res = $this->pdo
-        ->field(' id, cid, name, price, stock,up, sold , hot, sale, `desc`, recommend, rate')
-        ->table('goods')
-        ->where('id = ' . $id)
-//        ->order(' face desc')
-        ->find();
-//      echo $this->pdo->sql;
+      try {
+        $res = $this->pdo
+          ->field(' id, cid, name, price, stock,up, sold , hot, sale, `desc`, recommend, rate')
+          ->table('goods')
+          ->where('id = ' . $id)
+          ->find();
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
       return $res;
     }
 
@@ -143,11 +157,15 @@
     {
       if (!empty($_GET['id'])) {
         $id = $_GET['id'];
-        $cateId = $this->pdo
-          ->field('id')
-          ->table('category')
-          ->where(' path like "%,' . $id . ',%" ')
-          ->select();
+        try {
+          $cateId = $this->pdo
+            ->field('id')
+            ->table('category')
+            ->where(' path like "%,' . $id . ',%" ')
+            ->select();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
         $cid = '';
         foreach ($cateId as $k => $v) {
           $cid .= $v['id'] . ',';
@@ -157,18 +175,26 @@
         if (!empty($where)) {
           $where .= ' and ';
         }
-        $res = $this->pdo
-          ->field(' count(id) as count')
-          ->table('goods')
-          ->where($where . 'cid in (' . $cid . ')')
-          ->select();
+        try {
+          $res = $this->pdo
+            ->field(' count(id) as count')
+            ->table('goods')
+            ->where($where . 'cid in (' . $cid . ')')
+            ->select();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
       } else {
         // 如果搜索所有商品
-        $res = $this->pdo
-          ->field(' count(id) as count')
-          ->table('goods')
-          ->where($where)
-          ->select();
+        try {
+          $res = $this->pdo
+            ->field(' count(id) as count')
+            ->table('goods')
+            ->where($where)
+            ->select();
+        } catch (Exception $e) {
+          myNotice('非法访问', './index.php');
+        }
       }
 
 //      var_dump($res);die;
@@ -185,9 +211,13 @@
 
       // 数据验证完成了,  调用DB, 插入数据
       // insert into goods() values();
-      $gid = $this->pdo
-        ->table('goods')
-        ->insert($_POST);
+      try {
+        $gid = $this->pdo
+          ->table('goods')
+          ->insert($_POST);
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
 
       // 如果商品成功上传 , 则处理封面
@@ -200,10 +230,14 @@
         if (is_array($icon)) {
           $arr['gid'] = $gid;
           $arr['icon'] = $icon[0];
-          $gid = $this->pdo
-            ->table('goodsimg')
-            ->insert($arr);
-          return $gid;
+          try {
+            $gid = $this->pdo
+              ->table('goodsimg')
+              ->insert($arr);
+            return $gid;
+          } catch (Exception $e) {
+            myNotice('非法访问', './index.php');
+          }
         } else {
           // 删除该商品
         }
@@ -244,11 +278,15 @@
       // 	如果下面的更新失败. 则不操作
 
       // 数据验证完成了,  调用DB, 更新数据
-      $data = $this->pdo
-        ->table('goods')
-        ->where('id = ' . $_POST['id'])
-        ->update($_POST);
-      return $data;
+      try {
+        $data = $this->pdo
+          ->table('goods')
+          ->where('id = ' . $_POST['id'])
+          ->update($_POST);
+        return $data;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function doDel()
@@ -257,11 +295,15 @@
       $id = $_GET['id'];
 
       // 2. 调用DB类
-      $res = $this->pdo
-        ->table('goods')
-        ->where('id = ' . $id)
-        ->delete();
-      return $res;
+      try {
+        $res = $this->pdo
+          ->table('goods')
+          ->where('id = ' . $id)
+          ->delete();
+        return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     public function doStatus()
@@ -269,11 +311,15 @@
       // 查询该商品的状态
       $id = $_GET['id'];
       // select status from goods where id = xx
-      $res = $this->pdo
-        ->field('status')
-        ->table('goods')
-        ->where('id = ' . $id)
-        ->find();
+      try {
+        $res = $this->pdo
+          ->field('status')
+          ->table('goods')
+          ->where('id = ' . $id)
+          ->find();
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
       $res['status'] = ($res['status'] == 1 ? 2 : 1);
 

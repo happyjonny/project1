@@ -23,11 +23,10 @@
           ->group($group)
           ->limit($limit)
           ->select();
-//        echo $this->pdo->sql.'<br>';
-      } catch (Exception $e) {
-        echo $e->getMessage();
-      }
       return $res;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     //获取一级分类
@@ -48,19 +47,21 @@
 
     public function getChildCategory($id)
     {
-      $cateId = $this->pdo
-        ->field('id')
-        ->table('category')
-        ->where(' path like "%,' . $id . ',%" and display = 1 ')
-        ->select();
-//      echo $this->pdo->sql;die;
+      try {
+        $cateId = $this->pdo
+          ->field('id')
+          ->table('category')
+          ->where(' path like "%,' . $id . ',%" and display = 1 ')
+          ->select();
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
 
       // 将 cid 数组 转成 字符串
       $cid = '';
       foreach ($cateId as $k => $v) {
         $cid .= $v['id'] . ',';
       }
-//      var_dump($cid);die;
       $cid .= $id;
       return $cid;
     }
@@ -76,7 +77,7 @@
         return $res['icon'];
 
       } catch (Exception $e) {
-        echo $e->getMessage();
+        myNotice('非法访问', './index.php');
       }
     }
 

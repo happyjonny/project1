@@ -1,0 +1,70 @@
+<?php $this->header() ?>
+
+
+<div class="nc-register-bg">
+  <div class="nc-register-box">
+    <div class="nc-register-layout">
+
+      <!--左侧-->
+      <div class="left">
+
+        <div class="nc-register-mode">
+
+          <ul class="tabs-nav">
+            <li>
+              <a class="tabulous_active">
+                确认验证
+              </a>
+            </li>
+          </ul>
+
+          <div class="tabs-container" style="height: 387px;">
+            <div class="tabs-content" style="position: absolute; top: 0;">
+              <form action="./index.php?c=user&m=dovalidate" method="post" name="register" id="register_form"
+                    class="nc-login-form">
+                <input type="hidden" name="mobile" value="<?= $_SESSION['user']['mobile'] ?>">
+
+
+                <!--TODO 手机验证码-->
+                <!--<div class="code-div"></div>-->
+                <!--<div class="tiptext"></div>-->
+
+                <dl>
+                  <dt>验证码:</dt>
+                  <dd>
+                    <input type="password" class="text" name="validateCode" placeholder="请输入验证码">
+                  </dd>
+                </dl>
+
+
+                <div class="submit-div">
+                  <div class="submit" style="text-align: center;line-height: 42px;">
+                    <input type="submit" value="确认">
+                  </div>
+                  <a href="" class="account-login-link">忘记密码</a>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--右侧-->
+      <div class="right">
+        <div class="register-after">
+          <h4>验证之后您可以</h4>
+          <ol>
+            <li class="ico">购买商品支付订单</li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<?php $this->footer() ?>
+<?php $this->contact() ?>

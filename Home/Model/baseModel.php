@@ -111,9 +111,13 @@
     public function getGoodsClassList($condition, $field = 'id,pid,name')
     {
 
-      $result = $this->pdo->field($field)->table('category')->where($condition)->order('pid asc,id asc')->select();
+      try {
+        $result = $this->pdo->field($field)->table('category')->where($condition)->order('pid asc,id asc')->select();
 //     var_dump($result);die;
-      return $result;
+        return $result;
+      } catch (Exception $e) {
+        myNotice('非法访问', './index.php');
+      }
     }
 
     /** 执行3
@@ -164,7 +168,7 @@
           ->where(' id = ' . $_SESSION['user']['uid'])
           ->find();
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
       return $res;
     }
@@ -178,7 +182,7 @@
           ->where(' mobile = "' . $_COOKIE['mobile'] . '" and pwd = "' . $_COOKIE['pwd'] . '"')
           ->find();
       } catch (Exception $e) {
-        myNotice('服务器出错' . __CLASS__ . ' line:' . __LINE__);
+        myNotice('非法访问', './index.php');
       }
       return $res;
     }

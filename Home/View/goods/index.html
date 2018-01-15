@@ -125,14 +125,14 @@
                 <a href=""><?= $v['name'] ?></a>
               </div>
               <div class="good-price">
-                <em class="sale-price"><?= $v['price'] ?></em>
-                <em class="market-price"><?= $v['price'] ?></em>
+                <em class="sale-price"><?= strip_tags($v['price']) ?></em>
+                <em class="market-price"><?= strip_tags($v['price']) ?></em>
               </div>
               <div class="sell-stat">
                 <ul>
                   <li>
                     <!--TODO -->
-                    <a href=""><?= $v['sold'] ?></a>
+                    <a href=""><?= strip_tags($v['sold']) ?></a>
                     <p>商品销量</p>
                   </li>
                 </ul>

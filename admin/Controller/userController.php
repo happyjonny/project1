@@ -45,6 +45,10 @@
 
 		public function doAdd()
 		{
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
+
 			$data = $this->user->doAdd();
 
 			if($data){
@@ -58,13 +62,26 @@
 		public function edit()
 		{
 			// 根据id 查询用户
+
 			$data = $this->user->showOne();
+      var_dump($data);
 
       include 'View/user/edit.html';
 		}
 
 		public function doEdit()
 		{
+
+
+      foreach ($_POST as $k => $v) {
+        $_POST[$k] = strip_tags($_POST[$k]);
+      }
+
+      $preg = '/^[1-9]\d*$/';
+      if (!preg_match($preg, $_POST['credit'])) {
+        myNotice('积分填写不正确');
+      }
+
 			$data = $this->user->doEdit();
 
 			if($data){

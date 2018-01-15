@@ -24,3 +24,14 @@
 
 	// 每页显示的条数
   define('ROWS', 12);
+
+  //积分转换
+  define('CREDITS', '0.1');
+
+  //短信验证
+  define('ACCOUNTSID', '8a216da860e4d4f10160f801cdbb05c0');
+  define('ACCOUNTTOKEN', 'e81e4da61cc240dd88e0e8cfa28ab65a');
+  define('APPID', '8a216da860e4d4f10160f801ce1305c7');
+  define('SERVERIP', 'app.cloopen.com');
+  define('SERVERPORT', '8883');
+  define('SOFTVERSION', '2013-12-26');
