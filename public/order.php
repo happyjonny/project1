@@ -22,7 +22,6 @@
         $res = $this->pdo
           ->table('`order`')
           ->insert($arr);
-//        echo $this->pdo->sql;die;
         return $res;
         //TODO 查看sql
       }

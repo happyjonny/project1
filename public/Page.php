@@ -47,9 +47,7 @@
     public function ushowPage()
     {
       // 获取当前文件地址 (网址)
-//      echo '111';die;
       $src = $_SERVER['SCRIPT_NAME'];
-//      var_dump($src);die;
 
       // 拼接原有的网址参数
       $param = '';
