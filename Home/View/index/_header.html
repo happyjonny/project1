@@ -14,7 +14,7 @@
   <div class="topbar-container">
     <div class="topbar-left">
       <?php if (empty($_SESSION['user']['uid'])): ?>
-      <span>Hi,欢迎光临</span>
+      <span><a href="./index.php">Hi,欢迎光临</a></span>
       <a href="./index.php?c=user&m=login" class="topbar-link">登录</a>
       <a href="./index.php?c=user&m=register" class="topbar-link">免费注册</a>
       <?php else: ?>

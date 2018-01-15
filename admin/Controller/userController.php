@@ -54,7 +54,6 @@
 			if($data){
         myNotice('新增成功', 'index.php?c=user');
 			}
-//			var_dump($data);die;
 			myNotice('新增失败');
 		}
 
@@ -64,7 +63,6 @@
 			// 根据id 查询用户
 
 			$data = $this->user->showOne();
-      var_dump($data);
 
       include 'View/user/edit.html';
 		}

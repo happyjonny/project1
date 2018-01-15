@@ -45,7 +45,6 @@
           ->table(' `order` as o , goodsimg as i , orderdetails as od , goods as g , address as a')
           ->where($where . ' and o.id = od.oid and od.gid = i.gid and od.gid = g.id and a.id = o.aid ')
           ->select();
-//      var_dump($res);
         return $res;
       } catch (Exception $e) {
         myNotice('非法访问', './index.php');
@@ -60,7 +59,6 @@
         ->table('`order`')
         ->where($where)
         ->update($arr);
-//      var_dump($this->pdo->sql);
       return $res;
 
     }

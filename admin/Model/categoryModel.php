@@ -134,7 +134,6 @@
         $data = $this->pdo
           ->table('category')
           ->insert($_POST);
-//        var_dump($this->pdo->sql);die;
         return $data;
       } catch (Exception $e) {
         myNotice('非法访问', './index.php');
@@ -144,7 +143,6 @@
     public function doEdit()
     {
       // 数据验证
-//      var_dump($_POST);die;
       $id = $_POST['id'];
       unset($_POST['id']);
       //查看分类下面有子分类的个数

@@ -197,7 +197,6 @@
         }
       }
 
-//      var_dump($res);die;
       return $res[0]['count'];
 
     }

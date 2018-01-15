@@ -41,7 +41,6 @@
 				  //获取上级分类名称
         $data = $this->category->showOne();
         }
-//        var_dump($data);die;
 			include 'View/category/add.html';
 		}
 
@@ -51,7 +50,7 @@
         $_POST[$k] = strip_tags($_POST[$k]);
       }
 			$data = $this->category->doAdd();
-//      var_dump($data);die;
+
 			if($data){
 				myNotice('新增成功', 'index.php?c=category');
 			}
@@ -78,14 +77,12 @@
         $data2[$k]['nbsp'] = $nbsp;
       }
 
-//      var_dump($data,$data2);die;
 
 			include 'View/category/edit.html';
 		}
 
 		public function doEdit()
 		{
-//      var_dump($_POST);die;
       foreach ($_POST as $k => $v) {
         $_POST[$k] = strip_tags($_POST[$k]);
       }

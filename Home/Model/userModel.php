@@ -49,6 +49,8 @@
       }
     }
 
+
+
     public function doLogin()
     {
       try {
@@ -79,9 +81,14 @@
       if (empty($arr)) {
         return false;
       }
+      if(!empty($_SESSION['user']['uid'])){
+        $where = 'id = ' . $_SESSION['user']['uid'];
+      }else{
+        $where = ' mobile = '.$_SESSION['user']['tMobile'];
+      }
       $res = $this->pdo
         ->table('user')
-        ->where('id = ' . $_SESSION['user']['uid'])
+        ->where($where)
         ->update($arr);
       return $res;
     }
@@ -258,7 +265,6 @@
         $gids .= $k . ',';
       }
       $gids = rtrim($gids, ',');
-//      var_dump($gids);
 
       $tmp = $this->Goods->getGoodsInfo($gids);
 
@@ -282,7 +288,6 @@
 
     public function doOrderCreate($goodsInfos = array())
     {
-//      var_dump($goods);die;
       //把数据存入order与orders表中
 
       //先创建订单信息(order表字段)
@@ -304,7 +309,6 @@
 
       //插入新数据到order表中 成功返回订单id
       $orderId = $this->Order->orderCreate($orderInfo);
-//      var_dump($orderId);die;
       if ($orderId) {
         //如果新建订单成功, 添加订单详情
         foreach ($_SESSION['user']['cart']['goodsinfos'] as $k => $v) {
@@ -313,6 +317,7 @@
           unset($_SESSION['user']['cart']['goodsinfos'][$k]['name']);
           unset($_SESSION['user']['cart']['goodsinfos'][$k]['icon']);
           $_SESSION['user']['cart']['goodsinfos'][$k]['oid'] = $orderId;
+
           $res = $this->Order->orderdetailCreate($_SESSION['user']['cart']['goodsinfos'][$k]);
           if (!$res) {
             myNotice('创建订单失败(添加订单详情)', './index.php?c=user&m=cart');
@@ -411,7 +416,6 @@
 
     public function getAllOrdersInfo($arr = array())
     {
-//      var_dump($arr);
 
       try {
         foreach ($arr as $k => $v) {

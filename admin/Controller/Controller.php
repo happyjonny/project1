@@ -12,7 +12,7 @@
 
 		public function __call($k, $v)
 		{
-			myNotice('您访问的页面不存在', 'index.php');
+			myNotice('您访问的页面不存在', './index.php');
 		}
 
 	}

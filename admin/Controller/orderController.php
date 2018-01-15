@@ -46,7 +46,6 @@
       $limit = $page->cNum($count);
 
       $data = $this->order->getAllOrderList($where, $limit);
-//      var_dump($data);
 
       include_once 'View/order/index.html';
     }
@@ -79,7 +78,6 @@
       $arr['status'] = 3;
 
       $res = $this->order->changeOrderStatus($where, $arr);
-//      var_dump($res);die;
       if ($res) {
         myNotice('发货成功');
       }

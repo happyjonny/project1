@@ -36,7 +36,6 @@
 		{
       $data = $this->index->getAdminInfo();
 
-//      var_dump($data);
 
 			include 'View/index/main.html';
 		}

@@ -12,7 +12,6 @@
     public function doLogin()
     {
       // 1. 接收数据
-      // var_dump($_POST); die;
       $name = $_POST['name'];
       $pwd = md5($_POST['pwd']);
 
@@ -52,7 +51,6 @@
         ->table('admin')
         ->where(' id = ' . $_SESSION['admin']['id'])
         ->funcUpdate($arr);
-//		  echo $this->pdo->sql;die;
     }
 
 

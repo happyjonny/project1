@@ -13,23 +13,17 @@
           <ul class="tabs-nav">
             <li>
               <a class="tabulous_active">
-                验证手机
+                确认验证
               </a>
             </li>
           </ul>
 
           <div class="tabs-container" style="height: 387px;">
             <div class="tabs-content" style="position: absolute; top: 0;">
-              <form action="./index.php?c=user&m=dovalidateMobile" method="post" name="register" id="register_form"
+              <form action="./index.php?c=user&m=dovalidate" method="post" name="register" id="register_form"
                     class="nc-login-form">
+                <input type="hidden" name="mobile" value="<?= $_SESSION['user']['mobile'] ?>">
 
-
-                <dl>
-                  <dt>手机号:</dt>
-                  <dd>
-                    <input type="text" class="text" name="mobile" value="<?= $data['mobile'] ?>">
-                  </dd>
-                </dl>
 
                 <!--TODO 手机验证码-->
                 <!--<div class="code-div"></div>-->
@@ -38,24 +32,26 @@
                 <dl>
                   <dt>验证码:</dt>
                   <dd>
-                    <input type="text" class="text" name="yzm" placeholder="请输入验证码">
+                    <input type="text" class="text" name="validateCode" placeholder="请输入验证码">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>密码:</dt>
+                  <dd>
+                    <input type="password" class="text" name="pwd" placeholder="请输入新密码">
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>重复密码:</dt>
+                  <dd>
+                    <input type="password" class="text" name="repwd" placeholder="请重复输入新密码">
                   </dd>
                 </dl>
 
-                <dl>
-                  <dt>验证码:</dt>
-                  <dd>
-                    <img src="index.php?c=user&m=yzm" style="
-    top: 4px;
-    position: absolute;
-    height: 40px;
-">
-                  </dd>
-                </dl>
 
                 <div class="submit-div">
                   <div class="submit" style="text-align: center;line-height: 42px;">
-                    <input type="submit" value="获取短信验证码">
+                    <input type="submit" value="确认">
                   </div>
                   <a href="./index.php?c=user&m=forgetPwd" class="account-login-link">忘记密码</a>
                 </div>

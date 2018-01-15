@@ -28,7 +28,6 @@
       $limit = $page->cNum($count);
 
       $data = $this->goods->showAll($where, $limit);
-//				var_dump($data);
       include 'View/goods/index.html';
     }
 
@@ -76,7 +75,6 @@
 
       //如果不传图片,直接返回
       if (empty($_FILES['icon']['name'])) {
-//        var_dump($_FILES);die;
         myNotice('请上传图片', './index.php?c=goods&m=add');
       }
 
@@ -107,7 +105,6 @@
         $data2[$k]['nbsp'] = $nbsp;
       }
 
-//        var_dump($data);die;
 
       include 'View/goods/edit.html';
     }
@@ -116,7 +113,6 @@
     {
       // 根据id 查询商品
       $data = $this->goods->showOne();
-//      var_dump($data);die;
       include 'View/goods/details.html';
     }
 
@@ -126,7 +122,6 @@
       foreach ($_POST as $k => $v) {
         $_POST[$k] = strip_tags($_POST[$k]);
       }
-//		  var_dump($_POST);die;
       $data = $this->goods->doEdit();
 
       if ($data) {
@@ -155,15 +150,13 @@
     public function editImg()
     {
       $data = $this->goods->showImgs();
-//		  var_dump($data);
-//		  var_dump($data[0]['gid']);
+
       include_once 'View/goods/editImg.html';
     }
 
     public function doEditImg()
     {
-//      var_dump($_GET);
-//		  var_dump($_POST);die;
+
       if (empty($_POST['gid'])) {
         $arr['gid'] = $_GET['gid'];
       } else {
@@ -173,7 +166,6 @@
         $arr['id'] = $_POST['id'];
       }
       $arr['face'] = 1;
-//      var_dump($arr);die;
 
       if (!empty($_FILES['icon']['name'])) {
         $data = $this->goods->uploadImg($arr);

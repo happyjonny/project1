@@ -11,12 +11,14 @@
     private $user;
     public $goodsInfos;
 
+
     public function __construct()
     {
       parent::__construct();
       User::sessionStart();
       $this->user = new userModel();
       $this->goods = new goodsModel();
+
     }
 
 
@@ -297,6 +299,8 @@
         $_SESSION['user']['name'] = $userInfo['name'];
         header('location: ./index.php');
         die;
+      }else{
+        myNotice('请检查用户名或已被注册','./index.php?c=user&m=register');
       }
 
     }
@@ -305,7 +309,6 @@
     public function validateMobile()
     {
       $data = $this->user->getUserInfo();
-      var_dump($data);
       include_once 'View/user/validateTel.html';
     }
 
@@ -343,14 +346,77 @@
       if ($_SESSION['user']['validateCode'] != $_POST['validateCode']) {
         myNotice('验证码错误,请重新验证', './index.php/c=user&m=validateMobile');
       }
-      $arr['mobile'] = $_SESSION['user']['tMobile'];
-      $arr['status'] = 1;
-      $res = $this->user->editProfile($arr);
-      $_SESSION['user']['mobile'] = $arr['mobile'];
-      $_SESSION['user']['status'] = 1;
-      unset($_SESSION['user']['tMobile']);
-      header('location: ./index.php?c=user&m=cart');
-      die;
+      if(!empty($_POST['do'])) {
+        $arr['mobile'] = $_SESSION['user']['tMobile'];
+        $arr['status'] = 1;
+        $res = $this->user->editProfile($arr);
+        $_SESSION['user']['mobile'] = $arr['mobile'];
+        $_SESSION['user']['status'] = 1;
+        unset($_SESSION['user']['tMobile']);
+        header('location: ./index.php?c=user&m=cart');
+        die;
+      }else{
+        if(empty($_POST['pwd'])){
+          myNotice('请输入密码');
+        }
+        else{
+          $preg = '/^[a-zA-Z0-9]{6,20}$/';
+          if (!preg_match($preg, $_POST['pwd'])) {
+            myNotice('密码格式不正确');
+          }
+          if ($_POST['pwd'] != $_POST['repwd']) {
+            myNotice('两次密码不一致');
+          }
+          if ($_POST['pwd'] == 'default') {
+            myNotice('密码格式不正确');
+          } else {
+            unset($_POST['repwd']);
+            $tmp['pwd'] = md5($_POST['pwd']);
+            $res = $this->user->editProfile($tmp);
+            if($res){
+              myNotice('修改失败','./index.php');
+            }
+            unset($_SESSION['user']['dovalidate']);
+            setcookie('mobile',$_SESSION['user']['tMobile'],time()+3600*24*7);
+            setcookie('pwd', $tmp['pwd'], time()+3600*24*7);
+            myNotice('修改成功','./index.php?c=user');
+
+          }
+        }
+
+      }
+
+    }
+
+    public function forgetPwd(){
+      if(!empty($_SESSION['user']['uid'])){
+      $data = $this->user->getUserInfo();
+      }
+      include_once 'View/user/forgetPwd.html';
+    }
+
+    public function dovalidateMobilePwd(){
+      if (strtolower($_POST['yzm']) != strtolower($_SESSION['user']['code'])) {
+        unset($_SESSION['user']['code']);
+        myNotice('验证码错误','./index.php');
+      }
+      unset($_SESSION['user']['code']);
+      //标签: 重设密码
+
+      $mobile = $this->user->getUserInfoByMobile($_POST['mobile']);
+      if(empty($mobile)){
+        myNotice('你输入的手机号码没有注册或错误','./index.php');
+      }
+      $_SESSION['user']['tMobile'] = $mobile['mobile'];
+
+      $random = $_SESSION['user']['validateCode'] = rand(100000, 999999);
+
+
+      $sms = new sendSMS();
+      $sms->sendsms($_POST['mobile'], array($random, 1), "1");
+
+      include_once 'View/user/doValidatePwd.html';
+
     }
 
 
@@ -411,7 +477,6 @@
 
       //密码验证
       //2次密码不一致
-//      var_dump($_POST);
       if (empty($_POST['pwd'])) {
         unset($_POST['pwd']);
         unset($_POST['repwd']);
@@ -476,7 +541,6 @@
         myNotice('请先验证手机号');
       }
 
-//      var_dump($_POST);die;
       //验证数量: 必须大于0
       $preg = '/^[1-9]\d*$/';
 
@@ -538,7 +602,6 @@
       //param  status  ordernum
       // 实例化 page.php
 
-//      var_dump($_GET);
       $page = new Page;
       // 统计
 
@@ -581,7 +644,6 @@
         $data = $this->user->getAllOrdersLists($where, $limit);
       }
 
-//      var_dump($data);
 
       //全部通过, 分页  分页也要带参数和不带参数
 
@@ -599,11 +661,7 @@
       return $data;
     }
 
-//    public function doOrderList()
-//    {
-//      var_dump($_GET);
-//      die;
-//    }
+
 
     public function orderDetail()
     {
@@ -614,7 +672,6 @@
       if (empty($data)) {
         myNotice('非法访问', './index.php?c=user&m=orderList');
       }
-//      var_dump($data);
 
       include_once 'View/user/orderdetail.html';
     }
@@ -658,7 +715,6 @@
     public function doOrder()
     {
       //验证
-//      var_dump($_GET);die;
       if (empty($_GET['ordernum'])) {
         myNotice('非法访问');
       }
@@ -681,16 +737,29 @@
       die;
     }
 
-    //评论
-    public function doComment()
-    {
-      var_dump($_POST);
-    }
+
 
     static public function isLogin()
     {
       if (empty($_SESSION['user']['mobile'])) {
         myNotice('请先登录', './index.php?c=user&m=login');
+      }else{
+        $res = new userModel();
+        $check = $res->getUserInfo();
+        if(empty($check)){
+          setcookie('mobile', '', time() - 1);
+          setcookie('pwd', '', time() - 1);
+          setcookie('uid', '', time() - 1);
+          setcookie('name', '', time() - 1);
+          unset($_SESSION['user']['uid']);
+          unset($_SESSION['user']['mobile']);
+          unset($_SESSION['user']['status']);
+          unset($_SESSION['user']['icon']);
+          unset($_SESSION['user']['name']);
+          unset($_SESSION['user']);
+          myNotice('非法用户','./index.php');
+
+        }
       }
     }
 

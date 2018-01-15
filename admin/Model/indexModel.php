@@ -26,15 +26,12 @@
           ->field(' VERSION() as version')
           ->table('admin')
           ->select();
-//        var_dump($this->pdo->sql);
-//        var_dump($tmp1);
-//        die;
+
         $res[0]['mysqlv'] = $tmp1[0]['version'];
         unset($tmp);
         return $res;
       } catch (Exception $e) {
-//        var_dump($this->pdo->sql);
-//        myNotice('请联系管理员');
+        myNotice('请联系管理员','./index.php');
       }
     }
 

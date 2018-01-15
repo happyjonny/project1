@@ -96,7 +96,6 @@
           ->table('goods')
           ->where($where)
           ->select();
-//      var_dump($this->pdo->sql);die;
         return $res[0]['count'];
       } catch (Exception $e) {
         myNotice('非法访问', './index.php');
@@ -392,7 +391,6 @@
               ->table('goodsimg')
               ->where(' id = ' . $arr['id'])
               ->find();
-//            var_dump($img);die;
             if ($img['face'] == 1) {
               return false;
             }

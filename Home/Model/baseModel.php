@@ -113,7 +113,6 @@
 
       try {
         $result = $this->pdo->field($field)->table('category')->where($condition)->order('pid asc,id asc')->select();
-//     var_dump($result);die;
         return $result;
       } catch (Exception $e) {
         myNotice('非法访问', './index.php');
