@@ -2,8 +2,16 @@
 
   class Controller
   {
+
+    public function __call($k, $v)
+    {
+      myNotice('您访问的页面不存在', 'index.php');
+    }
+
     public function __construct()
     {
+
+
       $this->base = new baseModel();
       //免登陆
       if (!empty($_COOKIE['mobile'])) {
@@ -19,11 +27,6 @@
         }
       }
 
-    }
-
-    public function __call($k, $v)
-    {
-      myNotice('您访问的页面不存在', 'index.php');
     }
 
     public function header()

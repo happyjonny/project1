@@ -268,6 +268,9 @@
       }
       if ($_POST['pwd'] != $_POST['repwd']) {
         myNotice('两次密码不一致');
+      }
+      if ($_POST['pwd'] == 'default') {
+        myNotice('密码格式不正确');
       } else {
         unset($_POST['repwd']);
         $_POST['pwd'] = md5($_POST['pwd']);
@@ -686,7 +689,7 @@
 
     static public function isLogin()
     {
-      if (empty($_SESSION['user'])) {
+      if (empty($_SESSION['user']['mobile'])) {
         myNotice('请先登录', './index.php?c=user&m=login');
       }
     }

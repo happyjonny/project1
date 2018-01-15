@@ -34,7 +34,7 @@
       $search = $_GET['search'];
       $where = null;
       if (!empty($search)) {
-        $where = ' ordernum = ' . $search;
+        $where = ' ordernum like \'%' . $search . '%\'';
       }
 
       // 实例化 page.php
