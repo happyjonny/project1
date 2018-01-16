@@ -12,7 +12,9 @@
 		public function index()
 		{
 
-			$search = $_GET['search'];
+      if (!empty($_GET['search'])) {
+        $search = $_GET['search'];
+      }
 			$where = null;
 			if( !empty($search) ){
 				$where = 'mobile like "%'.$search.'%"';

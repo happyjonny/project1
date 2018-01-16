@@ -4,6 +4,7 @@
 	// 1. 加载 公共配置, 函数 ...
 		include '../public/function.php';
 		include '../public/config.php';
+  error_reporting(0);
 
 	// 2. 自动加载类
 		function __autoload($k)
