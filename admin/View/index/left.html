@@ -22,18 +22,18 @@ body{overflow-x:hidden; background:url(<?= AI ?>main/leftbg.jpg) left top repeat
 <body onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;">
 <div id="left-top">
 	<div><img src="<?= AI ?>main/member.gif" width="44" height="44" /></div>
-    <span>用户：admin<br>角色：超级管理员</span>
+  <span>用户：<?= $data[0]['name'] ?> <br>角色：超级管理员</span>
 </div>
     <div style="float: left" id="my_menu" class="sdmenu">
 
-      <div class="collapsed">
-        <span>系统设置</span>
-        <a href="main.html" target="mainFrame" onFocus="this.blur()">后台首页</a>
-        <a href="main_list.html" target="mainFrame" onFocus="this.blur()">列表页</a>
-        <a href="main_info.html" target="mainFrame" onFocus="this.blur()">列表详细页</a>
-        <a href="main_message.html" target="mainFrame" onFocus="this.blur()">留言页</a>
-        <a href="main_menu.html" target="mainFrame" onFocus="this.blur()">栏目管理</a>
-      </div>
+      <!--<div class="collapsed">-->
+      <!--<span>系统设置</span>-->
+      <!--<a href="main.html" target="mainFrame" onFocus="this.blur()">后台首页</a>-->
+      <!--<a href="main_list.html" target="mainFrame" onFocus="this.blur()">列表页</a>-->
+      <!--<a href="main_info.html" target="mainFrame" onFocus="this.blur()">列表详细页</a>-->
+      <!--<a href="main_message.html" target="mainFrame" onFocus="this.blur()">留言页</a>-->
+      <!--<a href="main_menu.html" target="mainFrame" onFocus="this.blur()">栏目管理</a>-->
+      <!--</div>-->
 
       <div>
         <span>用户设置</span>

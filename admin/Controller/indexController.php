@@ -7,8 +7,9 @@
 		public function __construct()
 		{
       parent::__construct();
-			$this->index = new indexModel;	
-		}
+      $this->index = new indexModel;
+
+    }
 
 		public function index()
 
@@ -24,6 +25,7 @@
 
 		public function left()
 		{
+      $data = $this->index->getAdminInfo();
 			include 'View/index/left.html';
 		}
 
@@ -36,7 +38,7 @@
 		{
       $data = $this->index->getAdminInfo();
 
-
+//      var_dump($data);
 			include 'View/index/main.html';
 		}
 

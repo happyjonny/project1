@@ -278,17 +278,19 @@
         $_POST['pwd'] = md5($_POST['pwd']);
       }
 
+      var_dump($_POST);
+
       //验证通过
       $_POST['regtime'] = time();
       //默认状态为2, 手机号码为验证
       $_POST['status'] = 2;
+      unset($_POST['yzm']);
 
       // $uid 为用户id  类型:string
       $uid = $this->user->doRegister();
 
       if ($uid) {
-//        setcookie('uid', $uid, time() + 3600 * 2);
-//        setcookie('mobile', $_POST['mobile'], time() + 3600 * 2);
+
 
         $_SESSION['user']['uid'] = $uid;
         $_SESSION['user']['mobile'] = $_POST['mobile'];
