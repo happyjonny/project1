@@ -2,149 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d5a2f94-4c79-463a-8b2f-427be94ca20a" name="默认的" comment="订单状态显示修复">
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/css/select.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/css/style1.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/001.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/404.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/add.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/btnbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/btnbg1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/btnbg2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/buttonbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/c01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/c02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/c03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/cbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/clist.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/close1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/cloud.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/d07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/diskbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/dp.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/f06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/help.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/i09.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/iadd.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ibtnbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ico06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/icon06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img09.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img14.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/img15.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/inputbg.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/itabbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/itabbg1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftico.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftico01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftico02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftico03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftico04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftline.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/leftmenubg.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/lefttop.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/libg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/light.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/line.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/line1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/list.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/list1.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/list2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginbg1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginbg2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginbg3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/logininfo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginlogo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginpassword.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginsj.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/loginuser.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/msg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/navbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/next.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/pre.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/px.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/righttop.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/rlist.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/search.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/sj.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/sun.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/t01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/t02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/t03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/t04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/t05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/tbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/tcbg.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/th.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ticon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/time.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/toolbg.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/topbg.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/topleft.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/topright.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ub1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/uew_icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/uew_icon_hover.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/ulist.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/user.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/images/userbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/PIE.htc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/cloud.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/format+zh_CN,default,corechart.I.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/jquery.ba-resize.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/jquery.gvChart-1.0.1.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/jquery.idTabs.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/jsapi.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/js/select-ui.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/Resource/src/jquery.gvChart-1.0.1.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/View/index12/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/View/index12/left.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/View/index12/main.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/View/index12/right.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/admin/View/index12/top.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/admin/View/category/add.html" afterPath="$PROJECT_DIR$/admin/View/category/add.html" />
       <change beforePath="$PROJECT_DIR$/admin/View/category/edit.html" afterPath="$PROJECT_DIR$/admin/View/category/edit.html" />
@@ -478,7 +335,7 @@
       <workItem from="1516070944306" duration="78000" />
       <workItem from="1516077343929" duration="509000" />
       <workItem from="1516084138684" duration="2342000" />
-      <workItem from="1517554473225" duration="2603000" />
+      <workItem from="1517554473225" duration="2656000" />
     </task>
     <task id="LOCAL-00001" summary="商品分类done&#10;商品搜索done&#10;商品详情done">
       <created>1515496354463</created>
@@ -669,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516087525626</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="订单状态显示修复">
+      <created>1517823734807</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1517823734807</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -681,15 +545,15 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158242000" />
+    <option name="totallyTimeSpent" value="158295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1140" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39981008" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39981008" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953465" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1014,7 +878,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1501037522000" expanded="true" signature="437:461" ph="{...}" />
+            <marker date="1517823734287" expanded="true" signature="550:574" ph="{...}" />
           </folding>
         </state>
       </provider>
