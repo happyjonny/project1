@@ -533,13 +533,10 @@
     {
       self::isLogin();
 
-//      if ($_SESSION['user']['status'] == 2) {
-//        myNotice('账号','./index.php?c=user&m=validateMobile');
-//      }
+
 
       //验证数量: 必须大于0
       $preg = '/^[1-9]\d*$/';
-//      var_dump($_POST);die;
 
       foreach ($_POST as $k => $v) {
         if (!preg_match($preg, $_POST[$k])) {
@@ -738,8 +735,9 @@
     {
       if (empty($_SESSION['user']['mobile'])) {
         myNotice('请先登录', './index.php?c=user&m=login');
-      } elseif ($_SESSION['user']['status'] == 2) {
-        myNotice('该账号已被禁用');
+//      }
+// elseif ($_SESSION['user']['status'] == 2) {
+//        myNotice('该账号已被禁用','./index.php');
       } else {
         $res = new userModel();
         $check = $res->getUserInfo();
@@ -755,7 +753,8 @@
           unset($_SESSION['user']['name']);
           unset($_SESSION['user']);
           myNotice('非法用户', './index.php');
-
+        } elseif ($check['status'] == 2) {
+          myNotice('你的账号已被禁用,请联系管理员', './index.php');
         }
       }
     }

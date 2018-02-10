@@ -77,7 +77,7 @@
         $_POST[$k] = strip_tags($_POST[$k]);
       }
 
-      $preg = '/^[1-9]\d*$/';
+      $preg = '/^[0-9]\d*$/';
       if (!preg_match($preg, $_POST['credit'])) {
         myNotice('积分填写不正确');
       }
