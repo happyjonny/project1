@@ -56,14 +56,14 @@
 
 
       //折扣商品
-      $saleGoods = $this->index->getGoodsInfo(' c.id = cid and g.up = 1 and g.sale = 1 ', ' addtime desc', '5');
+      $saleGoods = $this->index->getGoodsInfo(' c.id = cid and g.up = 1 and g.sale = 1 ', ' addtime desc', '6');
       //加载商品图片
       foreach ($saleGoods as $k => $v) {
         $saleGoods[$k]['icon'] = $this->index->getSingleIcon(' gid = ' . $saleGoods[$k]['id']);
       }
 
       //热销标签
-      $hotGoods = $this->index->getGoodsInfo(' c.id = cid and g.up = 1 and  g.hot = 1 ', ' addtime desc', '5');
+      $hotGoods = $this->index->getGoodsInfo(' c.id = cid and g.up = 1 and  g.hot = 1 ', ' addtime desc', '6');
       foreach ($saleGoods as $k => $v) {
         $hotGoods[$k]['icon'] = $this->index->getSingleIcon(' gid = ' . $hotGoods[$k]['id']);
       }

@@ -593,8 +593,8 @@ body {
 
 .limit-time-img a img{
   display: block;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
 
 }
 
@@ -615,8 +615,8 @@ body {
 
 .limit-time-nav ul li{
   display: inline-block;
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   float: left;
   margin-right: 10px;
   margin-left: 10px;
@@ -732,16 +732,18 @@ body {
   width: 160px;
   height: 160px;
   top:-5px;
-  background-color: burlywood;
+  /*background-color: burlywood;*/
   left: 5px;
   /*margin-bottom: 2px;*/
 }
 
 .forsale-item ul li dl .goods-thumb a img{
+  /*text-align: center;*/
   transition: all 0.4s ease-in-out;
   display: block;
-  width: 160px;
-  height: 160px;
+  margin: 20px 25px 25px 25px;
+  width: 130px;
+  height: 130px;
 }
 /*          TODO */
 .forsale-item ul li dl .goods-thumb a img:hover {
@@ -829,7 +831,7 @@ body {
   width: 200px;
   height: 94px;
   padding: 22px 0 8px 22px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .left-content .left-category ul li{
@@ -842,6 +844,7 @@ body {
   margin-bottom: 15px;
   min-width: 62px;
   padding: 2px 8px;
+  color: #555;
 }
 
 .left-content .left-advs {
