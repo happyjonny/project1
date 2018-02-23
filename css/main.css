@@ -831,7 +831,7 @@ body {
   width: 200px;
   height: 94px;
   padding: 22px 0 8px 22px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .left-content .left-category ul li{
@@ -1277,4 +1277,15 @@ body {
   width: 160px;
   height: 160px;
 
+}
+
+.categoryhot a img{
+  display: inline;
+  width: 358px;
+  height: 358px;
+  transition: all 0.4s ease-in-out ;
+}
+
+.categoryhot a  img:hover{
+  transform: scale(1.1);
 }

@@ -75,9 +75,8 @@
           ->where($where)
           ->find();
         return $res['icon'];
-
       } catch (Exception $e) {
-        myNotice('非法访问', './index.php');
+//        myNotice('非法访问', './index.php');
       }
     }
 

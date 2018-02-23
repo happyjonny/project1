@@ -143,6 +143,8 @@
         <?php if(is_array($value1)): ?>
         <li><a href="./index.php?c=goods&m=detail&id=<?= $value1['id']?>"><?= strip_tags($value1['goodsName']) ?></a>
         </li>
+        <?php $img['id'] = $value1['id'] ?>
+        <?php $img['icon'] = $value1['icon'] ?>
         <?php endif ?>
 
         <?php endforeach ?>
@@ -161,7 +163,12 @@
     </div>
     <div class="right-slide-layout">
       <div class="right-slide-content">
-
+        <div class="categoryhot">
+          <a href="<?= !empty($img['id'])?'./index.php?c=goods&m=detail&id='.$img['id']:'./index.php'?>">
+           <img src="<?= !empty($img['icon'])?imgUrl($img['icon']):'' ?>" alt="">
+            <?php unset($img); ?>
+          </a>
+        </div>
       </div>
     </div>
     <div class="right-goods-lists-layout ">

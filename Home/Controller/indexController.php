@@ -49,10 +49,21 @@
           $data2[$v['id']] = $this->index->getGoodsInfo(' c.id = cid and (g.recommend = 1 or g.hot = 1) and g.up = 1 and g.cid in (' . $data2[$v['id']] . ')',
             'addtime desc',
             '3');
+
+          //获取商品图片
+          if(!empty($data2[$v['id']])){
+           foreach ($data2[$v['id']] as $key => $value){
+             $data2[$v['id']][$key]['icon'] = $this->index->getSingleIcon(' gid = ' . $value['id'] );
+
+            }
+          }
         } else {
           continue;
         }
+
       }
+
+
 
 
       //折扣商品
