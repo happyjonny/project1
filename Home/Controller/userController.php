@@ -94,24 +94,24 @@
       self::isLogin();
 
       if (empty($_POST['address']) || empty($_POST['realname']) || empty($_POST['tel'])) {
-        myNotice('输入有误', './index.php');
+        myNotice('输入有误', './index.php?c=user&m=addressadd');
       }
 
       //验证信息
       //验证地址
       $preg = "/\W+/u";
       if (preg_match($preg, $_POST['address'])) {
-        myNotice('地址格式不正确');
+        myNotice('地址格式不正确','./index.php?c=user&m=addressadd');
       }
 
       $preg = '/^[\x{4e00}-\x{9fa5}]{2,10}$|^[a-zA-Z\s]*[a-zA-Z\s]{2,20}$/isu';
       if (!preg_match($preg, $_POST['realname'])) {
-        myNotice('姓名格式不正确');
+        myNotice('姓名格式不正确','./index.php?c=user&m=addressadd');
       }
 
       $preg = '/^1[34578]\d{9}$/';
       if (!preg_match($preg, $_POST['tel'])) {
-        myNotice('手机号码格式不正确');
+        myNotice('手机号码格式不正确','./index.php?c=user&m=addressadd');
       }
 
       //TODO
@@ -194,7 +194,7 @@
       //验证 验证码输入是否正确
       if (strtolower($_POST['yzm']) != strtolower($_SESSION['user']['code'])) {
         unset($_SESSION['user']['code']);
-        myNotice('验证码错误');
+        myNotice('验证码错误','./index.php?c=user&m=login');
       }
       unset($_SESSION['user']['code']);
       $data = $this->user->doLogin();
@@ -213,7 +213,7 @@
         $_SESSION['user']['icon'] = $data['icon'];
         $_SESSION['user']['name'] = $data['name'];
       } else {
-        myNotice('请检查用户名密码');
+        myNotice('请检查用户名密码','./index.php?c=user&m=login');
       }
 
       header('location: ./index.php');
@@ -478,11 +478,11 @@
         unset($_POST['repwd']);
       } else {
         if ($_POST['pwd'] != $_POST['repwd']) {
-          myNotice('两次密码不一致,请重新输入', './index.php');
+          myNotice('两次密码不一致,请重新输入', './index.php?c=user&m=profile');
         }
         $preg = '/^[a-zA-Z0-9]{6,20}$/';
         if (!preg_match($preg, $_POST['pwd'])) {
-          myNotice('密码格式不正确', './index.php');
+          myNotice('密码格式不正确', './index.php?c=user&m=profile');
         }
 
         $_POST['pwd'] = md5($_POST['pwd']);
@@ -494,7 +494,7 @@
       } else {
         $preg = "/\W+/u";
         if (preg_match($preg, $_POST['name'])) {
-          myNotice('昵称格式不正确', './index.php');
+          myNotice('昵称格式不正确', './index.php?c=user&m=profile');
         }
       }
       //地址
@@ -504,7 +504,7 @@
         $preg = "/\W+/u";
         if (preg_match($preg, $_POST['address'])) {
 
-          myNotice('地址格式不正确', './index.php');
+          myNotice('地址格式不正确', './index.php?c=user&m=profile');
         }
       }
 
@@ -521,9 +521,12 @@
       $res = $this->user->editProfile($_POST);
 
       if ($res !== false) {
+        if(!empty($_POST['name'])){
+          $_SESSION['user']['name'] = $_POST['name'];
+        }
         myNotice('更新成功', './index.php?c=user&m=profile');
       } else {
-        myNotice('更新失败', './index.php');
+        myNotice('更新失败', './index.php?c=user&m=profile');
       }
 
     }
@@ -696,11 +699,11 @@
       self::isLogin();
 
       $where = ' (status = 5 OR status = 6) and ordernum = ' . $_GET['ordernum'];
-      $res = $this->user->getOrderStatus($where);
-      if ($res == 1) {
-        myNotice('删除成功', './index.php');
+      $res = $this->user->delOrderList($where);
+      if (!empty($res)) {
+        myNotice('删除成功', './index.php?c=user&m=orderList');
       } else {
-        myNotice('删除失败', './index.php');
+        myNotice('删除失败', './index.php?c=user&m=orderList');
       }
     }
 
@@ -726,7 +729,7 @@
       $res = $this->user->editProfile($tmp);
       unset($arr);
       unset($tmp);
-      header('location: ./index.php?c=user&m=orderList&status=6');
+      header('location: ./index.php?c=user&m=orderList');
       die;
     }
 

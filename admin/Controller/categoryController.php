@@ -52,7 +52,7 @@
 			$data = $this->category->doAdd();
 
 			if($data){
-				myNotice('新增成功', 'index.php?c=category');
+				myNotice('新增成功', './index.php?c=category');
 			}
 			myNotice('新增失败');
 		}
@@ -89,7 +89,7 @@
 			$data = $this->category->doEdit();
 
 			if($data){
-				myNotice('编辑成功', 'index.php?c=category');
+				myNotice('编辑成功', './index.php?c=category');
 			}
 			myNotice('编辑失败');
 		}

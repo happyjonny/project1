@@ -26,9 +26,10 @@
           ->field('o.id, o.ordernum, o.aid, o.addtime, o.total, o.status, a.realname, a.address, a.tel')
           ->table('`order` as o, address as a')
           ->where(' o.aid = a.id ' . $where)
+          ->order(' addtime desc ')
           ->limit($limit)
           ->select();
-//        echo $this->pdo->sql;
+//        echo $this->pdo->sql;die;
         return $res;
       } catch (Exception $e) {
         myNotice('非法访问', './index.php');

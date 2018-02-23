@@ -47,7 +47,6 @@
       $this->initialization();
 
 			$res = $this->db->query($sql);
-
       if (!$res) {
         throw new Exception('数据库查询语句出错:' . $this->sql, 10001);
       }

@@ -463,7 +463,7 @@
         ->table('`order`')
         ->where($where)
         ->delete();
-
+      return $res;
     }
 
 
