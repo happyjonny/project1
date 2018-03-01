@@ -62,7 +62,7 @@ td.fenye{ padding:10px 0 0 0; text-align:right;}
         <td align="left" valign="middle" class="borderright borderbottom main-for">
           <select name="cid" id="level">
             <?php foreach ($data2 as $k => $v): ?>
-            <option value="<?= $v['id']?>"> <?= $v['nbsp'].$v['name']?> </option>
+            <option value="<?= $v['id']?>" <?= $data['cid']==$v['id']?'selected':'' ?> > <?= $v['nbsp'].$v['name']?> </option>
             <?php endforeach ?>
           </select>
         </td>
